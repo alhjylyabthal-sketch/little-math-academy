@@ -1,0 +1,38 @@
+
+/* أقسام مدارك المتخصصة — هوية موحدة بلا صور بطاقات ملصقة */
+.mdp-home{max-width:1120px;margin:0 auto;background:linear-gradient(155deg,#e8f6fb,#f9fcff 52%,#fff9e9);border:1px solid #d5e6ec;border-radius:27px;overflow:hidden;box-shadow:0 10px 35px #123c5712}
+.mdp-mast{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.05fr) minmax(0,1fr);align-items:end;min-height:220px;padding:18px 14px 0;background:radial-gradient(ellipse at center 40%,#fff9e9 0,#edf9fb 60%,#dbedf7 100%);isolation:isolate}
+.mdp-mast img{width:100%;height:auto;max-height:270px;object-fit:contain;display:block;image-rendering:auto}
+.mdp-mast .mdp-person{-webkit-mask-image:radial-gradient(ellipse 92% 93% at 50% 55%,#000 54%,transparent 100%);mask-image:radial-gradient(ellipse 92% 93% at 50% 55%,#000 54%,transparent 100%)}
+.mdp-mast .mdp-brand{max-height:285px;align-self:center;-webkit-mask-image:radial-gradient(ellipse 97% 98% at 50% 50%,#000 67%,transparent 100%);mask-image:radial-gradient(ellipse 97% 98% at 50% 50%,#000 67%,transparent 100%)}
+.mdp-hub{padding:12px clamp(14px,3vw,38px) 30px;background:linear-gradient(180deg,#ffffff00,#fff9)}
+.mdp-hub h1{font-size:clamp(21px,3vw,28px);margin:2px 0 0;text-align:center;color:#113950}
+.mdp-hub>p{font-size:13px;color:#6c8291;text-align:center;margin:0 0 20px}
+.mdp-doorgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.mdp-door{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-height:195px;text-align:center;border-radius:23px;border:1px solid #d8e7e9;border-bottom:3px solid #d7b46f;padding:17px 11px;background:linear-gradient(155deg,#fff,#f7fbff);color:#123b56;box-shadow:0 4px 14px #163f5810;transition:transform .16s,box-shadow .16s}
+.mdp-door:focus-visible{outline:3px solid #0b919b;outline-offset:3px}
+.mdp-door:hover{transform:translateY(-3px);box-shadow:0 10px 25px #123c571b}
+.mdp-door:active{transform:translateY(0)}
+.mdp-door-symbol{display:grid;place-items:center;width:66px;height:66px;border-radius:22px;background:#e7f7f8;color:#087f87;border:1px solid #c9e9e9}
+.mdp-door-symbol svg{width:39px;height:39px}
+.mdp-door--tests .mdp-door-symbol{background:#fff3d6;color:#af7a17;border-color:#f3dfb7}
+.mdp-door--words .mdp-door-symbol{background:#ebefff;color:#4b639f;border-color:#d6dffc}
+.mdp-door--teacher .mdp-door-symbol{background:#eaf1f6;color:#174565;border-color:#cadde7}
+.mdp-door strong{font-size:18px;font-weight:900}
+.mdp-door-desc{color:#647c88;font-size:12px;line-height:1.8}
+.mdp-section .mdp-gradebar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.mdp-gradebar button{min-height:52px;background:#f8fcff;border:1px solid #d6e5ea;border-radius:13px;color:#173e59;font-weight:900;padding:8px 5px}
+.mdp-gradebar button.chosen{background:#0f4564;color:#fff;border-color:#0f4564}
+.mdp-skilllist{display:grid;gap:11px}
+.mdp-skill{display:flex;align-items:center;gap:13px;border:1px solid #e0e8ee;padding:14px;border-radius:17px;background:linear-gradient(100deg,#fff,#f8fbfd)}
+.mdp-step,.mdp-toolmark{width:39px;height:39px;flex:none;border-radius:14px;background:#e6f7f6;color:#0a838a;display:grid;place-items:center;font-weight:900}
+.mdp-skill-body{flex:1;min-width:0}.mdp-skill h3{font-size:15px;margin:0 0 3px}.mdp-skill p{font-size:12px;color:#687f8e;margin:0}
+.mdp-skill .btn{box-shadow:none;min-width:125px}
+.mdp-toolgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.mdp-tool{border:1px solid #d8e6eb;border-radius:20px;background:#fff;padding:26px;box-shadow:0 6px 20px #173c5210}
+.mdp-tool h2{font-size:20px;margin:12px 0 7px}.mdp-tool p{color:#617c8a;line-height:1.9;min-height:105px}
+.mdp-recordlink{margin:22px 0;text-align:center}
+@media(max-width:800px){.mdp-doorgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.mdp-section .mdp-gradebar{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:575px){.mdp-home{border-radius:20px}.mdp-mast{padding:10px 3px 0;grid-template-columns:23% 54% 23%;min-height:170px}.mdp-mast img{max-height:190px}.mdp-mast .mdp-brand{max-height:195px}.mdp-hub{padding:12px 12px 20px}.mdp-hub h1{font-size:21px}.mdp-doorgrid{gap:9px}.mdp-door{padding:12px 7px;min-height:172px;border-radius:18px}.mdp-door-symbol{height:54px;width:54px;border-radius:17px}.mdp-door-symbol svg{height:33px;width:33px}.mdp-door strong{font-size:16px}.mdp-door-desc{font-size:11px}.mdp-skill{display:grid;grid-template-columns:auto 1fr;gap:8px}.mdp-skill .btn{grid-column:1/-1}.mdp-toolgrid{grid-template-columns:1fr}.mdp-tool p{min-height:auto}}
+@media print{.mdp-home{display:none!important}}
+@media(prefers-reduced-motion:reduce){.mdp-door{transition:none}}
