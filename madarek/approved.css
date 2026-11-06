@@ -1,0 +1,52 @@
+/* Madarek — exact approved artwork, high-resolution responsive presentation.
+   This layer changes the landing page only; lessons, questions, guide and results remain untouched. */
+.approved-home{max-width:1200px;margin:0 auto;direction:rtl}
+.approved-desktop{position:relative;border-radius:24px;overflow:hidden;isolation:isolate;background:#f9fcff;box-shadow:0 8px 32px #0b34541c;border:1px solid #d8e9ec;line-height:0}
+.approved-desktop>img{width:100%;height:auto;display:block;image-rendering:auto}
+.approved-hot{position:absolute;display:block;border:2px solid transparent;border-radius:24px;background:transparent;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s;box-shadow:none}
+.approved-hot:hover,.approved-hot:focus-visible{border-color:#d6a650;background:#fff3c219;box-shadow:inset 0 0 0 2px #fffdf8;outline-offset:-2px}
+.approved-hot:active{background:#e7c57f32}
+.approved-hot--tools{left:7.2%;top:50.1%;width:17.4%;height:22.5%}
+.approved-hot--tests{left:25.2%;top:50.1%;width:16.6%;height:22.5%}
+.approved-hot--games{left:42.1%;top:50.1%;width:16.8%;height:22.5%}
+.approved-hot--activities{left:58.8%;top:50.1%;width:16.6%;height:22.5%}
+.approved-hot--lessons{left:75.8%;top:50.1%;width:17.4%;height:22.5%}
+.approved-hot--g6{left:7.7%;top:77%;width:12.4%;height:12.8%}
+.approved-hot--g5{left:20.9%;top:77%;width:10.6%;height:12.8%}
+.approved-hot--g4{left:31.7%;top:77%;width:10.7%;height:12.8%}
+.approved-hot--g3{left:42.7%;top:77%;width:11.3%;height:12.8%}
+.approved-hot--g2{left:54.8%;top:77%;width:11.2%;height:12.8%}
+.approved-hot--g1{left:66.4%;top:77%;width:10.8%;height:12.8%}
+.approved-mobile{display:none}
+.approved-quicknav{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:20px auto 18px}
+.approved-quicknav button{color:#0d4662;background:#fff;border:1px solid #c8dfe0;border-bottom:3px solid #c3a264;border-radius:14px;min-height:47px;padding:8px 19px;font-size:14px;font-weight:800;box-shadow:0 4px 13px #103f5210}
+.approved-quicknav button:hover,.approved-quicknav button:focus-visible{background:#e9f9f9;border-color:#2e999e}
+.approved-mobile button{cursor:pointer;touch-action:manipulation}
+@media(max-width:700px){
+ .approved-desktop{display:none}
+ .approved-mobile{display:block;overflow:hidden;border:1px solid #d6e3e6;border-radius:20px;background:linear-gradient(145deg,#dff2f9 0%,#fff 43%,#f0faf9 100%);box-shadow:0 8px 25px #1e516516}
+ .approved-mast{display:grid;grid-template-columns:23% 54% 23%;align-items:end;gap:0;position:relative;min-height:210px;background:linear-gradient(125deg,#c8e6f4,#f3fbff 43%,#d0eff7);padding:15px 1px 0}
+ .approved-mast img{width:100%;height:auto;display:block;object-fit:contain;max-height:240px;image-rendering:auto;align-self:end}
+ .approved-mast img.approved-center{align-self:center;max-height:220px}
+ .approved-mast img.approved-child{max-height:215px}
+ .approved-motto{text-align:center;font-size:12px;font-weight:900;color:#10374f;margin:-3px 14px 13px;background:#fff8e8e8;border:1px solid #dbb872;padding:6px 9px;border-radius:999px}
+ .approved-mobile-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:10px}
+ .approved-mobile-features button{border:1px solid #e7c17e;background:#fff;border-radius:17px;overflow:hidden;padding:0;box-shadow:0 4px 14px #0838501c;line-height:0;min-height:117px}
+ .approved-mobile-features button:focus-visible{outline:3px solid #b99654}
+ .approved-mobile-features button:hover{border-color:#228e92}
+ .approved-mobile-features button:last-child{grid-column:1/-1;max-width:49%;justify-self:center;width:100%}
+ .approved-mobile-features img{display:block;width:100%;height:auto;image-rendering:auto}
+ .approved-grades-wrap{margin:7px 9px 16px;border-radius:19px;border:1px solid #cde4e3;padding:12px 9px;background:#fffd}
+ .approved-grades-wrap h2{font-size:16px;margin:0 0 10px;text-align:center;color:#113c55}
+ .approved-mobile-grades{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .approved-mobile-grade{background:#fff;border:1px solid #ead9b7;box-shadow:0 2px 0 #dcdedc;border-radius:13px;color:#143b58;padding:7px 3px;font-size:12px;font-weight:900;min-height:74px}
+ .approved-mobile-grade strong{display:block}
+ .approved-mobile-grade span{display:block;font-size:24px;line-height:1.2;color:#168e93}
+ .approved-mobile-grade.selected{background:#fff0cb;border:2px solid #c49c50}
+ .approved-mobile-grade.selected span{color:#8b661e}
+ .approved-mobile-wave{display:block;width:100%;height:auto}
+ .approved-quicknav{margin:14px 0 8px;gap:7px}
+ .approved-quicknav button{flex:1 1 44%;padding:8px 9px;min-height:46px;font-size:12px}
+}
+@media print{.approved-home{display:none!important}}
+@media(prefers-reduced-motion:reduce){.approved-hot{transition:none}}
