@@ -104,6 +104,7 @@
 .mdc-equals-heading bdi{unicode-bidi:isolate}
 .mdc-equals-heading span{color:#0a7d82}
 .mdc-math-terms{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:clamp(6px,1vw,14px);row-gap:5px;max-width:100%;font-size:clamp(20px,2.9vw,40px);font-weight:900;color:#123b56;direction:rtl;line-height:1.6}
+.mdc-math-group{display:inline-flex;flex-direction:row;direction:rtl;align-items:center;gap:clamp(5px,.7vw,11px);white-space:nowrap}
 .mdc-math-term{direction:ltr;unicode-bidi:isolate;display:inline-block;white-space:nowrap}
 .mdc-math-plus{font-weight:700;color:#087e84;white-space:nowrap;direction:ltr}
 @media(max-width:650px){
