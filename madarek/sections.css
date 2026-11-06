@@ -55,3 +55,25 @@
  .toplinks #bscreenfree{background:#163b57!important;color:#fff!important;box-shadow:none!important;border-color:#497f91!important}
  .toplinks #bscreenfree.active{background:#f4dca6!important;color:#123b55!important;border-color:#e2b75f!important}
 }
+
+/* واجهة رئيسية واحدة: صورة أصلية متصلة دون فواصل أو مربعات صور */
+.mdp-mast{display:block;position:relative;isolation:isolate;overflow:hidden;aspect-ratio:1672/424;min-height:0!important;padding:0!important;background:#eaf7fc}
+.mdp-mast .mdp-scene{display:block;position:absolute;top:0;right:0;width:100%;height:auto;max-height:none!important;max-width:none;object-fit:unset;image-rendering:auto}
+.mdp-hub{padding-top:24px}
+.mdp-door.is-current,.mdp-door:active{background:linear-gradient(140deg,#0e3c5b,#102a47);color:#fff;border-color:#bf9445;box-shadow:inset 0 0 0 1px #e8c577,0 6px 16px #133e5830}
+.mdp-door.is-current .mdp-door-desc,.mdp-door:active .mdp-door-desc{color:#e4f0f4}
+.mdp-door.is-current .mdp-door-symbol,.mdp-door:active .mdp-door-symbol{background:#193c57;color:#e4b95a;border-color:#cba359}
+.mdp-door.is-current strong,.mdp-door:active strong{color:#fff}
+/* شريط الأيقونات المكرر محذوف، وتبقى العودة الداخلية داخل صفحات المحتوى */
+.toplinks{display:none!important}
+.topbar{justify-content:center!important;min-height:58px;padding-top:7px;padding-bottom:7px}
+body:has(.mdp-home) .top{display:none!important}
+@media(max-width:740px){
+ .topbar{display:flex!important;flex-direction:row!important;justify-content:center!important;align-items:center!important;min-height:50px;padding:6px 12px!important}
+ .topbar .logo{width:auto!important}
+ .toplinks{display:none!important}
+ .mdp-mast{aspect-ratio:2.57;min-height:0!important}
+ .mdp-mast .mdp-scene{width:151%;right:-25.5%}
+ .mdp-hub{padding-top:14px!important}
+}
+@media(max-width:390px){.mdp-mast{aspect-ratio:2.4}.mdp-mast .mdp-scene{width:155%;right:-27.5%}}
