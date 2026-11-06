@@ -9,12 +9,20 @@ const icons={
  words:'<path d="M5 5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-7l-5 3v-3H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><path d="M8 9h8M8 13h6"/>',
  teacher:'<rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 12h16M10 12v2h4v-2"/>'
 };
+let selectedDoor='';
 const doors=[
  ['lessons','الدروس','أفهم الفكرة والأمثلة وخطوات الحل','goGradeSkills()'],
  ['tests','الاختبارات','أجيب عن أسئلة مستقلة وأرى نتيجتي','goTests()'],
  ['words','أفهم المسألة','أتعلم المفردات ومعانيها في سياقها','goWords()'],
  ['teacher','أدوات المعلمة','خطط التنفيذ والبطاقات القابلة للطباعة','goTeacherTools()']
 ];
+function mdpOpenDoor(id){
+ const routes={lessons:()=>goGradeSkills(),tests:()=>goTests(),words:()=>goWords(),teacher:()=>goTeacherTools()};
+ if(!Object.prototype.hasOwnProperty.call(routes,id))return;
+ selectedDoor=id;
+ routes[id]();
+}
+window.mdpOpenDoor=mdpOpenDoor;
 function pic(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+icons[k]+'</svg>';}
 function pageRows(forTests){
  const options=SKILLS.map((s,i)=>({s,i})).filter(x=>x.s.g===selectedGrade+1);
@@ -25,8 +33,8 @@ function gradeBar(callback){
 }
 goHome=function(){
  activeId=null;
- const tiles=doors.map(([id,title,description,action])=>'<button type="button" class="mdp-door mdp-door--'+id+'" onclick="'+action+'" aria-label="'+title+'"><span class="mdp-door-symbol">'+pic(id)+'</span><strong>'+title+'</strong><span class="mdp-door-desc">'+description+'</span></button>').join('');
- mount('<div class="mdp-home"><div class="mdp-mast"><img class="mdp-person" src="./approved-girl.webp" width="340" height="400" alt="شخصية الطالبة المعتمدة"><img class="mdp-brand" src="./approved-center.webp" width="550" height="410" alt="مدارك: بعقولنا نفكر وبفضولنا نكتشف"><img class="mdp-person" src="./approved-boy.webp" width="340" height="400" alt="شخصية الطالب المعتمدة"></div><section class="mdp-hub" aria-label="أقسام مدارك"><h1>اختاري وجهتك في مدارك</h1><p>أربعة أقسام، ولكل قسم محتواه الخاص</p><div class="mdp-doorgrid">'+tiles+'</div></section></div>','home','home');
+ const tiles=doors.map(([id,title,description])=>'<button type="button" class="mdp-door mdp-door--'+id+(id===selectedDoor?' is-current':'')+'" onclick="mdpOpenDoor(\''+id+'\')" aria-label="'+title+'" aria-pressed="'+(id===selectedDoor?'true':'false')+'"><span class="mdp-door-symbol">'+pic(id)+'</span><strong>'+title+'</strong><span class="mdp-door-desc">'+description+'</span></button>').join('');
+ mount('<div class="mdp-home"><div class="mdp-mast"><img class="mdp-scene" src="./approved-main.webp" width="1672" height="853" alt="شخصيتا الطالب والطالبة حول شعار مدارك في مشهد واحد"></div><section class="mdp-hub" aria-label="أقسام مدارك"><div class="mdp-doorgrid">'+tiles+'</div></section></div>','home','home');
 };
 goGradeSkills=function(){
  activeId=null;
