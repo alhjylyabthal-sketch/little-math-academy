@@ -53,7 +53,7 @@
 @media(max-width:1020px){.dash{grid-template-columns:1fr}.sidecol{order:-1}.gradeTiles{grid-template-columns:repeat(6,1fr)}.gradeTile{min-height:76px}.featureGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.topbar{padding:8px 12px}.toplinks button{padding:7px 9px;font-size:12px}}
 @media(max-width:700px){.container{padding:12px 11px 45px}.topbar{flex-wrap:wrap;min-height:unset;gap:4px;padding:6px 10px}.logo strong{font-size:22px}.mark{width:38px;height:38px;font-size:21px;border-radius:12px}.logo span{font-size:9px}.toplinks{width:100%;overflow:auto;justify-content:flex-start;padding-bottom:4px}.toplinks button{font-size:12px;min-height:36px;padding:4px 11px}.toplinks .miniicon{display:none}.hero{border-radius:18px}.hero-visual{aspect-ratio:905/400}.hero-actions{display:flex;justify-content:center;flex-wrap:wrap;padding:12px}.hero-actions .btn{width:100%;min-height:46px}.hero-sub{font-size:12px;text-align:center}.sidebox{padding:14px;border-radius:19px}.gradeTiles{grid-template-columns:repeat(3,1fr)}.gradeTile{min-height:75px;font-size:12px}.gradeTile strong{font-size:15px}.sectionTitle h2{font-size:19px}.featureGrid{grid-template-columns:repeat(2,1fr);gap:10px}.featureTile{min-height:120px;border-radius:17px;font-size:13px}.featureTile .fi{font-size:28px;min-width:58px}.skillgrid,.layout,.wordgrid{grid-template-columns:1fr}.liststeps{grid-template-columns:1fr}.skill{min-height:190px}.panel{padding:16px;border-radius:18px}.lessonhead{grid-template-columns:1fr;gap:7px;padding:17px;border-radius:20px}.lessonbadge{display:none}.quiz{padding:17px;border-radius:20px}.quiz .answers{grid-template-columns:1fr}.quiz .answer{min-height:64px}.grades{grid-template-columns:repeat(3,1fr)}.resultWrap{padding:20px}.resultWrap h1{font-size:24px}}
 @media print{header,.top,.footer,.return-nav,.btn,.hero-actions,.toplinks{display:none!important}body{background:white!important}.panel{box-shadow:none}#root{display:none!important}#printarea{display:block!important}}
-</style><style id="madarek-activity-styles">.md-pad-box{background:#fbfefd;border:1px solid #d5e5e7;border-radius:18px;padding:15px;margin:12px 0}.md-pad-box p{font-weight:800}.md-display{display:grid;place-items:center;min-height:65px;border:2px dashed #a7cbd0;border-radius:14px;font-size:25px;font-weight:900;background:white;color:#0b3049}.md-keygrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:360px;margin:14px auto}.md-key{min-height:52px;border:1px solid #c6d7dd;border-radius:12px;background:#fff8e9;color:#0b3049;font-weight:900;font-size:22px}.md-pad-box>.btn{width:100%}.md-pad-box .toolbar{display:flex;flex-wrap:wrap;gap:8px}.md-pad-box .toolbar .btn{flex:1}.md-selected{background:#f2dfb0!important}.md-details{margin-top:12px;border:1px solid #dbe6ed;border-radius:13px;padding:12px 14px;background:#f7fafb;font-size:14px}.md-details summary{cursor:pointer;font-weight:900;color:#0b3049}.md-details p{margin:9px 0 2px}@media(max-width:575px){.md-key{min-height:50px}}</style><link rel="stylesheet" href="./screenfree.css?v=1"><link rel="stylesheet" href="./brand.css?v=2"></head><body>
+</style><style id="madarek-activity-styles">.md-pad-box{background:#fbfefd;border:1px solid #d5e5e7;border-radius:18px;padding:15px;margin:12px 0}.md-pad-box p{font-weight:800}.md-display{display:grid;place-items:center;min-height:65px;border:2px dashed #a7cbd0;border-radius:14px;font-size:25px;font-weight:900;background:white;color:#0b3049}.md-keygrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:360px;margin:14px auto}.md-key{min-height:52px;border:1px solid #c6d7dd;border-radius:12px;background:#fff8e9;color:#0b3049;font-weight:900;font-size:22px}.md-pad-box>.btn{width:100%}.md-pad-box .toolbar{display:flex;flex-wrap:wrap;gap:8px}.md-pad-box .toolbar .btn{flex:1}.md-selected{background:#f2dfb0!important}.md-details{margin-top:12px;border:1px solid #dbe6ed;border-radius:13px;padding:12px 14px;background:#f7fafb;font-size:14px}.md-details summary{cursor:pointer;font-weight:900;color:#0b3049}.md-details p{margin:9px 0 2px}@media(max-width:575px){.md-key{min-height:50px}}</style><link rel="stylesheet" href="./screenfree.css?v=1"><link rel="stylesheet" href="./brand.css?v=2"><link rel="stylesheet" href="./approved.css?v=1"></head><body>
 <header class="top"><div class="topbar"><div class="logo" onclick="goHome()" role="button" tabindex="0" onkeydown="if(event.key==='Enter')goHome()"><div class="mark"><img src="./school-approved.svg" width="41" height="41" alt="شعار المدرسة"></div><div><strong>مدارك</strong><span>بعقولنا نفكّر، وبفضولنا نكتشف</span></div></div><div class="toplinks"><button id="bhome" onclick="goHome()">الرئيسية</button><button id="bskills" onclick="goGradeSkills()">المهارات</button><button id="bwords" onclick="goWords()">أفهم المسألة</button><button id="bguide" onclick="goGuide()">دليل المعلمة</button><button id="bscreenfree" onclick="sfHome()">📚 انتظار بلا شاشة</button><button id="brecord" onclick="goRecord()">سجل النتائج</button></div></div></header>
 <main class="container" id="root"></main><div id="printarea"></div><div class="footwaves"></div><footer class="footer">مدارك • نفهم، نكتشف، نتقن • الفصل الدراسي الأول • نسخة تجريبية للعمل دون إنترنت <span class="sf-global-credit">إعداد وتنفيذ: المعلمة ابتهال الحجيلي</span></footer>
 <script>
@@ -164,39 +164,27 @@ function goBackInside(){if(currentSection==='quiz'||currentSection==='result'){o
 function returnButton(place,section){let label=section==='quiz'||section==='result'?'الرجوع إلى شرح المهارة':section==='skill'?'الرجوع إلى مهارات الصف':section==='grades'?'الرجوع إلى الرئيسية':'الرجوع إلى الرئيسية';return `<nav class="return-nav return-nav--${place}"><button type="button" class="return-button" onclick="goBackInside()"><span class="return-symbol">↩</span>${label}</button></nav>`}
 function goHome(){
  activeId=null;
- const gradeButtons=GRADES.map((g,i)=>'<button type="button" class="md-grade '+(i===selectedGrade?'selected':'')+'" onclick="setGradeAndOpen('+i+')" aria-label="الصف '+g+'"><strong>الصف '+g+'</strong><span>'+fmt(i+1)+'</span></button>').join('');
- const doc=[
- '<div class="shell md-home">',
- '<section class="md-cover" aria-label="مرحبًا بكم في مدارك">',
- '<div class="md-cover-top"><span>⭐ مبادرة مدارك</span><span>أكاديمية مدارك للرياضيات</span><span>أ. ابتهال الحجيلي</span></div>',
- '<div class="md-brand-stage">',
- '<div class="md-person md-person--boy"><img src="./students-approved.svg" alt="طالب يحمل جهازًا لوحيًا" width="306" height="162" loading="eager"></div>',
- '<div class="md-brand-center">',
- '<svg class="md-brand-emblem" xmlns="http://www.w3.org/2000/svg" width="105" height="64" viewBox="0 0 105 64" aria-hidden="true"><path d="M52 54Q29 38 6 45V8q21-7 46 10 25-17 47-10v37Q75 38 52 54Z" fill="#fefdfa" stroke="#bd9551" stroke-width="3"/><path d="M52 18v36" stroke="#147d81" stroke-width="3"/><rect x="61" y="22" width="8" height="16" fill="#35aaa4" rx="2"/><rect x="73" y="15" width="8" height="23" fill="#147d81" rx="2"/><rect x="85" y="8" width="8" height="30" fill="#c49b4f" rx="2"/></svg>',
- '<h1>مدارك</h1>',
- '<p class="motto">بعقولنا نفكّر، وبفضولنا نكتشف</p>',
- '<p class="descriptor">حقيبة تعليمية تفاعلية للمرحلة الابتدائية</p>',
- '</div>',
- '<div class="md-person md-person--girl"><img src="./students-approved.svg" alt="طالبة تحمل كتبها المدرسية" width="306" height="162" loading="eager"></div>',
- '</div>',
- '<div class="md-school-strip"><span class="school-identity">روضة وابتدائية الأميرة نورة بنت عبد الرحمن الفيصل</span><span class="teacher-identity">إعداد وتنفيذ: المعلمة ابتهال الحجيلي</span></div>',
- '</section>',
- '<section class="md-feature-wrap" aria-label="أقسام مدارك">',
- '<h2 class="md-feature-title">اكتشف أقسام مدارك</h2>',
- '<div class="md-feature-grid">',
- '<button type="button" class="md-feature-card" onclick="goGradeSkills()"><span class="md-ico">📚</span><strong>الدروس</strong><small>أفهم المهارة وأطبّقها</small></button>',
- '<button type="button" class="md-feature-card" onclick="goWords()"><span class="md-ico">📝</span><strong>الأنشطة</strong><small>مفردات المسألة وفهمها</small></button>',
- '<button type="button" class="md-feature-card" onclick="goGradeSkills()"><span class="md-ico">🎯</span><strong>التحديات</strong><small>أتعلّم بالمحاولة</small></button>',
- '<button type="button" class="md-feature-card" onclick="goGradeSkills()"><span class="md-ico">✅</span><strong>الاختبارات</strong><small>أتحقق من تعلّمي</small></button>',
- '<button type="button" class="md-feature-card" onclick="goGuide()"><span class="md-ico">🧰</span><strong>أدوات المعلمة</strong><small>تخطيط وتنفيذ</small></button>',
- '<button type="button" class="md-feature-card md-feature-card--screenfree" onclick="sfHome()"><span class="md-ico">🗂️</span><strong>انتظار بلا شاشة</strong><small>بطاقات للطباعة وخطة للمعلمة</small></button>',
- '</div>',
- '</section>',
- '<section class="md-grade-panel"><h2 class="md-grade-heading">اختر صفك الدراسي</h2><div class="md-grades">'+gradeButtons+'</div></section>',
- '<div class="md-home-actions"><button type="button" class="btn md-primary" onclick="goGradeSkills()">ابدأ استكشاف المهارات</button><button type="button" class="btn md-secondary" onclick="goRecord()">سجل النتائج</button></div>',
- '</div>'
- ].join('');
- mount(doc,'home','home');
+ const cards=[
+  ['lessons','الدروس','approved-lessons.webp','goGradeSkills()'],
+  ['activities','الأنشطة','approved-activities.webp','goGradeSkills()'],
+  ['games','الألعاب','approved-games.webp','goGradeSkills()'],
+  ['tests','الاختبارات','approved-tests.webp','goGradeSkills()'],
+  ['tools','أدوات المعلمة','approved-tools.webp','goGuide()']
+ ];
+ const overlays=cards.map(c=>'<button type="button" class="approved-hot approved-hot--'+c[0]+'" aria-label="'+c[1]+'" title="'+c[1]+'" onclick="'+c[3]+'"></button>').join('');
+ const gradeOverlays=GRADES.map((g,i)=>'<button type="button" class="approved-hot approved-hot--g'+(i+1)+'" aria-label="الصف '+g+'" title="الصف '+g+'" onclick="setGradeAndOpen('+i+')"></button>').join('');
+ const cardButtons=cards.map(c=>'<button type="button" aria-label="'+c[1]+'" title="'+c[1]+'" onclick="'+c[3]+'"><img src="./'+c[2]+'" alt="'+c[1]+'" loading="lazy"></button>').join('');
+ const gradeButtons=GRADES.map((g,i)=>'<button type="button" class="approved-mobile-grade '+(i===selectedGrade?'selected':'')+'" onclick="setGradeAndOpen('+i+')" aria-label="الصف '+g+'"><strong>الصف '+g+'</strong><span>'+fmt(i+1)+'</span></button>').join('');
+ const desktop='<div class="approved-desktop"><img src="./approved-main.webp" width="1672" height="853" alt="واجهة مدارك المعتمدة، بشخصيتَي الطالب والطالبة وشعار المدرسة والأقسام والصفوف" loading="eager">'+overlays+gradeOverlays+'</div>';
+ const mobile='<div class="approved-mobile">'+
+ '<div class="approved-mast"><img class="approved-child" src="./approved-girl.webp" alt="طالبة تحمل كتبها"><img class="approved-center" src="./approved-center.webp" alt="مدارك: بعقولنا نفكّر، وبفضولنا نكتشف"><img class="approved-child" src="./approved-boy.webp" alt="طالب يحمل جهازًا تعليميًا"></div>'+
+ '<p class="approved-motto">بعقولنا نفكّر، وبفضولنا نكتشف</p>'+
+ '<div class="approved-mobile-features">'+cardButtons+'</div>'+
+ '<section class="approved-grades-wrap"><h2>المرحلة الابتدائية</h2><div class="approved-mobile-grades">'+gradeButtons+'</div></section>'+
+ '<img class="approved-mobile-wave" src="./approved-wave.webp" alt="">'+
+ '</div>';
+ const shortcuts='<nav class="approved-quicknav" aria-label="خدمات المعلمة"><button type="button" onclick="sfHome()">انتظار بلا شاشة</button><button type="button" onclick="goWords()">أفهم المسألة</button><button type="button" onclick="goRecord()">سجل النتائج</button></nav>';
+ mount('<div class="approved-home">'+desktop+mobile+shortcuts+'</div>','home','home');
 }
 function setGradeAndOpen(i){selectedGrade=i;goGradeSkills()}
 function setGrade(i){selectedGrade=i;goGradeSkills()}
