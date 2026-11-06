@@ -103,3 +103,12 @@ body:has(.mdp-home) .top{display:none!important}
  .mdp-door--screenfree strong{font-size:18px}
  .mdp-door--screenfree .mdp-door-desc{font-size:12px;line-height:1.7}
 }
+
+/* زر العرض الصفي مستقل عن تفاصيل الدرس */
+.mdp-lesson-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+.mdp-lesson-actions .btn{min-width:112px}
+@media(max-width:650px){
+ .mdp-skill{flex-wrap:wrap}
+ .mdp-lesson-actions{width:100%;margin-top:3px;justify-content:stretch}
+ .mdp-lesson-actions .btn{flex:1;min-width:0}
+}
