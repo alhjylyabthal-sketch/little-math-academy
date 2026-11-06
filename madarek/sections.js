@@ -37,13 +37,13 @@ openSkill=function(i){
  const question=TEASER_QUESTIONS[i]||'ما الفكرة التي تساعدنا على فهم هذه المهارة؟';
  mount('<div class="shell mdp-section"><header class="lessonhead"><div><span class="bubble">الصف '+GRADES[s.g-1]+' • الفصل الأول</span><h1>'+esc(s.title)+'</h1><p>صفحة للفهم والشرح فقط</p></div><div class="lessonbadge">'+SKILL_ICONS[i%6]+'</div></header><section class="panel lesson-card"><h2>ألاحظ وأتساءل</h2><div class="teaser"><p>'+esc(question)+'</p></div></section><section class="panel lesson-card"><h2>أفهم الفكرة</h2><div class="lessonGoal">'+esc(s.idea)+'</div><div class="layout"><div class="mini cream"><h3>مثال من الدرس</h3><p>'+esc(s.example)+'</p></div><div class="mini"><h3>أين أستخدم هذه المهارة؟</h3><p>'+esc(s.intro||'أفهم المعطيات وأحدد المطلوب ثم أختار طريقة الحل المناسبة.')+'</p></div></div><div class="spaced">'+lessonSVG(s)+'</div><h3>خطوات الفهم</h3><div class="liststeps">'+(s.steps||[]).map((v,j)=>'<div class="steptile"><span class="numcircle">'+fmt(j+1)+'</span>'+esc(v)+'</div>').join('')+'</div></section></div>','skills','skill');
 };
-goTests=function(){
+function goTests(){
  activeId=null;
  mount('<div class="shell mdp-section">'+pageHeading('الاختبارات','اختبارات الصف '+GRADES[selectedGrade],'تقويم المهارات بأسئلة مستقلة ونتيجة لكل محاولة')+'<section class="panel"><h2>حددي الصف</h2>'+gradeBar('mdpTestGrade')+'</section><section class="panel"><h2>اختاري الاختبار</h2><div class="mdp-skilllist">'+pageRows(true)+'</div></section><div class="mdp-recordlink"><button class="btn outline" onclick="goRecord()">عرض سجل النتائج المحفوظة على هذا الجهاز</button></div></div>','tests','tests');
 };
 window.mdpTestGrade=function(i){selectedGrade=i;goTests();};
 window.startAssessment=function(i){if(!SKILLS[i])return;activeId=i;selectedGrade=SKILLS[i].g-1;startQuiz();};
-goTeacherTools=function(){
+function goTeacherTools(){
  mount('<div class="shell mdp-section">'+pageHeading('أدوات المعلمة','مركز المعلمة','مواد للتنفيذ داخل الفصل، وليست أنشطة الطالب الرقمية')+'<div class="mdp-toolgrid"><article class="mdp-tool"><div class="mdp-toolmark">١</div><h2>انتظار بلا شاشة</h2><p>خطة حصة بحسب الصف والمهارة والوقت، مع بطاقات الطلاب والإجابات للمعلمة قابلة للطباعة أو الحفظ بصيغة PDF.</p><button class="btn gold" onclick="sfHome()">فتح الحقيبة الورقية</button></article><article class="mdp-tool"><div class="mdp-toolmark">٢</div><h2>دليل التنفيذ الصفي</h2><p>إرشادات لتنظيم الحصة والتعامل مع تعثر الطلاب وتوظيف الوسائل المحسوسة.</p><button class="btn" onclick="goGuide()">فتح دليل المعلمة</button></article></div></div>','guide','teacher-tools');
 };
 finishQuiz=function(){
