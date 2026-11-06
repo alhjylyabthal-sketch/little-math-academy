@@ -61,3 +61,26 @@
 @media print{.sf-print-page{color:#172a37;direction:rtl;font-family:Tahoma,Arial,sans-serif;font-size:12pt}.sf-print-page h1{font-size:20pt;color:#134058}.sf-print-page h2{font-size:15pt;color:#13596b}.sf-print-page h3{font-size:12pt;margin:14pt 0 5pt;color:#144960}.sf-print-page p,.sf-print-page li{line-height:1.7;margin:5pt 0}.sf-print-brand{background:#edf7f6;padding:9pt;border-bottom:2pt solid #d9b76e}.sf-print-q{border:1px solid #ddd;border-radius:6px;margin:9pt 0;padding:9pt;break-inside:avoid}.sf-print-opts{padding:7pt 0;line-height:1.9}.sf-write-line{border-bottom:1px dashed #b7b7b7;height:13pt}.sf-print-credit{text-align:center;font-weight:700;margin-top:20pt}.sf-print-footer{text-align:center;margin-top:16pt}}
 
 .sf-global-credit{display:block;margin-top:8px;color:#eed08e;font-size:13px;font-weight:800;line-height:1.7}
+
+/* صياغة هادئة ومسافات متوازنة لصفحة الانتظار بلا شاشة */
+.sf-banner{display:block;padding:26px 30px;background:linear-gradient(120deg,#123d57,#0f6572);border-radius:22px;box-shadow:0 7px 20px #113b5414;margin:0 0 18px}
+.sf-over{font-size:13px;color:#e4c47c;font-weight:700}
+.sf-banner h1{font-size:clamp(24px,3.4vw,32px);line-height:1.45;margin:6px 0 10px;letter-spacing:0}
+.sf-banner p{font-size:15px;line-height:1.9;max-width:670px;margin:0;color:#ebf7f7}
+.sf-panel{padding:22px;border-radius:18px;box-shadow:0 4px 17px #13374b0b;margin:13px 0}
+.sf-panel h2{font-size:20px;line-height:1.55;margin:0 0 8px}
+.sf-panel-head{margin-bottom:14px}
+.sf-panel-head p{font-size:14px;line-height:1.75;margin:1px 0 0}
+.sf-grades{gap:9px}
+.sf-grades button{font-size:15px;min-height:53px;padding:10px;border-radius:13px}
+.sf-flag,.sf-banner-symbol{display:none!important}
+@media(max-width:620px){
+ .sf-banner{padding:22px 20px;margin-bottom:13px;border-radius:20px}
+ .sf-banner h1{font-size:27px;margin:5px 0 7px}
+ .sf-banner p{font-size:14px;line-height:1.85}
+ .sf-panel{padding:17px;border-radius:18px;margin:12px 0}
+ .sf-panel h2{font-size:19px}
+ .sf-grades{gap:8px}
+ .sf-grades button{min-height:51px;font-size:14px}
+ .sf-panel-head p{font-size:13px}
+}
