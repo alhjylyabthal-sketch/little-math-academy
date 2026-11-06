@@ -95,3 +95,20 @@
 }
 @media(prefers-reduced-motion:reduce){.mdc-progress>div{transition:none}}
 @media print{.mdc-shell{display:none!important}}
+
+/* الرياضيات بالعربية: سؤال مستقل، ثم حل مستقل بدون فواصل الآلاف أو النقاط */
+.mdc-work-question{margin:0;max-width:1040px;text-align:center;font-size:clamp(25px,3.3vw,46px);font-weight:900;color:#143b55;line-height:1.7;overflow-wrap:anywhere}
+.mdc-answer .mdc-ordinary-answer{display:block;line-height:1.85;text-align:center;direction:rtl}
+.mdc-math-block{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(13px,2.4vh,28px);width:100%;max-width:100%;text-align:center}
+.mdc-equals-heading{display:flex;gap:.65em;justify-content:center;align-items:center;flex-wrap:wrap;color:#123b56;font-size:clamp(24px,3vw,42px);font-weight:900;line-height:1.5}
+.mdc-equals-heading bdi{unicode-bidi:isolate}
+.mdc-equals-heading span{color:#0a7d82}
+.mdc-math-terms{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:clamp(6px,1vw,14px);row-gap:5px;max-width:100%;font-size:clamp(20px,2.9vw,40px);font-weight:900;color:#123b56;direction:rtl;line-height:1.6}
+.mdc-math-term{direction:ltr;unicode-bidi:isolate;display:inline-block;white-space:nowrap}
+.mdc-math-plus{font-weight:700;color:#087e84;white-space:nowrap;direction:ltr}
+@media(max-width:650px){
+ .mdc-work-question{font-size:clamp(21px,5.6vw,30px)}
+ .mdc-equals-heading{font-size:clamp(22px,5.7vw,31px)}
+ .mdc-math-terms{font-size:clamp(18px,4.8vw,27px);column-gap:5px;row-gap:3px}
+ .mdc-math-block{gap:13px}
+}
