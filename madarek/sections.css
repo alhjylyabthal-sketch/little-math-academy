@@ -36,3 +36,6 @@
 @media(max-width:575px){.mdp-home{border-radius:20px}.mdp-mast{padding:10px 3px 0;grid-template-columns:23% 54% 23%;min-height:170px}.mdp-mast img{max-height:190px}.mdp-mast .mdp-brand{max-height:195px}.mdp-hub{padding:12px 12px 20px}.mdp-hub h1{font-size:21px}.mdp-doorgrid{gap:9px}.mdp-door{padding:12px 7px;min-height:172px;border-radius:18px}.mdp-door-symbol{height:54px;width:54px;border-radius:17px}.mdp-door-symbol svg{height:33px;width:33px}.mdp-door strong{font-size:16px}.mdp-door-desc{font-size:11px}.mdp-skill{display:grid;grid-template-columns:auto 1fr;gap:8px}.mdp-skill .btn{grid-column:1/-1}.mdp-toolgrid{grid-template-columns:1fr}.mdp-tool p{min-height:auto}}
 @media print{.mdp-home{display:none!important}}
 @media(prefers-reduced-motion:reduce){.mdp-door{transition:none}}
+
+/* قائمة أقسام قابلة للتمرير على شاشة الهاتف بلا تزاحم */
+@media(max-width:740px){.toplinks{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;display:flex;justify-content:flex-start;flex-wrap:nowrap;scrollbar-width:thin}.toplinks button{flex:0 0 auto!important;white-space:nowrap;padding:8px 11px!important;min-height:43px}}
