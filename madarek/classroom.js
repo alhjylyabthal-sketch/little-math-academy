@@ -28,8 +28,9 @@
     var parts = values.split(/\s*\+\s*/).map(function (term) { return classroomText(term); });
     return '<div class="mdc-math-terms" dir="rtl" aria-label="' + safe(parts.join(" زائد ")) + '">' +
       parts.map(function (part, i) {
-        return (i ? '<span class="mdc-math-plus" aria-hidden="true">+</span>' : '') +
-          '<bdi class="mdc-math-term" dir="ltr">' + safe(part) + '</bdi>';
+        return '<span class="mdc-math-group">' +
+          (i ? '<span class="mdc-math-plus" aria-hidden="true">+</span>' : '') +
+          '<bdi class="mdc-math-term" dir="ltr">' + safe(part) + '</bdi></span>';
       }).join("") + '</div>';
   }
   function preparedExample(s) {
