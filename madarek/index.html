@@ -225,19 +225,19 @@ SKILLS.forEach((s,i)=>{let converted=0;s.questions.forEach((q,j)=>{
 function mdCanonical(v){return String(v).replace(/[٠-٩]/g,d=>String(d.charCodeAt(0)-1632)).replace(/[۰-۹]/g,d=>String(d.charCodeAt(0)-1776)).replace(/[٬،\s]/g,'').replace(/٫/g,'.')}
 function mdControls(q){
  if(q.format==='number'){mdNumber='';return `<div class="md-pad-box"><p>اكتب الإجابة بالأرقام العربية</p><div id="md-display" class="md-display" aria-live="polite">…</div><div class="md-keygrid">${['١','٢','٣','٤','٥','٦','٧','٨','٩','مسح','٠','حذف','٫'].map(v=>`<button class="md-key" onclick="mdTap('${v}')">${v}</button>`).join('')}</div><button class="btn gold" id="md-check" onclick="mdCheckNumber()" disabled>أتحقّق من إجابتي</button></div>`}
- if(q.format==='order'){mdOrder=[];mdChoices=q.order.slice().reverse();return `<div class="md-pad-box"><p>اضغط الأعداد حسب الترتيب المطلوب</p><div id="md-display" class="md-display" aria-live="polite">اختر العدد الأول</div><div class="answers">${mdChoices.map((v,i)=>`<button class="answer md-order-button" id="md-order-${i}" onclick="mdSelectOrder(${i})">${esc(v)}</button>`).join('')}</div><div class="toolbar"><button class="btn outline" id="md-undo" onclick="mdUndoOrder()" disabled>تراجع</button><button class="btn gold" id="md-check" onclick="mdCheckOrder()" disabled>أتحقّق من الترتيب</button></div></div>`}
- return `<div class="answers">${q.opts.map((v,i)=>`<button class="answer" id="opt${i}" onclick="answer(${i})">${esc(v)}</button>`).join('')}</div>`;
+ if(q.format==='order'){mdOrder=[];mdChoices=q.order.slice().reverse();return `<div class="md-pad-box"><p>اضغط الأعداد حسب الترتيب المطلوب</p><div id="md-display" class="md-display" aria-live="polite">اختر العدد الأول</div><div class="answers">${mdChoices.map((v,i)=>`<button class="answer md-order-button" id="md-order-${i}" onclick="mdSelectOrder(${i})">${window.mdMathHTML(v)}</button>`).join('')}</div><div class="toolbar"><button class="btn outline" id="md-undo" onclick="mdUndoOrder()" disabled>تراجع</button><button class="btn gold" id="md-check" onclick="mdCheckOrder()" disabled>أتحقّق من الترتيب</button></div></div>`}
+ return `<div class="answers">${q.opts.map((v,i)=>`<button class="answer" id="opt${i}" onclick="answer(${i})">${window.mdMathHTML(v,{context:q.q})}</button>`).join('')}</div>`;
 }
 showQuestion=function(){
  const s=SKILLS[activeId],q=s.questions[qIndex];
  if(!q){finishQuiz();return}
  choiceLocked=false;hintLevel=0;
- mount(`<div class="shell">${pageHeading('تحدي مدارك','اختبر فهمك','الصف '+GRADES[s.g-1]+' • '+esc(s.title))}<article class="quiz"><div class="qheader"><span class="pill gold">${esc(q.type)}</span><strong>السؤال ${fmt(qIndex+1)} من ٦</strong></div><div class="progress"><div style="width:${(qIndex/6)*100}%"></div></div><div class="qtitle">${esc(q.q)}</div>${mdControls(q)}<div class="qfoot"><button id="hintbtn" class="btn outline" onclick="showHint()">أحتاج تلميحًا</button></div><div id="hintcontent" aria-live="polite"></div><div id="feedback" aria-live="polite"></div><div id="forward"></div></article></div>`,'skills','quiz');
+ mount(`<div class="shell">${pageHeading('تحدي مدارك','اختبر فهمك','الصف '+GRADES[s.g-1]+' • '+esc(s.title))}<article class="quiz"><div class="qheader"><span class="pill gold">${esc(q.type)}</span><strong>السؤال ${fmt(qIndex+1)} من ٦</strong></div><div class="progress"><div style="width:${(qIndex/6)*100}%"></div></div><div class="qtitle">${window.mdMathHTML(q.q)}</div>${mdControls(q)}<div class="qfoot"><button id="hintbtn" class="btn outline" onclick="showHint()">أحتاج تلميحًا</button></div><div id="hintcontent" aria-live="polite"></div><div id="feedback" aria-live="polite"></div><div id="forward"></div></article></div>`,'skills','quiz');
 };
 showHint=function(){
  const q=SKILLS[activeId].questions[qIndex];if(hintLevel>=2||choiceLocked)return;
  const msg=hintLevel===0?q.hintFirst:q.hintSecond;hintLevel++;
- document.getElementById('hintcontent').innerHTML+=`<div class="hintbox"><strong>${hintLevel===1?'تلميح أول':'تلميح أقرب'}:</strong> ${esc(msg)}</div>`;
+ document.getElementById('hintcontent').innerHTML+=`<div class="hintbox"><strong>${hintLevel===1?'تلميح أول':'تلميح أقرب'}:</strong> ${window.mdMathHTML(msg)}</div>`;
  const b=document.getElementById('hintbtn');b.textContent=hintLevel===1?'تلميح إضافي':'ظهرت التلميحات';b.disabled=hintLevel===2;
 };
 function mdComplete(good){
@@ -245,8 +245,8 @@ function mdComplete(good){
  const q=SKILLS[activeId].questions[qIndex];answers.push({good,hints:hintLevel});
  const b=document.getElementById('hintbtn');if(b)b.disabled=true;
  document.querySelectorAll('.md-key,.md-pad-box button').forEach(e=>e.disabled=true);
- const correct=q.format==='order'? `<p>الترتيب الصحيح: <strong>${esc(q.order.join('، '))}</strong></p>`:q.format==='number'? `<p>الإجابة الصحيحة: <strong>${esc(q.opts[q.right])}</strong></p>`:'';
- document.getElementById('feedback').innerHTML=`<div class="feedback ${good?'correct':'wrong'}"><strong>${good?'إجابة صحيحة!':'لنراجع طريقة التفكير.'}</strong>${good?'':correct}<p>${esc(q.why)}</p></div>`;
+ const correct=q.format==='order'? `<p>الترتيب الصحيح: <strong>${window.mdMathHTML(q.order.join('، '))}</strong></p>`:q.format==='number'? `<p>الإجابة الصحيحة: <strong>${window.mdMathHTML(q.opts[q.right],{context:q.q})}</strong></p>`:'';
+ document.getElementById('feedback').innerHTML=`<div class="feedback ${good?'correct':'wrong'}"><strong>${good?'إجابة صحيحة!':'لنراجع طريقة التفكير.'}</strong>${good?'':correct}<p>${window.mdMathHTML(q.why,{context:q.q})}</p></div>`;
  document.getElementById('forward').innerHTML=`<button class="btn gold" onclick="nextQuestion()">${qIndex===5?'عرض نتيجتي':'السؤال التالي'}</button>`;
 }
 answer=function(i){
@@ -268,7 +268,7 @@ function mdCheckNumber(){
  mdComplete(mdCanonical(mdNumber)===mdCanonical(q.opts[q.right]));
 }
 function mdRefreshOrder(){
- document.getElementById('md-display').textContent=mdOrder.length?mdOrder.map(i=>mdChoices[i]).join(' ← '):'اختر العدد الأول';
+ document.getElementById('md-display').textContent=mdOrder.length?mdOrder.map(i=>window.mdMathText(mdChoices[i])).join(' ← '):'اختر العدد الأول';
  document.getElementById('md-undo').disabled=!mdOrder.length;
  document.getElementById('md-check').disabled=mdOrder.length!==mdChoices.length;
 }
@@ -287,10 +287,10 @@ function mdCheckOrder(){
 }
 const mdOldStudent=printStudent,mdOldTeacher=printTeacher;
 printStudent=function(i){
- const s=SKILLS[i];printDoc(`<h1>مدارك — بطاقة الطالب</h1><h2>${esc(s.title)}</h2><p>الصف ${GRADES[s.g-1]} الابتدائي — الفصل الدراسي الأول</p><p>اسم الطالب أو الطالبة: ...................................</p>${s.questions.map((q,j)=>`<div class="printq"><strong>${fmt(j+1)} ـ ${esc(q.q)}</strong><p>${q.format==='number'?'الإجابة: ................................':q.format==='order'?'الترتيب: ................................':q.opts.map(x=>'□ '+esc(x)).join('　　　 ')}</p></div>`).join('')}`);
+ const s=SKILLS[i];printDoc(`<h1>مدارك — بطاقة الطالب</h1><h2>${esc(s.title)}</h2><p>الصف ${GRADES[s.g-1]} الابتدائي — الفصل الدراسي الأول</p><p>اسم الطالب أو الطالبة: ...................................</p>${s.questions.map((q,j)=>`<div class="printq"><strong>${fmt(j+1)} ـ ${window.mdMathHTML(q.q)}</strong><p>${q.format==='number'?'الإجابة: ................................':q.format==='order'?'الترتيب: ................................':q.opts.map(x=>'□ '+window.mdMathHTML(x,{context:q.q})).join('　　　 ')}</p></div>`).join('')}`);
 };
 printTeacher=function(i){
- const s=SKILLS[i];printDoc(`<h1>مدارك — دليل المعلمة والإجابات</h1><h2>${esc(s.title)}</h2><p>الصف ${GRADES[s.g-1]} الابتدائي — الفصل الدراسي الأول</p><p>هدف المهارة: ${esc(s.idea)}</p><p>مثال: ${esc(s.example)}</p>${s.questions.map((q,j)=>`<div class="printq"><strong>${fmt(j+1)} ـ ${esc(q.q)}</strong><p>الإجابة: ${esc(q.opts[q.right])}</p><p>التلميح الأول: ${esc(q.hintFirst)}</p><p>التلميح الإضافي: ${esc(q.hintSecond)}</p><p>التفسير: ${esc(q.why)}</p></div>`).join('')}`);
+ const s=SKILLS[i];printDoc(`<h1>مدارك — دليل المعلمة والإجابات</h1><h2>${esc(s.title)}</h2><p>الصف ${GRADES[s.g-1]} الابتدائي — الفصل الدراسي الأول</p><p>هدف المهارة: ${esc(s.idea)}</p><p>مثال: ${window.mdMathHTML(s.example,{decomposition:true})}</p>${s.questions.map((q,j)=>`<div class="printq"><strong>${fmt(j+1)} ـ ${window.mdMathHTML(q.q)}</strong><p>الإجابة: ${window.mdMathHTML(q.format==="order"?q.order.join("، "):q.opts[q.right],{context:q.q})}</p><p>التلميح الأول: ${window.mdMathHTML(q.hintFirst)}</p><p>التلميح الإضافي: ${window.mdMathHTML(q.hintSecond)}</p><p>التفسير: ${window.mdMathHTML(q.why,{context:q.q})}</p></div>`).join('')}`);
 };
 const mdOldSkill=openSkill;
 openSkill=function(i){
