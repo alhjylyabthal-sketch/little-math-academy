@@ -37,6 +37,7 @@
    must(egParts.join('|')==='٢٣٤١٥|٥|١٠|٤٠٠|٣٠٠٠|٢٠٠٠٠','عرض المثال كما اعتمدته المعلمة');
    must(normalize('٤٢٬٣٠٦.')==='٤٢٣٠٦','حذف فاصلة الآلاف والنقطة بعد الرقم');
    must(format('١٫٢٥').includes('١٫٢٥'),'عدم حذف الفاصلة العشرية الصحيحة');
+   must(format('٥⁄٢').includes('>٥⁄٢</bdi>'),'عدم فصل البسط عن المقام في الكسر');
    return {passed:issues.length===0,checked:checked,issues:issues};
  }
  if(typeof window!=='undefined')window.runMadarekMathRegression=audit;
