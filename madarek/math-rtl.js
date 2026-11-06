@@ -19,14 +19,14 @@
       .replace(/٫/g,'.');
     return Number(v);
   }
-  var numeric = '[٠-٩]+(?:[٫][٠-٩]+)?';
+  var numeric = '[٠-٩]+(?:[٫][٠-٩]+)?(?:[⁄/][٠-٩]+)?';
   var exprPattern = new RegExp(numeric+'(?:\\s*[+−\\-×÷=<>]\\s*'+numeric+')+','g');
   var fullExprPattern = new RegExp('^\\s*'+numeric+'(?:\\s*[+−\\-×÷=<>]\\s*'+numeric+')+\\s*$');
   function numberHTML(str) {
     return '<bdi class="md-math-number" dir="ltr">'+escapeText(str)+'</bdi>';
   }
   function textHTML(str) {
-    return escapeText(str).replace(/[٠-٩]+(?:[٫][٠-٩]+)?/g,function(n){return numberHTML(n);});
+    return escapeText(str).replace(/[٠-٩]+(?:[٫][٠-٩]+)?(?:[⁄/][٠-٩]+)?/g,function(n){return numberHTML(n);});
   }
   function renderExpression(raw, decomposition) {
     var chunks = raw.trim().split(/\s*([+−\-×÷=<>])\s*/).filter(Boolean);
