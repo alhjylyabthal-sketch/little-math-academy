@@ -7,17 +7,19 @@ const icons={
  lessons:'<path d="M12 6.6c-2.5-1.8-5.4-2.1-8.5-1.6v13c3.2-.5 6 .1 8.5 1.8m0-13.2c2.5-1.8 5.4-2.1 8.5-1.6v13c-3.2-.5-6 .1-8.5 1.8m0-13.2v13.2"/>',
  tests:'<path d="M9 4h6l1 2h3v15H5V6h3l1-2Z"/><path d="m8 12 2.1 2.1 4-4.1M8 18h8"/>',
  words:'<path d="M5 5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-7l-5 3v-3H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><path d="M8 9h8M8 13h6"/>',
- teacher:'<rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 12h16M10 12v2h4v-2"/>'
+ teacher:'<rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 12h16M10 12v2h4v-2"/>',
+ screenfree:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 15h18M7 9h5M7 12h8M12 19v3M8 22h8"/><path d="m16 9 2 2-2 2"/>'
 };
 let selectedDoor='';
 const doors=[
  ['lessons','الدروس','أفهم الفكرة والأمثلة وخطوات الحل','goGradeSkills()'],
  ['tests','الاختبارات','أجيب عن أسئلة مستقلة وأرى نتيجتي','goTests()'],
  ['words','أفهم المسألة','أتعلم المفردات ومعانيها في سياقها','goWords()'],
- ['teacher','أدوات المعلمة','خطط التنفيذ والبطاقات القابلة للطباعة','goTeacherTools()']
+ ['teacher','أدوات المعلمة','إرشادات التنفيذ والمتابعة الصفية','goTeacherTools()'],
+ ['screenfree','انتظار بلا شاشة','خطط وبطاقات ورقية قابلة للطباعة ودليل إجابات','sfHome()']
 ];
 function mdpOpenDoor(id){
- const routes={lessons:()=>goGradeSkills(),tests:()=>goTests(),words:()=>goWords(),teacher:()=>goTeacherTools()};
+ const routes={lessons:()=>goGradeSkills(),tests:()=>goTests(),words:()=>goWords(),teacher:()=>goTeacherTools(),screenfree:()=>sfHome()};
  if(!Object.prototype.hasOwnProperty.call(routes,id))return;
  selectedDoor=id;
  routes[id]();
@@ -52,8 +54,8 @@ function goTests(){
 window.mdpTestGrade=function(i){selectedGrade=i;goTests();};
 window.startAssessment=function(i){if(!SKILLS[i])return;activeId=i;selectedGrade=SKILLS[i].g-1;startQuiz();};
 function goTeacherTools(){
- mount('<div class="shell mdp-section">'+pageHeading('أدوات المعلمة','مركز المعلمة','مواد للتنفيذ داخل الفصل، وليست أنشطة الطالب الرقمية')+'<div class="mdp-toolgrid"><article class="mdp-tool"><div class="mdp-toolmark">١</div><h2>انتظار بلا شاشة</h2><p>خطة حصة بحسب الصف والمهارة والوقت، مع بطاقات الطلاب والإجابات للمعلمة قابلة للطباعة أو الحفظ بصيغة PDF.</p><button class="btn gold" onclick="sfHome()">فتح الحقيبة الورقية</button></article><article class="mdp-tool"><div class="mdp-toolmark">٢</div><h2>دليل التنفيذ الصفي</h2><p>إرشادات لتنظيم الحصة والتعامل مع تعثر الطلاب وتوظيف الوسائل المحسوسة.</p><button class="btn" onclick="goGuide()">فتح دليل المعلمة</button></article></div></div>','guide','teacher-tools');
-};
+ mount('<div class="shell mdp-section">'+pageHeading('أدوات المعلمة','أدوات المعلمة','إرشادات صفية للتنفيذ والمتابعة')+'<div class="mdp-toolgrid"><article class="mdp-tool"><div class="mdp-toolmark">١</div><h2>دليل التنفيذ الصفي</h2><p>إرشادات لتنظيم الحصة والتعامل مع تعثر الطلاب وتوظيف الوسائل المحسوسة.</p><button class="btn gold" onclick="goGuide()">فتح الدليل</button></article><article class="mdp-tool"><div class="mdp-toolmark">٢</div><h2>متابعة نتائج الاختبارات</h2><p>استعراض محاولات التدريب المحفوظة على هذا الجهاز، دون الحاجة إلى أسماء الطلاب أو مشاركة بياناتهم.</p><button class="btn" onclick="goRecord()">عرض سجل النتائج</button></article></div></div>','guide','teacher-tools');
+}
 finishQuiz=function(){
  const s=SKILLS[activeId];if(!s)return;
  const score=answers.filter(x=>x.good).length,hints=answers.filter(x=>x.hints>0).length;
@@ -64,12 +66,12 @@ goBackInside=function(){
  if(currentSection==='quiz'||currentSection==='result'||currentSection==='record'){goTests();return;}
  if(currentSection==='skill'){goGradeSkills();return;}
  if(currentSection==='screenfree-detail'){sfHome();return;}
- if(currentSection==='screenfree'){goTeacherTools();return;}
+ if(currentSection==='screenfree'){goHome();return;}
  if(currentSection==='guide'){goTeacherTools();return;}
  goHome();
 };
 returnButton=function(place,section){
- const label=section==='quiz'||section==='result'||section==='record'?'العودة إلى الاختبارات':section==='skill'?'العودة إلى الدروس':section==='screenfree-detail'?'العودة إلى مهارات الحقيبة':section==='screenfree'||section==='guide'?'العودة إلى أدوات المعلمة':'العودة إلى الرئيسية';
+ const label=section==='quiz'||section==='result'||section==='record'?'العودة إلى الاختبارات':section==='skill'?'العودة إلى الدروس':section==='screenfree-detail'?'العودة إلى مهارات الحقيبة':section==='screenfree'?'العودة إلى الرئيسية':section==='guide'?'العودة إلى أدوات المعلمة':'العودة إلى الرئيسية';
  return '<nav class="return-nav return-nav--'+place+'"><button type="button" class="return-button" onclick="goBackInside()"><span class="return-symbol">↩</span>'+label+'</button></nav>';
 };
 window.goTests=goTests;
