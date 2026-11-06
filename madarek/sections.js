@@ -19,7 +19,7 @@ const doors=[
  ['screenfree','انتظار بلا شاشة','خطط وبطاقات ورقية قابلة للطباعة ودليل إجابات','sfHome()']
 ];
 function mdpOpenDoor(id){
- const routes={lessons:()=>goGradeSkills(),tests:()=>goTests(),words:()=>goWords(),teacher:()=>goTeacherTools(),screenfree:()=>sfHome()};
+ const routes={lessons:()=>goGradeSkills(),tests:()=>goTests(),words:()=>goWords(),teacher:()=>goTeacherTools(),screenfree:()=>window.sfHome()};
  if(!Object.prototype.hasOwnProperty.call(routes,id))return;
  selectedDoor=id;
  routes[id]();
@@ -65,7 +65,7 @@ finishQuiz=function(){
 goBackInside=function(){
  if(currentSection==='quiz'||currentSection==='result'||currentSection==='record'){goTests();return;}
  if(currentSection==='skill'){goGradeSkills();return;}
- if(currentSection==='screenfree-detail'){sfHome();return;}
+ if(currentSection==='screenfree-detail'){window.sfHome();return;}
  if(currentSection==='screenfree'){goHome();return;}
  if(currentSection==='guide'){goTeacherTools();return;}
  goHome();
