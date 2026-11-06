@@ -316,4 +316,15 @@ openSkill=function(i){
 };
 goHome();
 
-</script><script src="./screenfree.js?v=1"></script><script>if('serviceWorker' in navigator && location.protocol==='https:'){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(()=>{}));}</script></body></html>
+</script><script src="./screenfree.js?v=1"></script><script id="madarek-approved-deeplinks">
+(function(){
+ try {
+   const query=new URLSearchParams(location.search);
+   const n=Number(query.get('grade'));
+   if(Number.isInteger(n)&&n>=1&&n<=6){selectedGrade=n-1;goGradeSkills();return;}
+   const section=query.get('section');
+   const routes={skills:()=>goGradeSkills(),guide:()=>goGuide(),words:()=>goWords(),record:()=>goRecord(),screenfree:()=>sfHome()};
+   if(Object.prototype.hasOwnProperty.call(routes,section))routes[section]();
+ } catch(e){ console.warn('Madarek navigation:',e); }
+})();
+</script><script>if('serviceWorker' in navigator && location.protocol==='https:'){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(()=>{}));}</script></body></html>
