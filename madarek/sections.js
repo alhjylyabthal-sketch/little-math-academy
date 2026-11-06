@@ -61,7 +61,7 @@ goBackInside=function(){
  goHome();
 };
 returnButton=function(place,section){
- const label=section==='quiz'||section==='result'||section==='record'?'العودة للاختبارات':section==='skill'?'العودة للدروس':section==='screenfree-detail'?'العودة لمهارات الحقيبة':section==='screenfree'||section==='guide'?'العودة لأدوات المعلمة':'العودة للرئيسية';
+ const label=section==='quiz'||section==='result'||section==='record'?'العودة إلى الاختبارات':section==='skill'?'العودة إلى الدروس':section==='screenfree-detail'?'العودة إلى مهارات الحقيبة':section==='screenfree'||section==='guide'?'العودة إلى أدوات المعلمة':'العودة إلى الرئيسية';
  return '<nav class="return-nav return-nav--'+place+'"><button type="button" class="return-button" onclick="goBackInside()"><span class="return-symbol">↩</span>'+label+'</button></nav>';
 };
 window.goTests=goTests;
