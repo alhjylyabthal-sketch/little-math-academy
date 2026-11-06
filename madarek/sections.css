@@ -77,3 +77,29 @@ body:has(.mdp-home) .top{display:none!important}
  .mdp-hub{padding-top:14px!important}
 }
 @media(max-width:390px){.mdp-mast{aspect-ratio:2.4}.mdp-mast .mdp-scene{width:155%;right:-27.5%}}
+
+/* إعادة قسم انتظار بلا شاشة كباب أصيل منفرد — كحلي داكن وذهبي */
+.mdp-door--screenfree {
+ grid-column:1/-1; min-height:112px; display:flex; flex-direction:row;
+ justify-content:center; text-align:right; gap:18px; padding:18px 26px;
+ background:linear-gradient(120deg,#0c324e,#15586a);
+ border:2px solid #d0ad66; border-radius:22px;
+ box-shadow:0 8px 22px #0a34502b; color:#fff;
+}
+.mdp-door--screenfree .mdp-door-symbol {
+ width:69px;height:69px;flex:none;color:#f6d591;
+ background:#ffffff13;border:1px solid #f5d28790;
+}
+.mdp-door--screenfree strong{font-size:20px;color:#fff}
+.mdp-door--screenfree .mdp-door-desc{color:#e5f1f1;font-size:13px;max-width:460px}
+.mdp-door--screenfree:hover,.mdp-door--screenfree.is-current {
+ background:linear-gradient(120deg,#08273e,#0c4257);
+ border-color:#f4ca70;color:#fff
+}
+.mdp-door--screenfree:hover .mdp-door-desc{color:#fff}
+@media(max-width:575px){
+ .mdp-door--screenfree{min-height:112px;justify-content:flex-start;gap:13px;padding:15px 17px}
+ .mdp-door--screenfree .mdp-door-symbol{width:58px;height:58px}
+ .mdp-door--screenfree strong{font-size:18px}
+ .mdp-door--screenfree .mdp-door-desc{font-size:12px;line-height:1.7}
+}
