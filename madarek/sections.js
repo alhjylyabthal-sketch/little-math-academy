@@ -28,7 +28,13 @@ window.mdpOpenDoor=mdpOpenDoor;
 function pic(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+icons[k]+'</svg>';}
 function pageRows(forTests){
  const options=SKILLS.map((s,i)=>({s,i})).filter(x=>x.s.g===selectedGrade+1);
- return options.map(({s,i},j)=>'<article class="mdp-skill"><div class="mdp-step">'+fmt(j+1)+'</div><div class="mdp-skill-body"><h3>'+esc(s.title)+'</h3>'+(!forTests?'<p>'+esc(s.idea)+'</p>':'<p>تقويم مستقل • ستة أسئلة • نتيجة بعد الإكمال</p>')+'</div><button class="btn '+(forTests?'gold':'')+'" type="button" onclick="'+(forTests?'startAssessment('+i+')':'openSkill('+i+')')+'">'+(forTests?'ابدأ الاختبار':'افتح الدرس')+'</button></article>').join('');
+ return options.map(({s,i},j)=>{
+   const actions=forTests
+     ? '<button class="btn gold" type="button" onclick="startAssessment('+i+')">ابدأ الاختبار</button>'
+     : '<div class="mdp-lesson-actions"><button class="btn gold" type="button" onclick="openClassroom('+i+')">عرض صفي</button><button class="btn outline" type="button" onclick="openSkill('+i+')">تفاصيل الدرس</button></div>';
+   return '<article class="mdp-skill"><div class="mdp-step">'+fmt(j+1)+'</div><div class="mdp-skill-body"><h3>'+esc(s.title)+'</h3><p>'+
+     (forTests?'تقويم مستقل • ستة أسئلة • نتيجة بعد الإكمال':esc(s.idea))+'</p></div>'+actions+'</article>';
+ }).join('');
 }
 function gradeBar(callback){
  return '<div class="mdp-gradebar" aria-label="اختيار الصف">'+GRADES.map((g,i)=>'<button type="button" class="'+(selectedGrade===i?'chosen':'')+'" onclick="'+callback+'('+i+')">الصف '+g+'</button>').join('')+'</div>';
@@ -45,7 +51,7 @@ goGradeSkills=function(){
 openSkill=function(i){
  const s=SKILLS[i];if(!s)return; activeId=i; selectedGrade=s.g-1;
  const question=TEASER_QUESTIONS[i]||'ما الفكرة التي تساعدنا على فهم هذه المهارة؟';
- mount('<div class="shell mdp-section"><header class="lessonhead"><div><span class="bubble">الصف '+GRADES[s.g-1]+' • الفصل الأول</span><h1>'+esc(s.title)+'</h1><p>صفحة للفهم والشرح فقط</p></div><div class="lessonbadge">'+SKILL_ICONS[i%6]+'</div></header><section class="panel lesson-card"><h2>ألاحظ وأتساءل</h2><div class="teaser"><p>'+esc(question)+'</p></div></section><section class="panel lesson-card"><h2>أفهم الفكرة</h2><div class="lessonGoal">'+esc(s.idea)+'</div><div class="layout"><div class="mini cream"><h3>مثال من الدرس</h3><p>'+esc(s.example)+'</p></div><div class="mini"><h3>أين أستخدم هذه المهارة؟</h3><p>'+esc(s.intro||'أفهم المعطيات وأحدد المطلوب ثم أختار طريقة الحل المناسبة.')+'</p></div></div><div class="spaced">'+lessonSVG(s)+'</div><h3>خطوات الفهم</h3><div class="liststeps">'+(s.steps||[]).map((v,j)=>'<div class="steptile"><span class="numcircle">'+fmt(j+1)+'</span>'+esc(v)+'</div>').join('')+'</div></section></div>','skills','skill');
+ mount('<div class="shell mdp-section"><header class="lessonhead"><div><span class="bubble">الصف '+GRADES[s.g-1]+' • الفصل الأول</span><h1>'+esc(s.title)+'</h1><p>تفاصيل الدرس وخطوات الشرح للمعلمة</p><button class="btn gold" type="button" onclick="openClassroom('+i+')">بدء العرض الصفي</button></div><div class="lessonbadge">'+SKILL_ICONS[i%6]+'</div></header><section class="panel lesson-card"><h2>ألاحظ وأتساءل</h2><div class="teaser"><p>'+esc(question)+'</p></div></section><section class="panel lesson-card"><h2>أفهم الفكرة</h2><div class="lessonGoal">'+esc(s.idea)+'</div><div class="layout"><div class="mini cream"><h3>مثال من الدرس</h3><p>'+esc(s.example)+'</p></div><div class="mini"><h3>أين أستخدم هذه المهارة؟</h3><p>'+esc(s.intro||'أفهم المعطيات وأحدد المطلوب ثم أختار طريقة الحل المناسبة.')+'</p></div></div><div class="spaced">'+lessonSVG(s)+'</div><h3>خطوات الفهم</h3><div class="liststeps">'+(s.steps||[]).map((v,j)=>'<div class="steptile"><span class="numcircle">'+fmt(j+1)+'</span>'+esc(v)+'</div>').join('')+'</div></section></div>','skills','skill');
 };
 function goTests(){
  activeId=null;
