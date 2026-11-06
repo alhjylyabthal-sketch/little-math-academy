@@ -17,10 +17,47 @@
     var all = window.MADAREK_PAPER_TASKS;
     return Array.isArray(all) && Array.isArray(all[i]) && Array.isArray(all[i][n]) ? all[i][n] : null;
   }
-  function revealCard(content) {
+  function classroomText(value) {
+    return String(value == null ? "" : value)
+      .replace(/([٠-٩0-9])[٬,](?=[٠-٩0-9])/g, "$1")
+      .replace(/[٠١٢٣٤٥٦٧٨٩]/g, function (ch) { return ch; })
+      .replace(/\s*[.。]\s*$/g, "")
+      .trim();
+  }
+  function expressionParts(values) {
+    var parts = values.split(/\s*\+\s*/).map(function (term) { return classroomText(term); });
+    return '<div class="mdc-math-terms" dir="rtl" aria-label="' + safe(parts.join(" زائد ")) + '">' +
+      parts.map(function (part, i) {
+        return (i ? '<span class="mdc-math-plus" aria-hidden="true">+</span>' : '') +
+          '<bdi class="mdc-math-term" dir="ltr">' + safe(part) + '</bdi>';
+      }).join("") + '</div>';
+  }
+  function preparedExample(s) {
+    var raw = classroomText(s.example);
+    var m = raw.match(/^([٠-٩0-9٬,]+)\s*=\s*([٠-٩0-9٬,\s+]+)$/);
+    if (m && m[2].indexOf("+") >= 0) {
+      var n = classroomText(m[1]);
+      var addends = m[2].split(/\s*\+\s*/).map(classroomText);
+      // الصيغة التحليلية: أظهر الآحاد في أقصى اليمين، ثم العشرات فالمئات.
+      var number = function (t) { return Number(t.replace(/[٠-٩]/g, function (x) {return "٠١٢٣٤٥٦٧٨٩".indexOf(x)})); };
+      var total = addends.reduce(function (a,b) { return a + number(b); }, 0);
+      if (total === number(n)) {
+        addends.sort(function(a,b){return number(a)-number(b)});
+        return { question: 'اكتب العدد ' + n + ' بالصيغة التحليلية',
+          answer: '<div class="mdc-math-block"><div class="mdc-equals-heading" dir="rtl"><bdi dir="ltr">' +
+            safe(n) + '</bdi><span>يساوي</span></div>' +
+            expressionParts(addends.join(" + ")) + '</div>' };
+      }
+    }
+    return {question:"كيف نصل إلى الحل؟",
+      answer:'<div class="mdc-ordinary-answer" dir="rtl">' + safe(raw) + '</div>'};
+  }
+  function revealCard(content, trustedAnswerHtml) {
     return '<div class="mdc-reveal">' +
       '<button type="button" class="mdc-reveal-button" data-mdc="reveal" aria-expanded="false">إظهار الإجابة</button>' +
-      '<div class="mdc-answer" data-mdc-answer hidden><span>الإجابة النموذجية</span><strong>' + safe(content) + '</strong></div></div>';
+      '<div class="mdc-answer" data-mdc-answer hidden><span>الإجابة النموذجية</span>' +
+      (trustedAnswerHtml || '<strong class="mdc-ordinary-answer">' + safe(classroomText(content)) + '</strong>') +
+      '</div></div>';
   }
   function slideHtml() {
     var s = SKILLS[session.skillId];
@@ -43,10 +80,11 @@
         '<p class="mdc-small-note">عبّر عن الفكرة بطريقتك.</p></div>';
     }
     if (index === 3) {
+      var example = preparedExample(s);
       return '<div class="mdc-center"><div class="mdc-kicker">مثال من الدرس</div>' +
-        '<h2 class="mdc-medium-heading">كيف نصل إلى الحل؟</h2>' +
-        '<p class="mdc-small-note">ناقش خطوات الحل أولًا، ثم اكشف المثال.</p>' +
-        revealCard(s.example) + '</div>';
+        '<h2 class="mdc-work-question">' + safe(example.question) + '</h2>' +
+        '<p class="mdc-small-note">فكّر في الحل وناقشه، ثم أظهر الإجابة أسفل السؤال.</p>' +
+        revealCard(s.example, example.answer) + '</div>';
     }
     if (index === 4) {
       return '<div class="mdc-center"><div class="mdc-kicker">خطوات الفهم</div>' +
