@@ -1,0 +1,62 @@
+
+/* امتداد انتظار بلا شاشة، مع الحفاظ على الهوية الأصلية لمدارك */
+.toplinks #bscreenfree{background:#e8c77d;color:#123c55;border-color:#e8c77d;font-weight:900;border-radius:12px}
+.toplinks #bscreenfree.active{background:#f4d991;color:#10344c;box-shadow:0 0 0 2px #ffffff88 inset}
+.sf-home-teaser{display:flex;width:100%;gap:18px;align-items:center;text-align:right;border:1.5px solid #d7b570;background:linear-gradient(120deg,#fff9ee,#edf8f6);padding:20px 23px;margin:16px 0;border-radius:22px;color:#133e54;cursor:pointer;box-shadow:0 6px 24px #123e5310}
+.sf-home-teaser .sf-teaser-icon{font-size:35px;background:white;border-radius:19px;padding:10px}
+.sf-home-teaser span:nth-child(2){flex:1;display:grid;gap:5px}
+.sf-home-teaser strong{font-size:21px}
+.sf-home-teaser small{font-size:14px;color:#52717c}
+.sf-teaser-arr{font-size:27px;color:#117d84}
+.sf-wrap{direction:rtl;max-width:1100px;margin:auto;font-family:inherit;color:#123b54;padding-bottom:26px}
+.sf-banner{display:flex;gap:22px;align-items:center;background:linear-gradient(118deg,#103d5a,#0d7180);color:white;border-radius:28px;padding:32px;box-shadow:0 12px 27px #14344d1e;margin-bottom:22px}
+.sf-banner-symbol{font-size:62px;background:#ffffff24;border-radius:22px;padding:16px}
+.sf-over{color:#f5cf84;font-weight:800;letter-spacing:0}
+.sf-banner h1{color:white;margin:9px 0;font-size:clamp(27px,4vw,42px)}
+.sf-banner p{color:#e6f5f6;margin:0;line-height:1.9;font-size:16px}
+.sf-flag{display:inline-flex;background:#f6d487;color:#193b4c;border-radius:30px;padding:7px 15px;font-size:13px;margin-top:16px;font-weight:850}
+.sf-panel{background:#fff;border:1px solid #dae7e5;border-radius:23px;padding:25px;margin:16px 0;box-shadow:0 7px 23px #163f4e0b}
+.sf-panel-head{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:20px}
+.sf-panel h2{font-size:23px;color:#123b54;margin:0 0 13px}
+.sf-panel-head h2{margin:0}
+.sf-panel-head p{color:#68818b;margin:4px 0}
+.sf-chip{display:inline-block;border-radius:20px;background:#edf8f6;color:#127581;padding:7px 13px;font-weight:800}
+.sf-grades{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.sf-grades button,.sf-duration button{border:1.5px solid #d7e8e8;border-radius:14px;background:#f8fbfb;color:#173f58;padding:16px 12px;font:inherit;font-weight:850;min-height:51px;cursor:pointer}
+.sf-grades button.is-on,.sf-duration button.is-on{background:#163e58;border-color:#163e58;color:white}
+.sf-skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.sf-skill-card{display:flex;gap:12px;background:#f9fcfc;border:1px solid #dfe9e7;border-radius:18px;padding:18px}
+.sf-order{background:#f4d98f;color:#143d57;min-width:36px;height:36px;border-radius:12px;display:grid;place-items:center;font-weight:900}
+.sf-skill-copy{flex:1;min-width:0}
+.sf-skill-copy h3{font-size:18px;line-height:1.65;margin:0 0 7px;color:#143b52}
+.sf-skill-copy p,.sf-subnote{line-height:1.8;color:#5b7680;font-size:14px}
+.sf-primary,.sf-secondary{min-height:46px;display:inline-flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;border-radius:13px;border:1px solid #0c7d83;background:#0c7d83;color:#fff;font:inherit;font-weight:900;padding:11px 18px;text-align:center}
+.sf-secondary{background:#fff;color:#0b6871;border-color:#a1cece}
+.sf-primary:hover{background:#11666d}
+.sf-credit{text-align:center;color:#637b85;font-weight:750;font-size:14px;margin:20px 0}
+.sf-detail-head{background:linear-gradient(120deg,#123e59,#164e69);padding:28px;border-radius:22px;color:white;margin-bottom:14px}
+.sf-detail-head h1{font-size:clamp(21px,3vw,30px);line-height:1.6;margin:14px 0 7px;color:white}
+.sf-detail-head p{color:#d6edf1;line-height:1.7}
+.sf-actions{display:flex;flex-wrap:wrap;gap:10px;margin:17px 0}
+.sf-keygrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.sf-keygrid>div{background:#f1f8f7;border-radius:15px;padding:16px;border:1px solid #dbece9}
+.sf-keygrid strong{color:#0d6d76}
+.sf-keygrid p{margin:7px 0 0;line-height:1.9;color:#284d60}
+.sf-duration{display:flex;flex-wrap:wrap;gap:9px}
+.sf-duration button{padding:12px 18px;min-height:44px}
+.sf-time-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:10px;margin-top:16px}
+.sf-time-step{display:grid;text-align:center;gap:5px;padding:14px 8px;border:1px solid #e1e9e8;border-radius:13px;background:#fbfaf5}
+.sf-time-step strong{font-size:22px;color:#0e777e}
+.sf-time-step span{font-size:13px;color:#586f79}
+.sf-phase{display:flex;gap:16px;border-bottom:1px solid #e4eeee;padding:18px 0}
+.sf-phase:last-child{border:0}
+.sf-phase>span{display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:11px;background:#ead18c;color:#153c57;font-weight:900}
+.sf-phase h3{font-size:18px;color:#133b53;margin:0 0 9px}
+.sf-phase p,.sf-phase li{line-height:1.9;margin:5px 0;color:#425e6b}
+.sf-question-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.sf-question{background:#fafcfc;border:1px solid #e0eaea;border-radius:13px;padding:14px}
+.sf-question strong{display:block;line-height:1.8}
+.sf-question p{line-height:1.7;color:#54747d;margin:6px 0 0}
+#b screenfree{color:inherit}
+@media(max-width:620px){.sf-wrap{padding:0 0 20px}.sf-panel{padding:18px}.sf-banner{padding:23px;gap:12px}.sf-banner-symbol{font-size:37px;padding:10px}.sf-skills,.sf-keygrid,.sf-question-list{grid-template-columns:1fr}.sf-grades{grid-template-columns:repeat(2,minmax(0,1fr))}.sf-actions>*{width:100%}.sf-home-teaser{padding:15px;gap:11px}.sf-home-teaser strong{font-size:17px}.sf-home-teaser small{font-size:12px}.sf-home-teaser .sf-teaser-icon{font-size:26px}.sf-panel h2{font-size:20px}}
+@media print{.sf-print-page{color:#172a37;direction:rtl;font-family:Tahoma,Arial,sans-serif;font-size:12pt}.sf-print-page h1{font-size:20pt;color:#134058}.sf-print-page h2{font-size:15pt;color:#13596b}.sf-print-page h3{font-size:12pt;margin:14pt 0 5pt;color:#144960}.sf-print-page p,.sf-print-page li{line-height:1.7;margin:5pt 0}.sf-print-brand{background:#edf7f6;padding:9pt;border-bottom:2pt solid #d9b76e}.sf-print-q{border:1px solid #ddd;border-radius:6px;margin:9pt 0;padding:9pt;break-inside:avoid}.sf-print-opts{padding:7pt 0;line-height:1.9}.sf-write-line{border-bottom:1px dashed #b7b7b7;height:13pt}.sf-print-credit{text-align:center;font-weight:700;margin-top:20pt}.sf-print-footer{text-align:center;margin-top:16pt}}
