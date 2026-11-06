@@ -112,3 +112,88 @@ body:has(.mdp-home) .top{display:none!important}
  .mdp-lesson-actions{width:100%;margin-top:3px;justify-content:stretch}
  .mdp-lesson-actions .btn{flex:1;min-width:0}
 }
+
+/* mdp-skill-mobile-readable-v1
+   إبقاء الرقم والعنوان في صف واضح، ونقل الزرين إلى صف مستقل.
+   منع زرَي الدرس من توسيع العمود الأول وسحق عنوان المهارة. */
+@media (max-width: 900px) {
+  .mdp-section .mdp-skill {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 10px 12px;
+    align-items: start;
+    width: 100%;
+    min-width: 0;
+    padding: 16px;
+    text-align: right;
+  }
+  .mdp-section .mdp-skill > .mdp-step {
+    grid-column: 1;
+    grid-row: 1;
+    width: 42px;
+    height: 42px;
+    min-width: 0;
+    align-self: start;
+    flex: none;
+  }
+  .mdp-section .mdp-skill > .mdp-skill-body {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    width: 100%;
+    flex: none;
+    text-align: right;
+  }
+  .mdp-section .mdp-skill-body h3 {
+    margin: 0 0 7px;
+    font-size: clamp(16px, 3.8vw, 20px);
+    line-height: 1.7;
+    font-weight: 800;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    text-align: right;
+  }
+  .mdp-section .mdp-skill-body p {
+    margin: 0;
+    font-size: clamp(12px, 3vw, 14px);
+    line-height: 1.7;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    text-align: right;
+  }
+  .mdp-section .mdp-skill > .mdp-lesson-actions {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin-top: 5px;
+    min-width: 0;
+    justify-content: stretch;
+    align-items: stretch;
+  }
+  .mdp-section .mdp-lesson-actions > .btn {
+    min-width: 0;
+    width: 100%;
+    grid-column: auto;
+    line-height: 1.55;
+    white-space: normal;
+    padding: 11px 8px;
+    border-radius: 14px;
+  }
+  .mdp-section .mdp-skill > .btn {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    justify-self: stretch;
+    min-width: 0;
+  }
+}
+@media (max-width: 380px) {
+  .mdp-section .mdp-skill {padding: 13px; gap: 9px;}
+  .mdp-section .mdp-lesson-actions {gap: 8px;}
+}
