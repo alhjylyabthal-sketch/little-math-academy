@@ -1,0 +1,65 @@
+
+/* Madarek unified educational identity — visual layer only. */
+:root{--navy:#103653;--deep:#092b46;--gold:#c7a052;--gold2:#eacb86;--turquoise:#2b9a98;--cream:#fffaf0;--ink:#123854;--bg:#f7f9fa;--line:#e6e9e8}
+body{background:linear-gradient(180deg,#f9fbfb,#f5f9f8 55%,#fff);color:#183c53}
+.top{position:relative;background:#0c3450!important;border-bottom:2px solid #c7a052!important;box-shadow:0 3px 20px #072e4830}
+.topbar{max-width:1300px;min-height:74px;gap:12px}
+.top .logo strong{color:white!important;font-size:24px;letter-spacing:.1px}
+.top .logo span{color:#e6f3f5!important;font-weight:500}
+.top .mark{border-color:#e3c37b!important;background:#fff8e7!important;box-shadow:none!important;width:45px;height:45px;border-radius:15px}
+.toplinks{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:5px}
+.toplinks button{color:#f7fcff!important;background:transparent!important;border-radius:12px!important;font-weight:700!important}
+.toplinks button:hover,.toplinks button.active{background:#f6e7c32e!important;color:#fff!important}
+#bscreenfree{border:1px solid #d9b46c!important;color:#fff3cf!important}
+.shell{max-width:1200px;margin:auto}
+.container{max-width:1250px;padding-top:22px}
+.md-home{direction:rtl;display:flex;flex-direction:column;gap:20px}
+.md-cover{position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(125deg,#e7f3f4 0%,#fff 42%,#eef8fb 100%);border:1px solid #d7e8e8;box-shadow:0 11px 34px #0d40551c}
+.md-cover:before,.md-cover:after{content:"";position:absolute;pointer-events:none;border-radius:50%;filter:blur(3px);opacity:.5}
+.md-cover:before{width:300px;height:300px;right:-150px;bottom:-235px;background:#4abeb39c}
+.md-cover:after{width:260px;height:260px;left:-105px;top:-185px;background:#edcf8799}
+.md-cover-top{position:relative;z-index:1;background:#0d3854;color:white;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 20px;border-bottom:3px solid #c9a35d}
+.md-cover-top span{font-size:12px;font-weight:800}
+.md-cover-top span:nth-child(2){font-size:15px}
+.md-brand-stage{display:grid;grid-template-columns:minmax(125px,1fr) minmax(290px,1.5fr) minmax(125px,1fr);min-height:280px;position:relative;z-index:1;align-items:end;gap:4px;padding:26px 24px 4px}
+.md-person{width:204px;height:220px;position:relative;overflow:hidden;border-radius:35% 35% 15px 15px;margin:auto auto 0;isolation:isolate}
+.md-person:after{content:"";position:absolute;bottom:0;left:0;right:0;height:8px;background:linear-gradient(90deg,transparent,#d4b56e,transparent);opacity:.6}
+.md-person img{max-width:none;position:absolute;width:425px;height:225px;top:0}
+.md-person--boy img{left:0}
+.md-person--girl img{left:-217px}
+.md-brand-center{align-self:center;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:2;padding:8px 0 0;gap:3px}
+.md-brand-emblem{font-size:41px;line-height:1.1;filter:drop-shadow(0 3px 0 #d6b877)}
+.md-brand-center h1{color:#0b3957!important;font-size:clamp(55px,6.8vw,95px)!important;line-height:1.35;font-weight:1000;letter-spacing:-4px;margin:-2px 0 0;text-shadow:2px 3px #e6c784}
+.md-brand-center .motto{color:#073c52;font-weight:900;background:#fff9e4d9;border:1px solid #d4aa5a;border-radius:999px;padding:5px 20px;font-size:clamp(13px,1.6vw,18px);margin:0}
+.md-brand-center .descriptor{color:#446c7c;font-size:13px;font-weight:700;line-height:1.6;margin-top:5px}
+.md-school-strip{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:5px 22px;padding:10px 20px;background:#ffffffc9;border-top:1px solid #dde8e6;font-size:12px;font-weight:800;color:#235369}
+.md-school-strip .school-identity:before{content:"✦";color:#b48839;padding:0 8px}
+.md-school-strip .teacher-identity{color:#0e6370}
+.md-feature-wrap{margin:0}
+.md-feature-title{text-align:center;color:#133f57;font-size:20px;font-weight:900;margin:3px 0 13px}
+.md-feature-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.md-feature-card{background:white;border:1px solid #d7e3e3;border-bottom:3px solid #d3ad64;border-radius:22px;box-shadow:0 7px 18px #13415b0c;min-height:144px;display:flex;flex-direction:column;gap:4px;align-items:center;justify-content:center;color:#113b56;padding:13px 7px;transition:transform .15s,border-color .15s}
+.md-feature-card:hover,.md-feature-card:focus-visible{transform:translateY(-3px);border-color:#4cb3a5}
+.md-feature-card .md-ico{display:grid;place-items:center;background:#edf8f6;border-radius:20px;width:60px;height:55px;font-size:30px;line-height:1}
+.md-feature-card strong{font-size:16px;color:#143a56}
+.md-feature-card small{font-size:12px;color:#687e8d;text-align:center;line-height:1.55}
+.md-feature-card--screenfree .md-ico{background:#fbf2db}
+.md-grade-heading{font-size:17px;color:#123f59;font-weight:900;margin:0 0 12px}
+.md-grade-panel{background:linear-gradient(135deg,#fff,#f0f9f8);border:1px solid #d7e7e5;padding:17px 19px;border-radius:23px;box-shadow:0 4px 16px #123f5110}
+.md-grades{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.md-grade{background:white;border:1px solid #d8e5e6;border-radius:16px;min-height:83px;color:#123c55;font-weight:900;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1px;box-shadow:0 2px 0 #eaf0f0;transition:border-color .15s}
+.md-grade:hover{border-color:#319a9a}
+.md-grade strong{font-size:13px}
+.md-grade span{font-size:25px;line-height:1.15;font-weight:900;color:#218e93}
+.md-grade.selected{border:2px solid #c9a15a;background:#fff4db;box-shadow:0 3px 0 #e4ca91}
+.md-grade.selected span{color:#8b671f}
+.md-home-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;padding:3px 0 8px}
+.md-home-actions button{min-height:49px;min-width:210px}
+.md-home-actions .md-primary{background:#0d3a57!important}
+.md-home-actions .md-secondary{color:#116772!important;background:#e8f7f6!important}
+.md-home-actions .md-print{background:#fff5dc!important;color:#81631f!important}
+.md-grade .grade-count{font-size:12px}
+@media(max-width:900px){.md-brand-stage{grid-template-columns:1fr 1.3fr 1fr;min-height:235px;padding:17px 11px 2px}.md-person{width:150px;height:162px}.md-person img{width:306px;height:162px}.md-person--girl img{left:-156px}.md-brand-center h1{font-size:59px!important}.md-brand-emblem{font-size:31px}.md-brand-center .motto{padding:5px 10px}.md-feature-grid{gap:8px}.md-feature-card{min-height:121px}.md-feature-card strong{font-size:14px}.md-feature-card .md-ico{width:45px;height:45px;font-size:25px}}
+@media(max-width:600px){.topbar{flex-wrap:wrap;padding:7px 10px;gap:3px}.top .logo strong{font-size:20px}.toplinks{display:flex!important;overflow:auto;width:100%;justify-content:flex-start;flex-wrap:nowrap;white-space:nowrap;scrollbar-width:none}.toplinks button{flex:0 0 auto;min-height:38px;padding:6px 11px!important;font-size:12px!important}.container{padding:12px 9px 30px}.md-home{gap:14px}.md-cover{border-radius:18px}.md-cover-top{padding:8px 10px}.md-cover-top span{font-size:10px}.md-cover-top span:nth-child(2){font-size:11px}.md-brand-stage{grid-template-columns:90px minmax(0,1fr) 90px;gap:1px;min-height:154px;padding:8px 1px 0;overflow:hidden}.md-person{width:90px;height:130px;border-radius:20px 20px 5px 5px}.md-person img{width:245px;height:130px}.md-person--girl img{left:-125px}.md-brand-center h1{font-size:clamp(35px,11vw,50px)!important;letter-spacing:-2px;margin:0}.md-brand-emblem{font-size:22px}.md-brand-center .motto{font-size:10px;padding:3px 5px;border-radius:12px;line-height:1.6}.md-brand-center .descriptor{font-size:9px;line-height:1.45;margin-top:3px}.md-school-strip{font-size:10px;padding:9px 6px;gap:4px 10px}.md-feature-title{font-size:17px;margin:0 0 10px}.md-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.md-feature-card{min-height:104px;border-radius:14px;padding:9px 5px}.md-feature-card .md-ico{width:42px;height:40px;font-size:22px;border-radius:12px}.md-feature-card strong{font-size:13px}.md-feature-card small{font-size:11px}.md-feature-card--screenfree{grid-column:span 2;min-height:86px;display:flex;flex-direction:row;gap:15px}.md-grade-panel{padding:12px 9px;border-radius:17px}.md-grade-heading{font-size:15px}.md-grades{grid-template-columns:repeat(3,1fr);gap:6px}.md-grade{min-height:70px;border-radius:13px}.md-grade strong{font-size:12px}.md-grade span{font-size:21px}.md-home-actions{flex-direction:column}.md-home-actions button{width:100%;min-width:unset}}
+@media(max-width:350px){.md-brand-stage{grid-template-columns:72px minmax(0,1fr) 72px}.md-person{width:72px;height:104px}.md-person img{width:196px;height:104px}.md-person--girl img{left:-100px}.md-brand-center h1{font-size:33px!important}.md-brand-center .motto{font-size:9px}.md-brand-center .descriptor{display:none}}
+@media print{.md-home-actions,.md-feature-wrap,.md-grade-panel,.md-cover{display:none!important}}
