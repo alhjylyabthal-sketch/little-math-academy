@@ -1,0 +1,20 @@
+{
+  "name": "مدارك — حقيبة المهارات الرياضية",
+  "short_name": "مدارك",
+  "description": "حقيبة المهارات الرياضية للفصل الدراسي الأول",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff9ed",
+  "theme_color": "#0b3049",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
