@@ -57,6 +57,7 @@
 .sf-question{background:#fafcfc;border:1px solid #e0eaea;border-radius:13px;padding:14px}
 .sf-question strong{display:block;line-height:1.8}
 .sf-question p{line-height:1.7;color:#54747d;margin:6px 0 0}
-#b screenfree{color:inherit}
 @media(max-width:620px){.sf-wrap{padding:0 0 20px}.sf-panel{padding:18px}.sf-banner{padding:23px;gap:12px}.sf-banner-symbol{font-size:37px;padding:10px}.sf-skills,.sf-keygrid,.sf-question-list{grid-template-columns:1fr}.sf-grades{grid-template-columns:repeat(2,minmax(0,1fr))}.sf-actions>*{width:100%}.sf-home-teaser{padding:15px;gap:11px}.sf-home-teaser strong{font-size:17px}.sf-home-teaser small{font-size:12px}.sf-home-teaser .sf-teaser-icon{font-size:26px}.sf-panel h2{font-size:20px}}
 @media print{.sf-print-page{color:#172a37;direction:rtl;font-family:Tahoma,Arial,sans-serif;font-size:12pt}.sf-print-page h1{font-size:20pt;color:#134058}.sf-print-page h2{font-size:15pt;color:#13596b}.sf-print-page h3{font-size:12pt;margin:14pt 0 5pt;color:#144960}.sf-print-page p,.sf-print-page li{line-height:1.7;margin:5pt 0}.sf-print-brand{background:#edf7f6;padding:9pt;border-bottom:2pt solid #d9b76e}.sf-print-q{border:1px solid #ddd;border-radius:6px;margin:9pt 0;padding:9pt;break-inside:avoid}.sf-print-opts{padding:7pt 0;line-height:1.9}.sf-write-line{border-bottom:1px dashed #b7b7b7;height:13pt}.sf-print-credit{text-align:center;font-weight:700;margin-top:20pt}.sf-print-footer{text-align:center;margin-top:16pt}}
+
+.sf-global-credit{display:block;margin-top:8px;color:#eed08e;font-size:13px;font-weight:800;line-height:1.7}
