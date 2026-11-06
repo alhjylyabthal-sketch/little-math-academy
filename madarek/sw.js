@@ -1,5 +1,5 @@
-const CACHE_NAME='madarek-offline-v6-approved-school';
-const FILES=['./','./index.html','./screenfree.js?v=1','./screenfree.css?v=1','./manifest.webmanifest','./brand.css?v=2','./students-approved.svg','./school-approved.svg','./icon.svg','./icon-192.png','./icon-512.png'];
+const CACHE_NAME='madarek-offline-v7-exact-approved-design';
+const FILES=['./','./index.html','./screenfree.js?v=1','./screenfree.css?v=1','./manifest.webmanifest','./brand.css?v=2','./students-approved.svg','./school-approved.svg','./icon.svg','./icon-192.png','./icon-512.png','./approved.css?v=1','./approved-main.webp','./approved-center.webp','./approved-boy.webp','./approved-girl.webp','./approved-tools.webp','./approved-tests.webp','./approved-games.webp','./approved-activities.webp','./approved-lessons.webp','./approved-wave.webp'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('madarek-offline-')&&k!==CACHE_NAME).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{
