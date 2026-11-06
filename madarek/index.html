@@ -53,7 +53,7 @@
 @media(max-width:1020px){.dash{grid-template-columns:1fr}.sidecol{order:-1}.gradeTiles{grid-template-columns:repeat(6,1fr)}.gradeTile{min-height:76px}.featureGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.topbar{padding:8px 12px}.toplinks button{padding:7px 9px;font-size:12px}}
 @media(max-width:700px){.container{padding:12px 11px 45px}.topbar{flex-wrap:wrap;min-height:unset;gap:4px;padding:6px 10px}.logo strong{font-size:22px}.mark{width:38px;height:38px;font-size:21px;border-radius:12px}.logo span{font-size:9px}.toplinks{width:100%;overflow:auto;justify-content:flex-start;padding-bottom:4px}.toplinks button{font-size:12px;min-height:36px;padding:4px 11px}.toplinks .miniicon{display:none}.hero{border-radius:18px}.hero-visual{aspect-ratio:905/400}.hero-actions{display:flex;justify-content:center;flex-wrap:wrap;padding:12px}.hero-actions .btn{width:100%;min-height:46px}.hero-sub{font-size:12px;text-align:center}.sidebox{padding:14px;border-radius:19px}.gradeTiles{grid-template-columns:repeat(3,1fr)}.gradeTile{min-height:75px;font-size:12px}.gradeTile strong{font-size:15px}.sectionTitle h2{font-size:19px}.featureGrid{grid-template-columns:repeat(2,1fr);gap:10px}.featureTile{min-height:120px;border-radius:17px;font-size:13px}.featureTile .fi{font-size:28px;min-width:58px}.skillgrid,.layout,.wordgrid{grid-template-columns:1fr}.liststeps{grid-template-columns:1fr}.skill{min-height:190px}.panel{padding:16px;border-radius:18px}.lessonhead{grid-template-columns:1fr;gap:7px;padding:17px;border-radius:20px}.lessonbadge{display:none}.quiz{padding:17px;border-radius:20px}.quiz .answers{grid-template-columns:1fr}.quiz .answer{min-height:64px}.grades{grid-template-columns:repeat(3,1fr)}.resultWrap{padding:20px}.resultWrap h1{font-size:24px}}
 @media print{header,.top,.footer,.return-nav,.btn,.hero-actions,.toplinks{display:none!important}body{background:white!important}.panel{box-shadow:none}#root{display:none!important}#printarea{display:block!important}}
-</style></head><body>
+</style><style id="madarek-activity-styles">.md-pad-box{background:#fbfefd;border:1px solid #d5e5e7;border-radius:18px;padding:15px;margin:12px 0}.md-pad-box p{font-weight:800}.md-display{display:grid;place-items:center;min-height:65px;border:2px dashed #a7cbd0;border-radius:14px;font-size:25px;font-weight:900;background:white;color:#0b3049}.md-keygrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:360px;margin:14px auto}.md-key{min-height:52px;border:1px solid #c6d7dd;border-radius:12px;background:#fff8e9;color:#0b3049;font-weight:900;font-size:22px}.md-pad-box>.btn{width:100%}.md-pad-box .toolbar{display:flex;flex-wrap:wrap;gap:8px}.md-pad-box .toolbar .btn{flex:1}.md-selected{background:#f2dfb0!important}.md-details{margin-top:12px;border:1px solid #dbe6ed;border-radius:13px;padding:12px 14px;background:#f7fafb;font-size:14px}.md-details summary{cursor:pointer;font-weight:900;color:#0b3049}.md-details p{margin:9px 0 2px}@media(max-width:575px){.md-key{min-height:50px}}</style></head><body>
 <header class="top"><div class="topbar"><div class="logo" onclick="goHome()" role="button" tabindex="0" onkeydown="if(event.key==='Enter')goHome()"><div class="mark">📖</div><div><strong>مدارك</strong><span>حقيبة المهارات الرياضية • الفصل الأول</span></div></div><div class="toplinks"><button id="bhome" onclick="goHome()">الرئيسية</button><button id="bskills" onclick="goGradeSkills()">المهارات</button><button id="bwords" onclick="goWords()">أفهم المسألة</button><button id="bguide" onclick="goGuide()">دليل المعلمة</button><button id="brecord" onclick="goRecord()">سجل النتائج</button></div></div></header>
 <main class="container" id="root"></main><div id="printarea"></div><div class="footwaves"></div><footer class="footer">مدارك • نفهم، نكتشف، نتقن • الفصل الدراسي الأول • نسخة تجريبية للعمل دون إنترنت</footer>
 <script>
@@ -191,6 +191,98 @@ let memoryRecords=[];
 function localStore(){try{return JSON.parse(localStorage.getItem('madarek-local-results-v2')||'[]')}catch{return memoryRecords}}
 function saveLocal(x){let data=localStore();data.unshift(x);data=data.slice(0,100);memoryRecords=data;try{localStorage.setItem('madarek-local-results-v2',JSON.stringify(data))}catch{}return true}
 function setWordsGrade(i){selectedGrade=i;goWords()}
+
+const MD_JUDGE={"0":[3,"قالت سارة: «▲ ● ● ▲ ● ▲» نمط صحيح تتكرر فيه الوحدة «▲ ● ●». هل قولها صحيح؟"],"1":[5,"قال أحمد: «العدد ١٩ أصغر من ١٨». هل قوله صحيح؟"],"2":[3,"قالت ريم: «١٢ أكبر من ١٥ لأن ٢ أكبر من ٥». هل قولها صحيح؟"],"3":[4,"قالت طالبة: «٤ + ٤ = ٩». هل إجابتها صحيحة؟"],"4":[4,"قال طالب: «٥ ألعاب مع لعبتين تساوي ٨ ألعاب». هل قوله صحيح؟"],"9":[3,"قال طالب: «قيمة الرقم ٥ في ٣٥٬٤١٢ هي ٥٠٠». هل قوله صحيح؟"],"10":[3,"قالت هدى: «٣٢٬٨٠٠ أصغر من ٣٢٬٠٨٠». هل قولها صحيح؟"],"11":[3,"قال طالب: «٢٤٨ + ١٥٦ = ٣٩٤». هل إجابته صحيحة؟"],"12":[4,"قالت طالبة: «٥ × ٢ = ٥ + ٢». هل قولها صحيح؟"],"13":[3,"قالت طالبة: «إذا بقي ٥٥ من أصل ٩٠، فإن ما أُخذ يساوي ٩٠ + ٥٥». هل قولها صحيح؟"]},MD_ORDER={"2":[4,"رتّب الأعداد بالنقر من الأكبر إلى الأصغر: ١١، ١٨، ١٤.",["١٨","١٤","١١"]],"10":[2,"رتّب الأعداد بالنقر من الأصغر إلى الأكبر: ٩٬٩٠٠، ١٠٬٠٠٠، ٩٬٠٩٠.",["٩٬٠٩٠","٩٬٩٠٠","١٠٬٠٠٠"]]},MD_FOCUS={"0":"ابحث عن الجزء الذي يتكرر كاملًا، ثم ابدأ به من جديد.","1":"يمكنك استخدام مكعبات العشرات والآحاد أو العد من العدد السابق.","2":"استخدم خط الأعداد؛ الأكبر يقع إلى اليمين.","3":"مثل الكميتين بنقاط ثم ضمهما وعدّها.","4":"حدّد ما كان موجودًا وما أُضيف، ثم تحقق بالعد.","9":"حدّد منزلة الرقم أولًا قبل كتابة قيمته.","10":"قارن المنازل من اليسار؛ عند التساوي انتقل إلى المنزلة التالية.","11":"حاذِ المنازل: الآحاد مع الآحاد والعشرات مع العشرات.","12":"ارسم المجموعات المتساوية ثم عد عناصرها.","13":"حدد هل أضيفت كمية أم أُخذ جزء من الكمية."};
+let mdNumber='',mdOrder=[],mdChoices=[];
+SKILLS.forEach((s,i)=>{let converted=0;s.questions.forEach((q,j)=>{
+ q.format='choice';q.hintFirst=q.hint;
+ q.hintSecond=MD_FOCUS[i]||(s.steps||[])[j%((s.steps||[]).length||1)]||'أعِد تمثيل المعطيات قبل اختيار إجابتك.';
+ if(q.hintSecond===q.hintFirst)q.hintSecond='استخدم التمثيل المصور وتحقق من علاقتك بين الكميات.';
+ if(MD_JUDGE[i]&&MD_JUDGE[i][0]===j){q.q=MD_JUDGE[i][1];q.format='judge';q.opts=['صحيح','غير صحيح'];q.right=1;return}
+ if(MD_ORDER[i]&&MD_ORDER[i][0]===j){q.q=MD_ORDER[i][1];q.format='order';q.order=MD_ORDER[i][2];return}
+ const correct=q.opts[q.right]||'';
+ if(converted<2&&j!==3&&j!==5&&/[٠-٩]/.test(q.q)&&/^[٠-٩]+(?:٬[٠-٩]{3})*(?:٫[٠-٩]+)?$/.test(correct)){q.format='number';converted++}
+})});
+function mdCanonical(v){return String(v).replace(/[٠-٩]/g,d=>String(d.charCodeAt(0)-1632)).replace(/[۰-۹]/g,d=>String(d.charCodeAt(0)-1776)).replace(/[٬،\s]/g,'').replace(/٫/g,'.')}
+function mdControls(q){
+ if(q.format==='number'){mdNumber='';return `<div class="md-pad-box"><p>اكتب الإجابة بالأرقام العربية</p><div id="md-display" class="md-display" aria-live="polite">…</div><div class="md-keygrid">${['١','٢','٣','٤','٥','٦','٧','٨','٩','مسح','٠','حذف','٫'].map(v=>`<button class="md-key" onclick="mdTap('${v}')">${v}</button>`).join('')}</div><button class="btn gold" id="md-check" onclick="mdCheckNumber()" disabled>أتحقّق من إجابتي</button></div>`}
+ if(q.format==='order'){mdOrder=[];mdChoices=q.order.slice().reverse();return `<div class="md-pad-box"><p>اضغط الأعداد حسب الترتيب المطلوب</p><div id="md-display" class="md-display" aria-live="polite">اختر العدد الأول</div><div class="answers">${mdChoices.map((v,i)=>`<button class="answer md-order-button" id="md-order-${i}" onclick="mdSelectOrder(${i})">${esc(v)}</button>`).join('')}</div><div class="toolbar"><button class="btn outline" id="md-undo" onclick="mdUndoOrder()" disabled>تراجع</button><button class="btn gold" id="md-check" onclick="mdCheckOrder()" disabled>أتحقّق من الترتيب</button></div></div>`}
+ return `<div class="answers">${q.opts.map((v,i)=>`<button class="answer" id="opt${i}" onclick="answer(${i})">${esc(v)}</button>`).join('')}</div>`;
+}
+showQuestion=function(){
+ const s=SKILLS[activeId],q=s.questions[qIndex];
+ if(!q){finishQuiz();return}
+ choiceLocked=false;hintLevel=0;
+ mount(`<div class="shell">${pageHeading('تحدي مدارك','اختبر فهمك','الصف '+GRADES[s.g-1]+' • '+esc(s.title))}<article class="quiz"><div class="qheader"><span class="pill gold">${esc(q.type)}</span><strong>السؤال ${fmt(qIndex+1)} من ٦</strong></div><div class="progress"><div style="width:${(qIndex/6)*100}%"></div></div><div class="qtitle">${esc(q.q)}</div>${mdControls(q)}<div class="qfoot"><button id="hintbtn" class="btn outline" onclick="showHint()">أحتاج تلميحًا</button></div><div id="hintcontent" aria-live="polite"></div><div id="feedback" aria-live="polite"></div><div id="forward"></div></article></div>`,'skills','quiz');
+};
+showHint=function(){
+ const q=SKILLS[activeId].questions[qIndex];if(hintLevel>=2||choiceLocked)return;
+ const msg=hintLevel===0?q.hintFirst:q.hintSecond;hintLevel++;
+ document.getElementById('hintcontent').innerHTML+=`<div class="hintbox"><strong>${hintLevel===1?'تلميح أول':'تلميح أقرب'}:</strong> ${esc(msg)}</div>`;
+ const b=document.getElementById('hintbtn');b.textContent=hintLevel===1?'تلميح إضافي':'ظهرت التلميحات';b.disabled=hintLevel===2;
+};
+function mdComplete(good){
+ if(choiceLocked)return;choiceLocked=true;
+ const q=SKILLS[activeId].questions[qIndex];answers.push({good,hints:hintLevel});
+ const b=document.getElementById('hintbtn');if(b)b.disabled=true;
+ document.querySelectorAll('.md-key,.md-pad-box button').forEach(e=>e.disabled=true);
+ const correct=q.format==='number'||q.format==='order'? `<p>الإجابة الصحيحة: <strong>${esc(q.opts[q.right])}</strong></p>`:'';
+ document.getElementById('feedback').innerHTML=`<div class="feedback ${good?'correct':'wrong'}"><strong>${good?'إجابة صحيحة!':'لنراجع طريقة التفكير.'}</strong>${good?'':correct}<p>${esc(q.why)}</p></div>`;
+ document.getElementById('forward').innerHTML=`<button class="btn gold" onclick="nextQuestion()">${qIndex===5?'عرض نتيجتي':'السؤال التالي'}</button>`;
+}
+answer=function(i){
+ if(choiceLocked)return;
+ const q=SKILLS[activeId].questions[qIndex];const good=i===q.right;
+ for(let j=0;j<q.opts.length;j++){const e=document.getElementById('opt'+j);if(e){e.disabled=true;if(j===q.right)e.classList.add('correct');else if(j===i)e.classList.add('wrong')}}
+ mdComplete(good);
+};
+function mdTap(v){
+ if(choiceLocked)return;
+ if(v==='مسح')mdNumber='';else if(v==='حذف')mdNumber=mdNumber.slice(0,-1);
+ else if(v==='٫'){if(mdNumber&& !mdNumber.includes('٫'))mdNumber+='٫'}
+ else if(mdNumber.length<12)mdNumber+=v;
+ document.getElementById('md-display').textContent=mdNumber||'…';document.getElementById('md-check').disabled=!mdNumber;
+}
+function mdCheckNumber(){
+ if(!mdNumber||choiceLocked)return;
+ const q=SKILLS[activeId].questions[qIndex];
+ mdComplete(mdCanonical(mdNumber)===mdCanonical(q.opts[q.right]));
+}
+function mdRefreshOrder(){
+ document.getElementById('md-display').textContent=mdOrder.length?mdOrder.map(i=>mdChoices[i]).join(' ← '):'اختر العدد الأول';
+ document.getElementById('md-undo').disabled=!mdOrder.length;
+ document.getElementById('md-check').disabled=mdOrder.length!==mdChoices.length;
+}
+function mdSelectOrder(i){
+ if(choiceLocked||mdOrder.includes(i))return;
+ mdOrder.push(i);const e=document.getElementById('md-order-'+i);e.disabled=true;e.classList.add('md-selected');mdRefreshOrder();
+}
+function mdUndoOrder(){
+ if(choiceLocked||!mdOrder.length)return;
+ const i=mdOrder.pop(),e=document.getElementById('md-order-'+i);e.disabled=false;e.classList.remove('md-selected');mdRefreshOrder();
+}
+function mdCheckOrder(){
+ const q=SKILLS[activeId].questions[qIndex];
+ if(choiceLocked||mdOrder.length!==q.order.length)return;
+ mdComplete(mdOrder.map(i=>mdChoices[i]).every((v,j)=>v===q.order[j]));
+}
+const mdOldStudent=printStudent,mdOldTeacher=printTeacher;
+printStudent=function(i){
+ const s=SKILLS[i];printDoc(`<h1>مدارك — بطاقة الطالب</h1><h2>${esc(s.title)}</h2><p>الصف ${GRADES[s.g-1]} الابتدائي — الفصل الدراسي الأول</p><p>اسم الطالب أو الطالبة: ...................................</p>${s.questions.map((q,j)=>`<div class="printq"><strong>${fmt(j+1)} ـ ${esc(q.q)}</strong><p>${q.format==='number'?'الإجابة: ................................':q.format==='order'?'الترتيب: ................................':q.opts.map(x=>'□ '+esc(x)).join('　　　 ')}</p></div>`).join('')}`);
+};
+printTeacher=function(i){
+ const s=SKILLS[i];printDoc(`<h1>مدارك — دليل المعلمة والإجابات</h1><h2>${esc(s.title)}</h2><p>الصف ${GRADES[s.g-1]} الابتدائي — الفصل الدراسي الأول</p><p>هدف المهارة: ${esc(s.idea)}</p><p>مثال: ${esc(s.example)}</p>${s.questions.map((q,j)=>`<div class="printq"><strong>${fmt(j+1)} ـ ${esc(q.q)}</strong><p>الإجابة: ${esc(q.opts[q.right])}</p><p>التلميح الأول: ${esc(q.hintFirst)}</p><p>التلميح الإضافي: ${esc(q.hintSecond)}</p><p>التفسير: ${esc(q.why)}</p></div>`).join('')}`);
+};
+const mdOldSkill=openSkill;
+openSkill=function(i){
+ mdOldSkill(i);
+ const s=SKILLS[i],sections=document.querySelectorAll('.lesson-card');
+ if(sections.length>1){
+ const terms={0:['النمط','تكرار ترتيب محدد من الأشكال أو الألوان.'],9:['عشرات الألوف','منزلة تمثل مجموعات من عشرة آلاف.'],10:['المقارنة','نقارن المنازل من اليسار إلى اليمين.'],11:['المجموع','هو ناتج ضم كميتين أو أكثر.'],12:['في كل','توضح عدد العناصر في مجموعة واحدة.'],13:['المتبقي','ما بقي من الكمية بعد أخذ جزء منها.']};
+ const t=terms[i];const word=t?`<details class="md-details"><summary>أفهم المصطلح: ${esc(t[0])}</summary><p>${esc(t[1])}</p></details>`:'';
+ sections[1].insertAdjacentHTML('beforeend',word+`<details class="md-details"><summary>دليل حصة الانتظار للمعلمة</summary><p><strong>الهدف:</strong> ${esc(s.idea)}</p><p>٤ دقائق تمهيد، و٤ دقائق لشرح المثال، و١٠ دقائق للتطبيق، ودقيقتان للتقويم.</p><p>الأدوات: السبورة، مع استخدام المكعبات أو خط الأعداد عند الحاجة.</p></details>`);
+ }
+};
 goHome();
 
 </script><script>if('serviceWorker' in navigator && location.protocol==='https:'){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(()=>{}));}</script></body></html>
