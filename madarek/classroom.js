@@ -34,7 +34,7 @@
       }).join("") + '</div>';
   }
   function preparedExample(s) {
-    var raw = classroomText(s.example);
+    var raw = window.mdMathText(s.example);
     var m = raw.match(/^([٠-٩0-9٬,]+)\s*=\s*([٠-٩0-9٬,\s+]+)$/);
     if (m && m[2].indexOf("+") >= 0) {
       var n = classroomText(m[1]);
@@ -51,13 +51,13 @@
       }
     }
     return {question:"كيف نصل إلى الحل؟",
-      answer:'<div class="mdc-ordinary-answer" dir="rtl">' + safe(raw) + '</div>'};
+      answer:'<div class="mdc-ordinary-answer" dir="rtl">' + window.mdMathHTML(raw) + '</div>'};
   }
   function revealCard(content, trustedAnswerHtml) {
     return '<div class="mdc-reveal">' +
       '<button type="button" class="mdc-reveal-button" data-mdc="reveal" aria-expanded="false">إظهار الإجابة</button>' +
       '<div class="mdc-answer" data-mdc-answer hidden><span>الإجابة النموذجية</span>' +
-      (trustedAnswerHtml || '<strong class="mdc-ordinary-answer">' + safe(classroomText(content)) + '</strong>') +
+      (trustedAnswerHtml || '<strong class="mdc-ordinary-answer">' + window.mdMathHTML(content) + '</strong>') +
       '</div></div>';
   }
   function slideHtml() {
@@ -72,12 +72,12 @@
     if (index === 1) {
       var teaser = typeof TEASER_QUESTIONS !== "undefined" ? TEASER_QUESTIONS[session.skillId] : "";
       return '<div class="mdc-center"><div class="mdc-kicker">فكّر قبل أن تجيب</div>' +
-        '<h2 class="mdc-prompt">' + safe(teaser || s.q || "ما الذي تعرفه عن هذه المهارة؟") + '</h2>' +
+        '<h2 class="mdc-prompt">' + window.mdMathHTML(teaser || s.q || "ما الذي تعرفه عن هذه المهارة؟") + '</h2>' +
         '<p class="mdc-small-note">استمع إلى أفكار زملائك، ثم ناقشوا الإجابات مع المعلمة.</p></div>';
     }
     if (index === 2) {
       return '<div class="mdc-center"><div class="mdc-kicker">الفكرة الأساسية</div>' +
-        '<div class="mdc-big-card"><h2>' + safe(s.idea) + '</h2></div>' +
+        '<div class="mdc-big-card"><h2>' + window.mdMathHTML(s.idea) + '</h2></div>' +
         '<p class="mdc-small-note">عبّر عن الفكرة بطريقتك.</p></div>';
     }
     if (index === 3) {
@@ -90,7 +90,7 @@
     if (index === 4) {
       return '<div class="mdc-center"><div class="mdc-kicker">خطوات الفهم</div>' +
         '<ol class="mdc-steps">' + steps.map(function (st,j) {
-          return '<li><span>' + digits(j+1) + '</span><strong>' + safe(st) + '</strong></li>';
+          return '<li><span>' + digits(j+1) + '</span><strong>' + window.mdMathHTML(st) + '</strong></li>';
         }).join("") + '</ol></div>';
     }
     if (index === 5 || index === 6) {
@@ -99,12 +99,12 @@
       var answer = pair ? pair[1] : (s.why || s.example);
       return '<div class="mdc-center mdc-practice"><div class="mdc-kicker">' +
         (index === 5 ? 'نشاط جماعي' : 'تقويم سريع') + '</div>' +
-        '<h2 class="mdc-prompt">' + safe(question) + '</h2>' +
+        '<h2 class="mdc-prompt">' + window.mdMathHTML(question) + '</h2>' +
         '<p class="mdc-small-note">' + (index === 5 ? 'فكّر، وناقش، ثم شارك حلك.' : 'أجب بنفسك قبل إظهار الإجابة.') +
         '</p>' + revealCard(answer) + '</div>';
     }
     return '<div class="mdc-center mdc-finish"><span class="mdc-finish-star" aria-hidden="true">✦</span>' +
-      '<h2>أحسنتم!</h2><p class="mdc-finish-learn">' + safe(s.idea) + '</p>' +
+      '<h2>أحسنتم!</h2><p class="mdc-finish-learn">' + window.mdMathHTML(s.idea) + '</p>' +
       '<button type="button" class="mdc-start-test" data-mdc="assessment">الانتقال إلى اختبار المهارة</button></div>';
   }
   function render() {
