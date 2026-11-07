@@ -197,3 +197,8 @@ body:has(.mdp-home) .top{display:none!important}
   .mdp-section .mdp-skill {padding: 13px; gap: 9px;}
   .mdp-section .mdp-lesson-actions {gap: 8px;}
 }
+
+/* قسم قيم نعيشها: بطاقة متصلة بهوية مدارك */
+.mdp-door--values{background:linear-gradient(135deg,#fffdf6,#f5fbfb);border-color:#e3d2a9}
+.mdp-door--values .mdp-door-symbol{background:linear-gradient(145deg,#fff4d3,#e9faf8);color:#a8782b;border-color:#e4c986}
+.mdp-door--values.is-current{background:linear-gradient(140deg,#0e3c5b,#102a47)}
