@@ -202,3 +202,23 @@ body:has(.mdp-home) .top{display:none!important}
 .mdp-door--values{background:linear-gradient(135deg,#fffdf6,#f5fbfb);border-color:#e3d2a9}
 .mdp-door--values .mdp-door-symbol{background:linear-gradient(145deg,#fff4d3,#e9faf8);color:#a8782b;border-color:#e4c986}
 .mdp-door--values.is-current{background:linear-gradient(140deg,#0e3c5b,#102a47)}
+
+/* تعديل محدد للأهداف التعليمية فقط: خط دبي بحجم واضح للجوال والسبورة */
+.mdp-section .lesson-card .lessonGoal{
+ font-family:'Dubai','Dubai Medium',Tahoma,Arial,sans-serif;
+ font-size:clamp(26px,2.8vw,38px);
+ font-weight:700;
+ line-height:1.85;
+ overflow-wrap:break-word;
+}
+.mdp-section .lesson-card .lessonGoal strong,
+.mdp-section .lesson-card .lessonGoal div,
+.mdp-section .lesson-card .lessonGoal p{
+ font-family:inherit;
+ font-size:inherit;
+ font-weight:inherit;
+ line-height:inherit;
+}
+@media(max-width:575px){
+ .mdp-section .lesson-card .lessonGoal{font-size:26px;line-height:1.8}
+}
