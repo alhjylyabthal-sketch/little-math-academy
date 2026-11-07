@@ -1,0 +1,93 @@
+
+/* مدارك | «قيم نعيشها» — هوية متصلة بالواجهة الأصلية */
+.val-shell{max-width:1100px;margin:auto;direction:rtl;color:#173c53}
+.val-shell h1,.val-shell h2{color:#102f4b}
+.val-hero{display:flex;align-items:center;gap:26px;border-radius:27px;padding:32px 36px;overflow:hidden;position:relative;background:radial-gradient(circle at 90% -20%,#317b84 0,#133d5a 45%,#102f4d 100%);color:#fff;box-shadow:0 13px 30px #123e602b}
+.val-hero:before{content:"";position:absolute;inset:-80px auto auto -60px;width:270px;height:270px;border:1px solid #ffffff28;border-radius:50%;box-shadow:0 0 0 42px #ffffff08,0 0 0 90px #ffffff08}
+.val-hero h1{font-size:clamp(28px,4vw,43px);margin:5px 0;color:#fff;line-height:1.5}
+.val-hero p{font-size:15px;margin:0;max-width:640px;color:#e3f0f4}
+.val-hero-emblem{flex:none;width:115px;height:115px;display:grid;place-items:center;border:2px solid #f1d18c80;border-radius:29px;background:#ffffff12;z-index:1}
+.val-hero-emblem svg{width:88px;height:88px}
+.val-kicker,.val-sect-kicker{color:#b4842e;letter-spacing:.01em;font-weight:900;font-size:13px}
+.val-hero .val-kicker{color:#ffda82}
+.val-intro{background:#fff;border:1px solid #dbe9ed;border-radius:20px;padding:22px;margin:19px 0}
+.val-intro strong{font-size:19px;color:#163b54}
+.val-intro p{font-size:14px;color:#607787;margin:4px 0 0}
+.val-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0}
+.val-tile{border:1px solid #dbe7e9;background:linear-gradient(138deg,#fff,#f7fbfd);border-radius:23px;padding:21px 17px;min-height:137px;display:flex;align-items:center;gap:14px;text-align:right;color:#1a465f;box-shadow:0 6px 18px #0c35550e;transition:transform .15s,box-shadow .15s}
+.val-tile:hover,.val-tile:focus-visible{transform:translateY(-3px);box-shadow:0 12px 26px #0c355526;border-color:#d1ad63}
+.val-tile-icon,.val-title-icon{width:66px;height:66px;flex:none;border-radius:21px;background:#e8f7f5;color:#0f8186;display:grid;place-items:center;border:1px solid #c6e4df}
+.val-tile-icon svg,.val-title-icon svg{width:39px;height:39px}
+.val-tile-info{min-width:0;flex:1}
+.val-tile-info strong{display:block;font-size:18px;color:#153b55}
+.val-tile-info small{display:block;font-size:12px;color:#6b8291;line-height:1.8}
+.val-tile-arrow{color:#bb933f;font-weight:900;font-size:21px}
+.val-tile--national .val-tile-icon,.val-title-icon.val-tile--national{background:#eaf2ff;color:#365f99}
+.val-tile--tolerance .val-tile-icon,.val-title-icon.val-tile--tolerance{background:#fff0e9;color:#bd7557}
+.val-tile--moderation .val-tile-icon,.val-title-icon.val-tile--moderation{background:#fff4dd;color:#a8791b}
+.val-tile--perseverance .val-tile-icon,.val-title-icon.val-tile--perseverance{background:#e9f9ed;color:#357d57}
+.val-tile--mastery .val-tile-icon,.val-title-icon.val-tile--mastery{background:#f3ecff;color:#7759a1}
+.val-tile--discipline .val-tile-icon,.val-title-icon.val-tile--discipline{background:#e8f4fb;color:#326e94}
+.val-tile--flexibility .val-tile-icon,.val-title-icon.val-tile--flexibility{background:#f5f1df;color:#917b26}
+.val-tile--positivity .val-tile-icon,.val-title-icon.val-tile--positivity{background:#fff0db;color:#bc7b28}
+.val-tile--determination .val-tile-icon,.val-title-icon.val-tile--determination{background:#e6f7f6;color:#0e8589}
+.val-source{padding:20px 24px;border-radius:20px;border:1px solid #d7e8e4;background:linear-gradient(120deg,#f3fbf9,#fff);margin-top:16px}
+.val-source strong{color:#173b55}.val-source p{color:#637b88;font-size:13px;margin:4px 0 12px}
+.val-source a,.val-video-box a{font-weight:900;color:#087c84;text-decoration:underline;text-underline-offset:4px;margin-inline-end:18px;font-size:13px}
+.val-credit{color:#718595;text-align:center;font-size:12px;margin:26px}
+.val-subhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:3px 0 14px;font-size:13px;color:#69818e}
+.val-back{border:1px solid #d0e0e3;color:#176b76;border-radius:11px;background:#fff;padding:9px 15px;font-weight:900}
+.val-title{display:flex;gap:17px;align-items:center;border-bottom:1px solid #dce6eb;padding:12px 0 23px;margin-bottom:20px}
+.val-title-icon{height:80px;width:80px}
+.val-title h1{margin:0;font-size:clamp(25px,4vw,35px)}.val-title p{color:#627d8b;margin:1px 0}
+.val-story-layout{display:grid;grid-template-columns:1.12fr .88fr;gap:17px}
+.val-story,.val-apply,.val-worksheet{border:1px solid #dce8ec;border-radius:23px;background:#fff;padding:23px;box-shadow:0 5px 18px #173e5410}
+.val-story h2,.val-apply h2{font-size:19px;margin:5px 0 14px}
+.val-story-scene{position:relative;border-radius:19px;padding:20px 18px;min-height:255px;background:radial-gradient(circle at 80% 15%,#e8faf9,#e9f2fa 75%);text-align:center;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px}
+.val-story-scene.animate{animation:valfade .35s ease}
+@keyframes valfade{from{opacity:.5;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.val-story-glyph{color:#167b87;width:78px;height:78px;border-radius:50%;background:#fff9;border:1px solid #c8e8e7;display:grid;place-items:center;box-shadow:0 5px 12px #286d7b24}
+.val-story-glyph svg{height:45px;width:45px}
+.val-story-scene>span{color:#5d7b84;font-size:12px;font-weight:900}
+.val-story-scene>p{font-size:17px;line-height:2;color:#143d55;font-weight:900;max-width:440px}
+.val-dots{display:flex;gap:6px;justify-content:center}
+.val-dots span{height:7px;width:8px;background:#b8d2d6;border-radius:8px;transition:width .2s}
+.val-dots span.active{width:25px;background:#c99a41}
+.val-story-controls{display:flex;align-items:center;justify-content:space-between;margin:15px 0;gap:10px}
+.val-story-controls>span{font-size:12px;color:#6c8591}
+.val-gold,.val-plain,.val-submit,.val-print{border-radius:12px;min-height:43px;padding:9px 16px;border:1px solid #cfdae2;font-size:13px;font-weight:900}
+.val-gold,.val-submit{background:#163b56;color:#fff;border-color:#163b56}.val-plain,.val-print{background:#fff;color:#194358}
+.val-gold:disabled,.val-submit:disabled,.val-plain:disabled{opacity:.45;cursor:not-allowed}
+.val-message{padding:10px 14px;border-right:4px solid #d3a348;background:#fff9ec;color:#695125;border-radius:12px;font-weight:800;font-size:13px}
+.val-apply>p{color:#385b67;font-weight:800}
+.val-mini-task{border:1px dashed #95c9c9;border-radius:16px;background:#f1fbfa;padding:17px;margin:16px 0}
+.val-mini-task>span{color:#087e84;font-weight:900;font-size:12px}
+.val-mini-task p{font-size:14px;color:#3e6672}
+.val-video-box{display:flex;align-items:start;gap:13px;border-radius:16px;border:1px solid #e2e9ee;padding:17px;background:#fafcfe}
+.val-video-sign{width:45px;height:45px;flex:none;border-radius:14px;display:grid;place-items:center;background:#e9f1f5;color:#0d5878}
+.val-video-box strong{font-size:14px;color:#183b55}.val-video-box p{color:#6b8390;font-size:12px;margin:4px 0 8px}
+.val-worksheet{margin-top:18px}
+.val-worksheet-title{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.val-worksheet-title h2{margin:1px 0;font-size:23px}
+.val-worksheet-title p{font-size:13px;color:#6a8190}
+.val-gradebar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:17px 0 10px}
+.val-gradebar button{background:#f8fafb;border:1px solid #d6e4e8;border-radius:11px;padding:9px 4px;min-height:48px;color:#1a4b63;font-weight:900;font-size:13px}
+.val-gradebar button.selected{background:#103b56;color:white;border-color:#103b56}
+.val-skill-note{border-right:3px solid #d3a247;background:#fffaf0;padding:10px 13px;color:#85672b;font-size:12px;border-radius:8px}
+.val-question{padding:20px 0;border-bottom:1px solid #e3ebef}
+.val-question>strong{display:block;font-size:17px;color:#153f58;line-height:1.8}
+.val-number{display:inline-grid;place-items:center;height:29px;width:29px;border-radius:9px;background:#ecf8f7;color:#087d84;font-weight:900;float:right;margin:0 0 6px 10px}
+.val-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;clear:both;margin:16px 0 6px}
+.val-choice{border:1px solid #d9e6e9;background:#f8fbfc;min-height:65px;border-radius:13px;color:#234859;padding:12px 10px;text-align:center;font-size:14px;font-weight:800;line-height:1.8}
+.val-choice.selected{border:2px solid #a7802b;background:#fff4d7}
+.val-choice:hover:not(:disabled){background:#eaf7f5}
+.val-result{padding:11px 15px;border-radius:10px;font-size:13px;margin-top:12px;line-height:1.9;font-weight:700}
+.val-result.good{background:#e9f9f1;color:#176947}.val-result.retry{background:#fff5e8;color:#84531d}
+.val-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-start;padding-top:20px}
+.val-final{width:100%;border-radius:12px;background:#eff9f6;border:1px solid #cce7db;padding:16px}
+.val-final>strong{color:#11755b}.val-final p{font-size:13px}
+.val-print.alt{background:#fff9eb;border-color:#e5d5ac}
+@media(max-width:850px){.val-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.val-story-layout{grid-template-columns:1fr}.val-gradebar{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:540px){.val-hero{padding:20px 16px;gap:12px}.val-hero-emblem{width:65px;height:65px;border-radius:16px}.val-hero-emblem svg{width:58px;height:58px}.val-hero h1{font-size:27px}.val-hero p{font-size:12px}.val-grid{gap:9px}.val-tile{min-height:150px;flex-direction:column;text-align:center;padding:15px 8px;gap:8px}.val-tile-icon{width:53px;height:53px;border-radius:17px}.val-tile-icon svg{width:32px;height:32px}.val-tile-info strong{font-size:15px}.val-tile-arrow{display:none}.val-story,.val-apply,.val-worksheet{padding:16px}.val-choices{grid-template-columns:1fr}.val-choice{min-height:53px}.val-worksheet-title{flex-direction:column;align-items:stretch}.val-title-icon{width:64px;height:64px}.val-title-icon svg{width:34px;height:34px}}
+@media(prefers-reduced-motion:reduce){.val-tile,.val-story-scene{animation:none!important;transition:none!important}}
+@media print{.val-shell{display:none!important}}
