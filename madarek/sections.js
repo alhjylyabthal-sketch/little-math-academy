@@ -8,7 +8,8 @@ const icons={
  tests:'<path d="M9 4h6l1 2h3v15H5V6h3l1-2Z"/><path d="m8 12 2.1 2.1 4-4.1M8 18h8"/>',
  words:'<path d="M5 5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-7l-5 3v-3H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><path d="M8 9h8M8 13h6"/>',
  teacher:'<rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 12h16M10 12v2h4v-2"/>',
- screenfree:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 15h18M7 9h5M7 12h8M12 19v3M8 22h8"/><path d="m16 9 2 2-2 2"/>'
+ screenfree:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 15h18M7 9h5M7 12h8M12 19v3M8 22h8"/><path d="m16 9 2 2-2 2"/>',
+ values:'<path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2 4.5 4.5 0 0 1 8 2c0 6-8 11-8 11Z"/><path d="m11 10 1 2 2-1"/>'
 };
 let selectedDoor='';
 const doors=[
@@ -16,10 +17,11 @@ const doors=[
  ['tests','الاختبارات','أجيب عن أسئلة مستقلة وأرى نتيجتي','goTests()'],
  ['words','أفهم المسألة','أتعلم المفردات ومعانيها في سياقها','goWords()'],
  ['teacher','أدوات المعلمة','إرشادات التنفيذ والمتابعة الصفية','goTeacherTools()'],
+ ['values','قيم نعيشها','قصص تربوية وأوراق عمل تفاعلية','goValues()'],
  ['screenfree','انتظار بلا شاشة','خطط وبطاقات ورقية قابلة للطباعة ودليل إجابات','sfHome()']
 ];
 function mdpOpenDoor(id){
- const routes={lessons:()=>goGradeSkills(),tests:()=>goTests(),words:()=>goWords(),teacher:()=>goTeacherTools(),screenfree:()=>window.sfHome()};
+ const routes={lessons:()=>goGradeSkills(),tests:()=>goTests(),words:()=>goWords(),teacher:()=>goTeacherTools(),values:()=>window.goValues(),screenfree:()=>window.sfHome()};
  if(!Object.prototype.hasOwnProperty.call(routes,id))return;
  selectedDoor=id;
  routes[id]();
