@@ -25,10 +25,9 @@ function worksheet(){var qs=questions();return qs.map(function(q,i){return '<div
 function scenesForGrade(v){return grade<=3?v.story:ageCases[v.key];}
 function gradeSelector(){return '<section class="val-agebar"><div><strong>اختَر صفك أولًا</strong><p>ستتغير القصة والمشاهد المرئية والأنشطة لتناسب عمرك.</p></div><div class="val-gradebar" aria-label="اختيار الصف">'+['الأول','الثاني','الثالث','الرابع','الخامس','السادس'].map(function(g,i){return '<button type="button" class="'+(grade===i+1?'selected':'')+'" onclick="mdValuesGrade('+(i+1)+')">الصف '+g+'</button>';}).join('')+'</div></section>';}
 function mediaForGrade(v){
- if(grade>=4){
-  return '<div class="val-video-box val-upper-media"><div class="val-video-sign">▤</div><div><strong>مشهد بصري تحليلي للصفوف العليا</strong><p>دراسة حالة من واقع المدرسة: لاحظ الموقف، حدّد القرار، ثم ناقش أثره. لا نعرض فيديو «فواز ونورة» الموجّه للأعمار الأصغر في هذا المستوى.</p><span class="val-video-note">لم يُعتمد بعد مقطع فيديو خارجي مناسب لهذه القيمة والصف؛ المشهد التفاعلي متاح هنا.</span></div></div>';
- }
- if(!v.video)return '<div class="val-video-box"><div class="val-video-sign">▶</div><div><strong>فيديو مناسب للصفوف الأولية</strong><p>لم يُعتمد رابط محدد لهذه القيمة بعد؛ تُستخدم الحكاية المرئية إلى حين اختيار مقطع مُراجع.</p></div></div>';
+ // Do not show a video card, icon, or placeholder unless an age-appropriate video exists.
+ // The existing video links are intended only for the early-primary group.
+ if(grade>=4||!v.video)return '';
  return '<div class="val-video-box"><div class="val-video-sign">▶</div><div><strong>حكاية كرتونية للصفوف الأولية</strong><p>حلقة من «فواز ونورة» للمشاهدة مع المعلمة، ويُفضّل معاينتها قبل العرض.</p><a href="'+v.video+'" target="_blank" rel="noopener noreferrer">'+clean(v.videoName)+' ↗</a></div></div>';
 }
 function sceneVisual(v){
