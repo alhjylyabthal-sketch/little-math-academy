@@ -367,3 +367,101 @@ body:has(.mdp-home) .container {
  .mdp-home,.top,.footer{display:none!important}
  .mdp-section .panel,.sf-wrap .sf-panel{box-shadow:none!important}
 }
+/* هوية مدارك السادسة — الشعار الثاني، الكحلي الملكي والذهبي */
+:root{--navy:#0B2D5B;--deep:#071F42;--gold:#D4AF37;--cream:#FFF8EB;--mdp-navy:#0B2D5B;--mdp-ink:#0B2D5B;--mdp-gold:#D4AF37;--mdp-muted:#64758B}
+body{background:#FFF8EB!important;color:#0B2D5B}
+body:has(.mdp-home) .container{background:#FFF8EB!important}
+.mdp-home{border-color:#E9DEC9!important;background:#fff!important}
+.mdp-hub{background:#fff!important;border-top-color:#EEE2CA!important}
+.mdp-hero{
+ position:relative;isolation:isolate;overflow:hidden;
+ display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.55fr) minmax(0,1fr);
+ align-items:end;justify-items:center;min-height:320px;
+ background:radial-gradient(ellipse at 50% 40%,#fff 0%,#fff 42%,#FFF8EB 100%);
+ border-bottom:1px solid #E9DEC9;
+}
+.mdp-hero::before{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(135deg,#0B2D5B 0 4%,transparent 4% 95%,#D4AF37 95% 100%);
+}
+.mdp-hero::after{
+ content:"";position:absolute;bottom:0;left:0;right:0;height:18px;
+ background:linear-gradient(90deg,#0B2D5B,#D4AF37,#0B2D5B);
+ opacity:.85;
+}
+.mdp-hero-arch{
+ position:absolute;inset:15px 18% 12px;
+ border:2px solid #D4AF3766;border-bottom:0;
+ border-radius:50% 50% 0 0;pointer-events:none;
+}
+.mdp-hero-center{
+ position:relative;z-index:2;grid-column:2;grid-row:1;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ text-align:center;gap:0;align-self:center;
+ padding:24px 0 22px;width:100%;
+}
+.mdp-logo-symbol{display:block;width:min(100%,290px);height:148px;object-fit:contain}
+.mdp-wordmark{
+ margin:-8px 0 0!important;color:#0B2D5B!important;
+ font-family:'Dubai','Dubai Medium',Tahoma,Arial,sans-serif;
+ font-size:clamp(47px,6vw,79px);line-height:1.2;
+ font-weight:900;letter-spacing:-1px;
+}
+.mdp-hero-subtitle{
+ display:inline-block;margin:6px 0!important;
+ padding:6px 22px;border-radius:24px;
+ background:#0B2D5B;color:#fff;
+ border:2px solid #D4AF37;font-weight:800;
+ font-size:clamp(13px,1.7vw,18px);
+}
+.mdp-hero-scope{
+ margin:5px 0 0;color:#0B2D5B;
+ font-size:clamp(11px,1.5vw,15px);
+ font-weight:700;
+}
+.mdp-hero-child{
+ position:relative;z-index:1;display:block;
+ width:100%;height:290px;max-height:100%;
+ object-fit:cover;object-position:center bottom;
+ -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 17% 83%,transparent 100%);
+ mask-image:linear-gradient(to right,transparent 0%,#000 17% 83%,transparent 100%);
+ filter:saturate(.87);
+}
+.mdp-hero-child--girl{grid-column:1;grid-row:1}
+.mdp-hero-child--boy{grid-column:3;grid-row:1}
+.mdp-door--lessons{--tile-accent:#0B2D5B;--tile-soft:#E8F3F5}
+.mdp-door--tests{--tile-accent:#AC8422;--tile-soft:#FFF3D7}
+.mdp-door--words{--tile-accent:#148D88;--tile-soft:#E6F7F5}
+.mdp-door--teacher{--tile-accent:#1E3A8A;--tile-soft:#E9EDF8}
+.mdp-door--values{--tile-accent:#AD8D46;--tile-soft:#FFF7E7}
+.mdp-door.is-current,.mdp-door.mdp-door--screenfree{background:#0B2D5B!important;border-color:#D4AF37!important}
+.mdp-door.is-current:hover,.mdp-door--screenfree:hover{background:#071F42!important}
+.mdp-door--screenfree .mdp-door-symbol{color:#F1D37A!important}
+.top{background:#0B2D5B!important;border-bottom-color:#D4AF37!important}
+.mdp-gradebar button.chosen{background:#0B2D5B!important;border-color:#0B2D5B!important}
+.mdp-section .pageTitle h1,.mdp-door strong{color:#0B2D5B!important}
+.mdp-door.is-current strong,.mdp-door--screenfree strong{color:#fff!important}
+.mdp-section .pageTitle .bubble{background:#FFF4DA!important;color:#8A681B!important;border-color:#E9D7AA!important}
+.mdp-section .goldLine{background:#D4AF37!important}
+.sf-wrap .sf-banner,.val-shell .val-hero{background:linear-gradient(125deg,#0B2D5B,#1E3A8A)!important}
+.footer{background:#FFF8EB!important;border-top-color:#E9DEC9!important}
+@media(max-width:575px){
+ .mdp-hero{min-height:205px;grid-template-columns:minmax(0,1fr) minmax(0,1.75fr) minmax(0,1fr)}
+ .mdp-hero-arch{inset:10px 13% 12px}
+ .mdp-hero-center{padding:13px 0 16px}
+ .mdp-logo-symbol{height:75px;width:130px}
+ .mdp-wordmark{font-size:42px!important;line-height:1.15;margin:-3px 0 0!important}
+ .mdp-hero-subtitle{font-size:10px;padding:4px 9px;white-space:nowrap}
+ .mdp-hero-scope{font-size:9px;line-height:1.5}
+ .mdp-hero-child{height:190px;object-fit:cover}
+ .mdp-hero-child--girl{transform:translateX(6%)}
+ .mdp-hero-child--boy{transform:translateX(-6%)}
+}
+@media(max-width:380px){
+ .mdp-hero{min-height:184px}
+ .mdp-hero-child{height:170px}
+ .mdp-logo-symbol{height:64px}
+ .mdp-wordmark{font-size:37px!important}
+ .mdp-hero-subtitle{font-size:9px}
+ .mdp-hero-scope{font-size:8px}
+}
