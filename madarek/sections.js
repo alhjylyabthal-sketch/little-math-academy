@@ -43,7 +43,7 @@ function gradeBar(callback){
 }
 goHome=function(){
  activeId=null;
- const tiles=doors.map(([id,title,description])=>'<button type="button" class="mdp-door mdp-door--'+id+(id===selectedDoor?' is-current':'')+'" onclick="mdpOpenDoor(\''+id+'\')" aria-label="'+title+'" aria-pressed="'+(id===selectedDoor?'true':'false')+'"><span class="mdp-door-symbol">'+pic(id)+'</span><strong>'+title+'</strong><span class="mdp-door-desc">'+description+'</span></button>').join('');
+ const tiles=doors.map(([id,title,description])=>'<button type="button" class="mdp-door mdp-door--'+id+(id===selectedDoor?' is-current':'')+'" onclick="mdpOpenDoor(\''+id+'\')" aria-label="'+title+'" aria-pressed="'+(id===selectedDoor?'true':'false')+'"><span class="mdp-door-symbol">'+pic(id)+'</span><span class="mdp-door-copy"><strong>'+title+'</strong><span class="mdp-door-desc">'+description+'</span></span></button>').join('');
  mount('<div class="mdp-home"><div class="mdp-mast"><img class="mdp-scene" src="./approved-main.webp" width="1672" height="853" alt="شخصيتا الطالب والطالبة حول شعار مدارك في مشهد واحد"></div><section class="mdp-hub" aria-label="أقسام مدارك"><div class="mdp-doorgrid">'+tiles+'</div></section></div>','home','home');
 };
 goGradeSkills=function(){
