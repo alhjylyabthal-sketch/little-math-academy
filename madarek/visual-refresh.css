@@ -89,9 +89,9 @@ body:has(.mdp-home) .container{
  min-width:0;width:100%;padding:25px 4px 15px;
 }
 .mdp-logo-symbol{
- display:block;width:clamp(135px,20vw,260px);height:auto;
- max-height:165px;object-fit:contain;margin-bottom:-8px;
- filter:drop-shadow(0 5px 5px #0B2D5B1b);
+ display:block;width:clamp(205px,28vw,355px);height:auto;
+ max-height:280px;object-fit:contain;margin:0 auto -5px;
+ filter:none;mix-blend-mode:multiply;
 }
 .mdp-wordmark{
  color:#0B2D5B!important;
@@ -393,3 +393,17 @@ body:has(.mdp-home) .container{
  .top,.footer,.mdp-home{display:none!important}
  .mdp-section .panel,.sf-wrap .sf-panel{box-shadow:none!important}
 }
+/* الشعار المختار رقم ٢ يحتوي على كلمة «مدارك»؛ إخفاء النص المكرر بصريًا مع بقائه لقارئ الشاشة. */
+.mdp-wordmark{
+ position:absolute!important;width:1px!important;height:1px!important;
+ padding:0!important;margin:-1px!important;overflow:hidden!important;
+ clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
+}
+.mdp-hero-center{gap:4px!important}
+.mdp-hero-subtitle{margin-top:0!important}
+@media(max-width:575px){
+ .mdp-logo-symbol{width:min(126%,210px)!important;max-height:166px!important;margin:0 auto -2px!important}
+ .mdp-hero-center{gap:2px!important}
+ .mdp-hero-subtitle{margin-top:0!important}
+}
+@media(max-width:380px){.mdp-logo-symbol{width:160px!important;max-height:138px!important}}
