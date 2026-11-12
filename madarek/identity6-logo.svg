@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 480" role="img" aria-labelledby="t d">
+<title id="t">مدارك</title><desc id="d">شعار مدارك التعليمي، كتاب مفتوح وعناصر نمو باللون الكحلي والذهبي</desc>
+<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F9E7B5"/><stop offset=".46" stop-color="#D4AF37"/><stop offset="1" stop-color="#A77618"/></linearGradient><linearGradient id="n" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#1E3A8A"/><stop offset="1" stop-color="#0B2D5B"/></linearGradient></defs>
+<g transform="translate(0,-5)">
+<path d="M80 197 L80 75 Q180 51 293 120 L325 148 L325 235 Q210 162 80 197Z" fill="url(#n)"/>
+<path d="M570 197 L570 75 Q470 51 357 120 L325 148 L325 235 Q440 162 570 197Z" fill="url(#g)"/>
+<path d="M104 87 Q211 72 308 140 L308 207 Q200 150 104 169Z" fill="#FFF" opacity=".96"/>
+<path d="M546 87 Q439 72 342 140 L342 207 Q450 150 546 169Z" fill="#FFF" opacity=".96"/>
+<path d="M128 108 Q216 103 290 153 L290 180 Q204 137 128 143Z" fill="#0B2D5B"/>
+<path d="M522 108 Q434 103 360 153 L360 180 Q446 137 522 143Z" fill="#D4AF37"/>
+<path d="M80 210 Q218 182 325 252 Q430 182 570 210" fill="none" stroke="#0B2D5B" stroke-width="15" stroke-linecap="round"/>
+<path d="M325 250 L325 162" stroke="#D4AF37" stroke-width="7" stroke-linecap="round"/>
+<g fill="#D4AF37"><rect x="458" y="27" width="24" height="24" rx="3"/><rect x="494" y="8" width="18" height="18" rx="2"/><rect x="523" y="40" width="17" height="17" rx="2"/><rect x="486" y="67" width="13" height="13" rx="2"/></g>
+<g fill="#0B2D5B"><rect x="552" y="12" width="15" height="15" rx="2"/><rect x="536" y="74" width="10" height="10" rx="2"/></g>
+</g>
+<text x="325" y="360" text-anchor="middle" font-family="Dubai,Tahoma,Arial,sans-serif" font-weight="900" font-size="118" fill="#0B2D5B" direction="rtl">مدارك</text>
+<rect x="133" y="385" width="384" height="53" rx="26.5" fill="#0B2D5B" stroke="#D4AF37" stroke-width="3"/>
+<text x="325" y="420" text-anchor="middle" font-family="Dubai,Tahoma,Arial,sans-serif" font-size="27" font-weight="700" fill="#FFFFFF" direction="rtl">حقيبة مهارات الرياضيات</text>
+</svg>
