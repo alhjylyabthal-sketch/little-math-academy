@@ -336,3 +336,13 @@ body:has(.mdp-home) .container{max-width:1190px;padding:16px clamp(10px,2vw,24px
  .mdp-home,.top,.footer{display:none!important}
  .mdp-section .panel,.sf-wrap .sf-panel{box-shadow:none!important}
 }
+
+/* بطاقة القسم: العنوان والوصف وحدة بصرية واحدة */
+.mdp-door-copy{display:flex;flex-direction:column;align-items:center;gap:3px;width:100%;min-width:0;text-align:center}
+.mdp-door-copy strong{display:block}
+.mdp-door-copy .mdp-door-desc{display:block}
+@media(max-width:800px){
+ .mdp-door--values .mdp-door-copy,.mdp-door--screenfree .mdp-door-copy{
+   width:auto;flex:1;align-items:flex-start;text-align:right;gap:2px;
+ }
+}
