@@ -1,0 +1,338 @@
+/* مدارك — تطوير الهوية البصرية ١٤٤٨
+   تصميم إضافي يغيّر العرض فقط ولا يغيّر المحتوى أو روابط الأقسام. */
+:root{
+ --mdp-navy:#103852;
+ --mdp-ink:#173e56;
+ --mdp-teal:#137c81;
+ --mdp-gold:#c5a05b;
+ --mdp-paper:#ffffff;
+ --mdp-bg:#f5f9f9;
+ --mdp-line:#dce7e8;
+ --mdp-muted:#647e8c;
+}
+body{
+ background:radial-gradient(circle at 8% 3%,#eaf5f4 0,transparent 28%),
+            radial-gradient(circle at 95% 14%,#fff7e9 0,transparent 32%),
+            linear-gradient(180deg,#f9fbfb 0%,#f2f7f7 65%,#fcfdfd 100%);
+ color:var(--mdp-ink);
+ font-family:'Dubai','Dubai Medium','Noto Sans Arabic',Tahoma,Arial,sans-serif;
+}
+button{transition:background-color .17s ease,border-color .17s ease,transform .17s ease,box-shadow .17s ease}
+button:focus-visible{outline:3px solid #18898f!important;outline-offset:3px}
+.container{padding-bottom:42px}
+.footer{font-size:12px;line-height:1.8;padding:19px 12px!important;letter-spacing:0}
+.sf-global-credit{margin-top:4px}
+
+/* المشهد الرئيسي: رسومات الشعار والشخصيات من الصورة الأصلية نفسها */
+body:has(.mdp-home) .top{display:none!important}
+body:has(.mdp-home) .container{max-width:1190px;padding:16px clamp(10px,2vw,24px) 42px}
+.mdp-home{
+ max-width:1150px;margin-inline:auto;
+ border:0!important;border-radius:28px!important;
+ background:transparent!important;box-shadow:none!important;
+ overflow:visible!important;
+}
+.mdp-mast{
+ position:relative;display:block!important;padding:0!important;
+ aspect-ratio:1672 / 430;min-height:0!important;
+ overflow:hidden;isolation:isolate;
+ border-radius:26px 26px 0 0;
+ background:#e6f5f8;
+ border:1px solid #d6e8ea;border-bottom:0;
+}
+.mdp-mast .mdp-scene{
+ display:block;position:absolute;top:0;right:0;
+ width:100%;height:auto;max-width:none;max-height:none!important;
+ object-fit:unset;image-rendering:auto;
+}
+.mdp-mast::after{
+ content:"";position:absolute;inset:auto 0 0;pointer-events:none;
+ height:13%;background:linear-gradient(to bottom,transparent,#f5faf9c9);
+}
+.mdp-hub{
+ position:relative;z-index:1;margin:0!important;
+ padding:18px clamp(12px,2.5vw,28px) 25px!important;
+ background:linear-gradient(180deg,#f5faf9,#fbfdfc 65%,#f5f9f9)!important;
+ border:1px solid #dce9e9;border-top:0;
+ border-radius:0 0 26px 26px;
+ box-shadow:0 13px 25px #11395010;
+}
+.mdp-hub>h1,.mdp-hub>p{display:none!important}
+.mdp-doorgrid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:13px;align-items:stretch;
+}
+.mdp-door{
+ --door-accent:#167f85;--door-soft:#e6f5f4;
+ position:relative;display:flex;flex-direction:column;
+ justify-content:center;align-items:center;
+ gap:9px;padding:19px 15px 18px!important;
+ min-width:0;min-height:188px!important;
+ text-align:center;
+ background:linear-gradient(165deg,#fff,#fbfdfc)!important;
+ border:1px solid #dbe8e8!important;
+ border-bottom:3px solid #dbc28a!important;
+ border-radius:20px!important;
+ color:var(--mdp-ink)!important;
+ box-shadow:0 5px 13px #123d5310!important;
+ isolation:isolate;
+}
+.mdp-door::before{
+ content:"";position:absolute;right:18px;top:14px;
+ width:28px;height:3px;border-radius:999px;
+ background:var(--door-accent);opacity:.78;
+}
+.mdp-door--lessons{--door-accent:#0c898b;--door-soft:#e8f7f4}
+.mdp-door--tests{--door-accent:#af7e22;--door-soft:#fff3db}
+.mdp-door--words{--door-accent:#427d95;--door-soft:#ecf5f9}
+.mdp-door--teacher{--door-accent:#355f7e;--door-soft:#eaf1f5}
+.mdp-door--values{--door-accent:#9b7339;--door-soft:#fcf3df}
+.mdp-door-symbol,
+.mdp-door--lessons .mdp-door-symbol,
+.mdp-door--tests .mdp-door-symbol,
+.mdp-door--words .mdp-door-symbol,
+.mdp-door--teacher .mdp-door-symbol,
+.mdp-door--values .mdp-door-symbol{
+ display:grid;place-items:center;flex:none;
+ width:66px;height:66px;border-radius:20px;
+ background:var(--door-soft)!important;
+ color:var(--door-accent)!important;
+ border:1px solid #ffffff!important;
+ box-shadow:inset 0 0 0 1px #c9dfe020;
+}
+.mdp-door-symbol svg{width:34px;height:34px;stroke-width:1.75}
+.mdp-door strong{
+ display:block;font-size:19px!important;
+ line-height:1.45;font-weight:900;color:var(--mdp-navy)!important;
+}
+.mdp-door-desc{
+ display:block;font-size:13px!important;
+ line-height:1.75;max-width:225px;
+ color:var(--mdp-muted)!important;
+ font-weight:500;
+}
+.mdp-door:hover{
+ transform:translateY(-3px);
+ border-color:#9dc8c5!important;
+ box-shadow:0 12px 24px #123c5719!important;
+}
+.mdp-door:focus-visible{outline-offset:3px}
+.mdp-door:active{transform:scale(.99)}
+.mdp-door.is-current,
+.mdp-door.is-current:hover{
+ background:linear-gradient(135deg,#0c324e,#155168)!important;
+ border-color:#d1aa60!important;
+ border-bottom-color:#e1bb73!important;
+ box-shadow:0 9px 18px #0e334e27!important;
+}
+.mdp-door.is-current::before{background:#e8c581}
+.mdp-door.is-current strong{color:#fff!important}
+.mdp-door.is-current .mdp-door-desc{color:#e5eff2!important}
+.mdp-door.is-current .mdp-door-symbol{
+ background:#ffffff14!important;color:#f0d291!important;
+ border-color:#ffffff3a!important;
+}
+/* «انتظار بلا شاشة» قسم مستقل بارز، وليس رابطًا مكررًا */
+.mdp-door--screenfree{
+ --door-accent:#e9c981;--door-soft:#214d62;
+ grid-column:auto!important;
+ flex-direction:column!important;justify-content:center!important;
+ gap:9px;text-align:center!important;
+ padding:19px 15px 18px!important;min-height:188px!important;
+ background:linear-gradient(140deg,#0c324e,#155269)!important;
+ border:1px solid #caa661!important;
+ border-bottom:3px solid #dfbf80!important;
+ border-radius:20px!important;
+ color:#fff!important;
+ box-shadow:0 7px 19px #0d334e25!important;
+}
+.mdp-door--screenfree::before{background:#efcc7f}
+.mdp-door--screenfree strong{color:#fff!important;font-size:19px!important}
+.mdp-door--screenfree .mdp-door-desc{color:#e3eef1!important;font-size:13px!important;max-width:230px}
+.mdp-door--screenfree .mdp-door-symbol{
+ width:66px;height:66px;background:#ffffff15!important;
+ color:#f4d78c!important;border:1px solid #d6bf8b70!important;
+}
+.mdp-door--screenfree:hover{
+ background:linear-gradient(140deg,#09293e,#0d4255)!important;
+ border-color:#edcc82!important;
+}
+.mdp-door--screenfree.is-current{
+ background:linear-gradient(140deg,#071f36,#0f4357)!important;
+ box-shadow:inset 0 0 0 1px #f4dca5,0 8px 20px #0d334e32!important;
+}
+
+/* الصفحات الداخلية: عناوين محددة لا زينة إضافية */
+.top{box-shadow:0 3px 12px #123d4d12!important}
+.topbar{min-height:60px!important;padding:7px 14px!important}
+.top .logo strong{font-size:22px!important}
+.toplinks{display:none!important}
+.mdp-section .pageTitle{margin:8px auto 18px;max-width:870px;text-align:center}
+.mdp-section .pageTitle .bubble{
+ font-size:12px;padding:5px 13px;border-radius:100px;
+ background:#eaf5f4;color:#12767b;border:1px solid #d4e7e6;
+}
+.mdp-section .pageTitle h1{
+ font-size:clamp(23px,3vw,32px);
+ line-height:1.55;margin:7px 0;
+ font-weight:900;color:var(--mdp-navy);
+}
+.mdp-section .pageTitle p{font-size:14px;color:#617988;max-width:680px;margin:0 auto}
+.mdp-section .goldLine{height:3px;width:70px;margin:9px auto;background:#d7b46e}
+.mdp-section .panel{
+ border-radius:19px;border:1px solid var(--mdp-line);
+ background:#fff;box-shadow:0 4px 16px #123e5010;
+ padding:21px;margin-top:13px;
+}
+.mdp-section .panel h2{font-size:20px;margin:0 0 14px;color:var(--mdp-navy)}
+.mdp-section .mdp-gradebar{gap:8px}
+.mdp-gradebar button{
+ min-height:48px;min-width:0;border-radius:13px;
+ border:1px solid #d6e5e6;background:#f9fcfc;
+ color:var(--mdp-ink);font-weight:800;font-size:14px;
+ padding:9px 5px;box-shadow:none;
+}
+.mdp-gradebar button:hover{background:#eef7f6;border-color:#99ceca}
+.mdp-gradebar button.chosen{
+ color:#fff;background:#124761;
+ border-color:#124761;box-shadow:inset 0 0 0 1px #ffffff33;
+}
+.mdp-section .mdp-skilllist{gap:10px}
+.mdp-section .mdp-skill{
+ border:1px solid #e0e9e9;border-radius:16px;
+ padding:14px 16px;background:#fbfdfd;box-shadow:none;
+}
+.mdp-section .mdp-step{
+ border-radius:12px;background:#e6f4f2;color:#137d81;
+ font-size:16px;font-weight:900;
+}
+.mdp-section .mdp-skill-body h3{
+ font-size:16px;color:var(--mdp-navy);font-weight:900;line-height:1.7;
+}
+.mdp-section .mdp-skill-body p{font-size:13px;color:#597886;line-height:1.7}
+.mdp-section .mdp-skill .btn{
+ border-radius:12px;font-size:13px;min-height:45px;
+ box-shadow:none!important;white-space:normal;
+}
+.mdp-section .mdp-toolgrid{gap:13px}
+.mdp-section .mdp-tool{
+ padding:23px;border-radius:19px;
+ border-color:var(--mdp-line);
+ box-shadow:0 4px 13px #103d5410;
+}
+.mdp-section .mdp-tool h2{font-size:20px}
+.mdp-section .mdp-tool p{font-size:14px;color:#607c87}
+
+/* صفحات الشرح: وضوح المحتوى أهم من تأثيرات الزينة */
+.mdp-section .lessonhead{
+ border-radius:20px;padding:22px 24px;
+ background:linear-gradient(120deg,#fff,#f1faf9);
+ border:1px solid #d8e8e7;box-shadow:0 6px 15px #123d5112;
+}
+.mdp-section .lessonhead h1{font-size:clamp(23px,3vw,31px)}
+.mdp-section .lessonhead p{font-size:14px}
+.mdp-section .lessonbadge{box-shadow:none;border-radius:20px}
+.mdp-section .teaser{background:#f2f9f8;border:1px solid #d8e8e5}
+.mdp-section .lessonGoal{background:#f1faf8}
+.mdp-section .lesson-card .lessonGoal{border-radius:16px}
+.return-nav{margin-block:0 11px!important}
+.return-nav--bottom{margin-top:18px!important}
+.return-button{
+ background:#fff;border:1px solid #d5e4e5;
+ box-shadow:0 3px 9px #113d5010!important;
+ border-radius:12px;padding:8px 14px;
+ min-height:46px;color:#124862;
+}
+.return-button .return-symbol{background:#e9f5f3;color:#0e787f}
+.return-button:hover{background:#eff8f6}
+
+/* صفحة الاختبار، الحقيبة الورقية، والقيم ضمن الهوية نفسها */
+.quiz{border-radius:20px;border:1px solid #dce8e9;box-shadow:0 8px 22px #113c4e10}
+.sf-wrap .sf-banner,.val-shell .val-hero{
+ border-radius:21px;box-shadow:0 9px 20px #0b37511b;
+}
+.sf-wrap .sf-panel,.val-shell .val-intro{
+ border-radius:18px;border-color:#dde9e8;box-shadow:0 4px 13px #11384d0b;
+}
+.sf-wrap .sf-grades button{border-radius:13px}
+.sf-wrap .sf-grades button.is-on{background:#11445d;color:white}
+.val-shell .val-tile{border-radius:18px;box-shadow:0 5px 13px #11394f0c}
+
+/* عرض الجوال: بطاقات واضحة، مساحة فعلية للمس، دون قص للنص */
+@media(max-width:800px){
+ .mdp-doorgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .mdp-door--values,.mdp-door--screenfree{
+   grid-column:1 / -1!important;min-height:110px!important;
+   flex-direction:row!important;justify-content:flex-start!important;
+   gap:16px;text-align:right!important;padding:14px 19px!important;
+ }
+ .mdp-door--values .mdp-door-symbol,.mdp-door--screenfree .mdp-door-symbol{width:62px;height:62px;flex:none}
+ .mdp-door--values .mdp-door-desc,.mdp-door--screenfree .mdp-door-desc{max-width:360px}
+ .mdp-door--values::before,.mdp-door--screenfree::before{right:auto;left:18px}
+}
+@media(max-width:575px){
+ body:has(.mdp-home) .container{padding:0 0 30px!important}
+ .mdp-home{border-radius:0!important}
+ .mdp-mast{aspect-ratio:2.57!important;border:0;border-radius:0!important}
+ .mdp-mast .mdp-scene{width:151%;right:-25.5%;top:0}
+ .mdp-mast::after{height:13%;background:linear-gradient(to bottom,transparent,#f5faf9b3)}
+ .mdp-hub{
+    padding:13px 12px 18px!important;
+    border:0;border-radius:0!important;box-shadow:none!important;
+ }
+ .mdp-doorgrid{gap:10px}
+ .mdp-door{
+   min-height:150px!important;padding:15px 10px 14px!important;
+   gap:7px;border-radius:17px!important;
+   border-bottom-width:2px!important;
+ }
+ .mdp-door::before{right:13px;top:10px;width:19px;height:2px}
+ .mdp-door-symbol,.mdp-door--lessons .mdp-door-symbol,.mdp-door--tests .mdp-door-symbol,
+ .mdp-door--words .mdp-door-symbol,.mdp-door--teacher .mdp-door-symbol{
+   width:54px;height:54px;border-radius:17px;
+ }
+ .mdp-door-symbol svg{width:29px;height:29px}
+ .mdp-door strong{font-size:16px!important}
+ .mdp-door-desc{font-size:11.5px!important;line-height:1.7}
+ .mdp-door--values,.mdp-door--screenfree{
+   min-height:98px!important;padding:12px 16px!important;
+   gap:13px;border-radius:17px!important;
+ }
+ .mdp-door--values .mdp-door-symbol,.mdp-door--screenfree .mdp-door-symbol{
+   width:57px;height:57px;border-radius:16px;
+ }
+ .mdp-door--values strong,.mdp-door--screenfree strong{font-size:17px!important}
+ .mdp-door--values .mdp-door-desc,.mdp-door--screenfree .mdp-door-desc{
+   max-width:none;font-size:11.5px!important;
+ }
+ .mdp-door--values::before,.mdp-door--screenfree::before{left:13px}
+ .mdp-section .pageTitle h1{font-size:24px}
+ .mdp-section .panel{padding:16px;border-radius:16px}
+ .mdp-section .panel h2{font-size:18px}
+ .mdp-section .mdp-gradebar{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .mdp-gradebar button{font-size:13px;min-height:47px}
+ .mdp-section .mdp-skill{padding:14px!important;border-radius:15px}
+ .mdp-section .mdp-skill-body h3{font-size:16px;line-height:1.6}
+ .mdp-section .mdp-lesson-actions{gap:8px}
+ .mdp-section .lessonhead{padding:17px;border-radius:16px}
+ .return-button{min-height:45px;width:100%}
+ .quiz{padding:16px;border-radius:17px}
+ .sf-wrap .sf-banner{padding:20px 18px}
+ .sf-wrap .sf-panel{padding:17px}
+}
+@media(max-width:385px){
+ .mdp-door{min-height:158px!important;padding:15px 8px!important}
+ .mdp-door--values,.mdp-door--screenfree{min-height:105px!important;padding:12px!important}
+ .mdp-mast{aspect-ratio:2.43!important}
+ .mdp-mast .mdp-scene{width:157%;right:-28.5%}
+}
+@media(min-width:576px) and (max-width:800px){
+ .mdp-door{min-height:180px!important}
+ .mdp-hub{padding-inline:17px!important}
+ .mdp-door--values,.mdp-door--screenfree{min-height:112px!important}
+}
+@media(prefers-reduced-motion:reduce){button{transition:none!important}}
+@media print{
+ .mdp-home,.top,.footer{display:none!important}
+ .mdp-section .panel,.sf-wrap .sf-panel{box-shadow:none!important}
+}
