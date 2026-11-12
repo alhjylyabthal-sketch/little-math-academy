@@ -7,9 +7,15 @@
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#fff9ed",
-  "theme_color": "#0b3049",
+  "background_color": "#FFF8EB",
+  "theme_color": "#0B2D5B",
   "icons": [
+    {
+      "src": "./icon-v6.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
     {
       "src": "./icon-192.png",
       "sizes": "192x192",
@@ -23,7 +29,7 @@
       "purpose": "any"
     },
     {
-      "src": "./icon.svg",
+      "src": "./icon-v6.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "maskable"
