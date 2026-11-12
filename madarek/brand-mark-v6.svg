@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 520 330" role="img" aria-labelledby="title desc">
+<title id="title">رمز مدارك الجديد</title><desc id="desc">كتاب مفتوح بصفحات كحلية وذهبية ومربعات رقمية صاعدة، رمز التعليم والابتكار</desc>
+<defs>
+ <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FCE7A9"/><stop offset=".42" stop-color="#D4AF37"/><stop offset="1" stop-color="#B78A24"/></linearGradient>
+ <linearGradient id="n" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#1E3A8A"/><stop offset="1" stop-color="#0B2D5B"/></linearGradient>
+</defs>
+<!-- A precise book + rising digital geometry, inspired by approved concept ٢ -->
+<path d="M260 254C190 213 110 215 46 239V119C128 91 193 112 260 164Z" fill="#0B2D5B"/>
+<path d="M260 254C330 213 410 215 474 239V119C392 91 327 112 260 164Z" fill="url(#g)"/>
+<path d="M260 254V164C198 128 141 104 64 119V220C142 203 201 209 260 244Z" fill="#fff" stroke="#0B2D5B" stroke-width="4"/>
+<path d="M260 254V164C322 128 379 104 456 119V220C378 203 319 209 260 244Z" fill="#FFF8EB" stroke="#D4AF37" stroke-width="4"/>
+<path d="M260 254V164C195 125 134 116 46 146V260C130 235 194 238 260 280" fill="none" stroke="url(#n)" stroke-width="24" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M260 254V164C325 125 386 116 474 146V260C390 235 326 238 260 280" fill="none" stroke="url(#g)" stroke-width="24" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M77 146C157 132 205 154 248 184M77 175C148 159 204 186 248 213" stroke="#D9E5F5" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M442 146C362 132 314 154 272 184M442 175C371 159 315 186 272 213" stroke="#F0D898" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M260 151L328 74L369 127L407 50" fill="none" stroke="#0B2D5B" stroke-width="21" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M268 158L331 92L363 140L407 67" fill="none" stroke="url(#g)" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="327" y="23" width="24" height="24" rx="3" fill="#D4AF37"/>
+<rect x="364" y="13" width="35" height="35" rx="4" fill="#0B2D5B"/>
+<rect x="413" y="10" width="23" height="23" rx="3" fill="#D4AF37"/>
+<rect x="449" y="40" width="16" height="16" rx="2" fill="#0B2D5B"/>
+<rect x="439" y="11" width="11" height="11" rx="2" fill="#D4AF37"/>
+<path d="M62 279C146 254 206 271 260 305C314 271 374 254 458 279" fill="none" stroke="#D4AF37" stroke-width="6" stroke-linecap="round"/>
+</svg>
