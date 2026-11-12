@@ -13,12 +13,12 @@ const icons={
 };
 let selectedDoor='';
 const doors=[
- ['lessons','الدروس','أفهم الفكرة والأمثلة وخطوات الحل','goGradeSkills()'],
- ['tests','الاختبارات','أجيب عن أسئلة مستقلة وأرى نتيجتي','goTests()'],
- ['words','أفهم المسألة','أتعلم المفردات ومعانيها في سياقها','goWords()'],
- ['teacher','أدوات المعلمة','إرشادات التنفيذ والمتابعة الصفية','goTeacherTools()'],
- ['values','قيم نعيشها','قصص تربوية وأوراق عمل تفاعلية','goValues()'],
- ['screenfree','انتظار بلا شاشة','خطط وبطاقات ورقية قابلة للطباعة ودليل إجابات','sfHome()']
+ ['lessons','الدروس','شرح وأمثلة وخطوات الحل','goGradeSkills()'],
+ ['tests','الاختبارات','تقويم مستقل ونتائج محفوظة','goTests()'],
+ ['words','أفهم المسألة','فهم مفردات المسائل','goWords()'],
+ ['teacher','أدوات المعلمة','دليل التنفيذ وسجل النتائج','goTeacherTools()'],
+ ['values','قيم نعيشها','قيم وأوراق عمل تربوية','goValues()'],
+ ['screenfree','انتظار بلا شاشة','خطط وبطاقات وإجابات للطباعة','sfHome()']
 ];
 function mdpOpenDoor(id){
  const routes={lessons:()=>goGradeSkills(),tests:()=>goTests(),words:()=>goWords(),teacher:()=>goTeacherTools(),values:()=>window.goValues(),screenfree:()=>window.sfHome()};
