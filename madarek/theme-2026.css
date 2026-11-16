@@ -59,3 +59,42 @@ button{font-family:inherit!important}
 .md26-extras button{border:1px solid #dce5e8;background:#fff;font-weight:700;border-radius:12px;padding:12px 23px}
 @media(max-width:700px){.md26-home{padding:12px 13px 35px}.md26-hero{min-height:0;padding:29px 16px 30px;border-radius:20px}.md26-symbol{height:31px}.md26-brand{font-size:64px;margin:0 0 10px}.md26-desc{font-size:15px}.md26-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:15px}.md26-tile,.md26-tile:nth-child(4),.md26-tile:nth-child(5){grid-column:auto;min-height:136px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px;padding:17px 14px;border-radius:16px}.md26-tile:nth-child(5){grid-column:1/-1;min-height:110px;flex-direction:row;align-items:center;justify-content:flex-start}.md26-tile .md26-emoji{flex:0 0 auto;width:47px;height:47px;border-radius:13px;font-size:24px}.md26-tile strong{font-size:16px}.md26-tile small{font-size:12px;margin-top:0}.md26-grades{padding:17px}.md26-grades h2{font-size:20px}.md26-grade-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.md26-grade-grid button{font-size:14px;min-height:52px}}
 @media(prefers-reduced-motion:reduce){.md26-tile{transition:none}}
+
+/* مدارك — الواجهة المرجعية: كحلي، ذهبي، أبيض، تركوازي */
+.md26-home{max-width:1180px;padding:0 18px 45px;background:transparent}
+.md26-hero{min-height:310px;border:0;border-radius:0 0 30px 30px;background:radial-gradient(circle at 48% 5%,#20528c 0%,transparent 45%),linear-gradient(125deg,#082449,#103d74 58%,#082449);box-shadow:0 15px 30px #0a28502b;overflow:hidden;padding:27px 22px 33px;color:white}
+.md26-hero:before{content:'';position:absolute;right:-10%;left:-10%;top:auto;bottom:-26px;height:65px;width:auto;background:#f7f9fb;border-radius:50% 50% 0 0;transform:rotate(-1deg)}
+.md26-hero:after{content:'';position:absolute;left:0;right:0;bottom:32px;width:auto;height:3px;border:0;border-radius:0;background:linear-gradient(90deg,transparent,#e4b75d,transparent)}
+.md26-hero-inner{position:relative;z-index:1}
+.md26-eyebrow{display:inline-block;color:#f5d89c;border:1px solid #d5b46c88;padding:5px 17px;border-radius:30px;font-size:14px;font-weight:700}
+.md26-mark{width:100px;height:50px;margin:4px auto 0}.md26-mark svg{width:100%;height:100%}
+.md26-brand{color:#fff;font-size:clamp(64px,11vw,96px);letter-spacing:-3px;text-shadow:0 4px 14px #0005;margin:0;line-height:1.1}
+.md26-sub{border:0;background:linear-gradient(90deg,#dba83f,#ffe2a0,#dba83f);color:#102b4c;font-size:clamp(17px,3vw,23px);font-weight:900;padding:8px 30px;margin-top:9px}
+.md26-desc{color:#f1f5fb;font-weight:700;font-size:clamp(15px,2.5vw,20px);margin:12px 0 0}
+.md26-math{position:absolute;font-family:Tahoma,sans-serif;font-weight:900;color:#e7bd66;opacity:.85;z-index:0;line-height:1.6;font-size:32px;transform:rotate(-9deg)}
+.md26-math-a{right:7%;top:35px}.md26-math-b{left:7%;top:48px;color:#a5e8ed;transform:rotate(7deg)}
+.md26-motto{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);margin:-3px auto 22px;max-width:940px;border:1px solid #e3c27c;border-radius:15px;background:#fffdf7;box-shadow:0 7px 16px #0c2d5112;overflow:hidden}
+.md26-motto span{padding:13px 10px;text-align:center;font-weight:800;color:#183a62;font-size:17px}
+.md26-motto span+span{border-right:1px solid #e6d5b3}
+.md26-grid{margin-top:10px;gap:16px}
+.md26-tile{background:linear-gradient(145deg,#fff,#f6f9fc);border:1px solid #d9bc7b;border-bottom:4px solid #d7a448;box-shadow:0 8px 22px #0d30541a;min-height:210px;flex-direction:column;align-items:center;text-align:center;justify-content:center;gap:10px}
+.md26-tile:nth-child(1),.md26-tile:nth-child(3){background:linear-gradient(150deg,#164777,#09264b);border-color:#d7aa4f}
+.md26-tile:nth-child(1) strong,.md26-tile:nth-child(3) strong{color:white}
+.md26-tile:nth-child(1) small,.md26-tile:nth-child(3) small{color:#dceaf8}
+.md26-tile .md26-emoji,.md26-tile:nth-child(2) .md26-emoji,.md26-tile:nth-child(3) .md26-emoji,.md26-tile:nth-child(4) .md26-emoji,.md26-tile:nth-child(5) .md26-emoji{width:68px;height:68px;flex:0 0 68px;border-radius:18px;background:linear-gradient(145deg,#fff6dc,#e8c06c);color:#12395c;box-shadow:inset 0 1px 0 #fff9,0 5px 13px #0001}
+.md26-emoji svg{width:39px;height:39px}
+.md26-copy{display:block}.md26-tile strong{font-size:22px}.md26-tile small{font-size:14px;max-width:220px;margin:5px auto 0}.md26-arrow{display:none}
+.md26-tile:after{left:35%;right:35%;bottom:9px;height:3px;background:#e7b85c;opacity:1}
+@media(max-width:700px){
+.md26-home{padding:0 11px 32px}
+.md26-hero{border-radius:0 0 24px 24px;min-height:260px;padding:20px 12px 32px}
+.md26-mark{width:80px;height:38px}.md26-brand{font-size:65px}.md26-eyebrow{font-size:11px}.md26-sub{font-size:16px;padding:8px 19px}.md26-desc{font-size:13px}
+.md26-math{font-size:21px}.md26-math-a{right:3%;top:60px}.md26-math-b{left:3%;top:62px}
+.md26-motto{margin:0 0 13px;border-radius:12px}.md26-motto span{font-size:11px;padding:11px 3px}
+.md26-grid{gap:10px;margin-top:10px}
+.md26-tile,.md26-tile:nth-child(4),.md26-tile:nth-child(5){min-height:164px;padding:15px 10px;flex-direction:column;align-items:center;text-align:center;justify-content:center;gap:8px}
+.md26-tile:nth-child(5){grid-column:1/-1;min-height:116px;flex-direction:row;gap:18px;text-align:right}
+.md26-tile:nth-child(5) .md26-copy{text-align:right}
+.md26-tile .md26-emoji,.md26-tile:nth-child(2) .md26-emoji,.md26-tile:nth-child(3) .md26-emoji,.md26-tile:nth-child(4) .md26-emoji,.md26-tile:nth-child(5) .md26-emoji{width:50px;height:50px;flex:0 0 50px;border-radius:14px}
+.md26-emoji svg{width:30px;height:30px}.md26-tile strong{font-size:16px}.md26-tile small{font-size:12px;line-height:1.45}
+}
