@@ -49,6 +49,10 @@ function mdpPillarOf(s){
  const index=gradeSkills.indexOf(s);
  return (mdpPillarByGrade[s.g]||[])[index]||'mastery';
 }
+function mdpWaitingPlan(){
+ const stages=[['التهيئة والسؤال التشويقي','٥ دقائق'],['اكتشاف المهارة وفهمها','٧ دقائق'],['الأنشطة والألعاب التفاعلية','١٢ دقيقة'],['التفكير والتحدي','١٠ دقائق'],['التقويم وبطاقة الخروج','٦ دقائق']];
+ return '<section class="panel mdp-waiting-plan"><h2>خطة حصة الانتظار • ٤٠ دقيقة</h2><div class="mdp-waiting-stages">'+stages.map(([title,time])=>'<div class="mdp-waiting-stage"><strong>'+title+'</strong><span>'+time+'</span></div>').join('')+'</div></section>';
+}
 function mdpPillarTabs(){
  const count=id=>SKILLS.filter(s=>s.g===selectedGrade+1&&(id==='all'||mdpPillarOf(s)===id)).length;
  return '<div class="mdp-pillar-tabs" aria-label="ركائز مدارك">'+
@@ -76,7 +80,7 @@ goHome=function(){
 };
 goGradeSkills=function(){
  activeId=null;
- mount('<div class="shell mdp-section">'+pageHeading('الدروس','دروس الصف '+GRADES[selectedGrade],'شرح الفكرة والأمثلة والخطوات، دون عرض أسئلة الاختبار')+'<section class="panel"><h2>اختاري الصف</h2>'+gradeBar('setGrade')+'</section><section class="panel"><h2>ركائز مدارك الثلاث</h2><p>اختاري تأسيس أو تفكير أو إتقان، أو اعرضي جميع المهارات.</p>'+mdpPillarTabs()+'</section><section class="panel"><h2>دروس الفصل الدراسي الأول</h2><div class="mdp-skilllist">'+pageRows(false)+'</div></section></div>','skills','grades');
+ mount('<div class="shell mdp-section">'+pageHeading('الدروس','دروس الصف '+GRADES[selectedGrade],'شرح الفكرة والأمثلة والخطوات، دون عرض أسئلة الاختبار')+'<section class="panel"><h2>اختاري الصف</h2>'+gradeBar('setGrade')+'</section><section class="panel"><h2>ركائز مدارك الثلاث</h2><p>اختاري تأسيس أو تفكير أو إتقان، أو اعرضي جميع المهارات.</p>'+mdpPillarTabs()+'</section>'+mdpWaitingPlan()+'<section class="panel"><h2>دروس الفصل الدراسي الأول</h2><div class="mdp-skilllist">'+pageRows(false)+'</div></section></div>','skills','grades');
 };
 openSkill=function(i){
  const s=SKILLS[i];if(!s)return; activeId=i; selectedGrade=s.g-1;
