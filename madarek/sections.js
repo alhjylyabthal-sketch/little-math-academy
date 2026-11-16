@@ -27,8 +27,37 @@ function mdpOpenDoor(id){
 }
 window.mdpOpenDoor=mdpOpenDoor;
 function pic(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+icons[k]+'</svg>';}
+/* تصنيف تجريبي لركائز مدارك: لا يغيّر بيانات المهارات أو الاختبارات. */
+const mdpPillars=[
+ {id:'foundation',title:'تأسيس',desc:'أبني أساسياتي'},
+ {id:'thinking',title:'تفكير',desc:'أحلل وأستنتج'},
+ {id:'mastery',title:'إتقان',desc:'أطبق بثقة'}
+];
+const mdpPillarByGrade={
+ 1:['thinking','foundation','mastery','mastery','thinking'],
+ 2:['foundation','thinking','mastery','thinking'],
+ 3:['foundation','mastery','mastery','mastery','thinking'],
+ 4:['foundation','mastery','mastery','thinking','thinking'],
+ 5:['foundation','thinking','mastery','mastery','mastery','thinking'],
+ 6:['foundation','foundation','thinking','thinking','mastery','thinking']
+};
+let mdpActivePillar='all';
+function mdpSetPillar(id){mdpActivePillar=id;goGradeSkills();}
+window.mdpSetPillar=mdpSetPillar;
+function mdpPillarOf(s){
+ const gradeSkills=SKILLS.filter(x=>x.g===s.g);
+ const index=gradeSkills.indexOf(s);
+ return (mdpPillarByGrade[s.g]||[])[index]||'mastery';
+}
+function mdpPillarTabs(){
+ const count=id=>SKILLS.filter(s=>s.g===selectedGrade+1&&(id==='all'||mdpPillarOf(s)===id)).length;
+ return '<div class="mdp-pillar-tabs" aria-label="ركائز مدارك">'+
+  [{id:'all',title:'جميع المهارات',desc:'عرض الكل'},...mdpPillars].map(p=>
+   '<button type="button" class="mdp-pillar-tab'+(mdpActivePillar===p.id?' chosen':'')+'" onclick="mdpSetPillar(\\''+p.id+'\\')"><strong>'+p.title+'</strong><small>'+p.desc+' • '+fmt(count(p.id))+'</small></button>'
+  ).join('')+'</div>';
+}
 function pageRows(forTests){
- const options=SKILLS.map((s,i)=>({s,i})).filter(x=>x.s.g===selectedGrade+1);
+ const options=SKILLS.map((s,i)=>({s,i})).filter(x=>x.s.g===selectedGrade+1&&(forTests||mdpActivePillar==='all'||mdpPillarOf(x.s)===mdpActivePillar));
  return options.map(({s,i},j)=>{
    const actions=forTests
      ? '<button class="btn gold" type="button" onclick="startAssessment('+i+')">ابدأ الاختبار</button>'
