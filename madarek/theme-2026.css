@@ -1,0 +1,29 @@
+/* مدارك — الهوية البصرية التجريبية، لا تؤثر على الموقع المنشور حتى اعتمادها */
+:root{--navy:#102d65;--deep:#0b2452;--teal:#08a5b5;--turquoise:#08a5b5;--gold:#e3ad37;--gold2:#f8d36d;--ink:#142d5a;--muted:#60748c;--line:#dce5f0;--bg:#f8fbff;--cream:#fffaf0}
+body{background:linear-gradient(145deg,#fff 0%,#f3f8ff 100%);color:var(--ink)}
+.top{background:#fff;border-bottom:2px solid #dba73a;box-shadow:0 4px 18px #102d6514}
+.toplinks button.active,.btn{background:linear-gradient(135deg,#102d65,#184e8b);color:#fff}
+.panel,.skill,.grade,.mini{border-color:#dce5f0;box-shadow:0 5px 16px #102d650b}
+.btn.gold{background:linear-gradient(135deg,#c99528,#f2c75c);color:#102d65}
+.return-button{border-color:#c5d9ed}
+.md26-home{direction:rtl;max-width:1180px;margin:auto;padding:22px 16px 35px}
+.md26-hero{position:relative;overflow:hidden;border:2px solid #e5b744;border-radius:26px;background:radial-gradient(circle at 80% 10%,#d9f9ff 0%,transparent 32%),linear-gradient(120deg,#fff,#f2f8ff);padding:34px 20px 26px;text-align:center;box-shadow:0 15px 32px #102d6515}
+.md26-hero:before{content:'✦';position:absolute;top:12px;right:22px;color:#e3ad37;font-size:32px}
+.md26-symbol{font-size:52px;line-height:1.2;color:#0a97a8}
+.md26-brand{font-size:clamp(44px,9vw,78px);font-weight:900;color:#102d65;line-height:1.35;margin:0;text-shadow:2px 3px 0 #e7bd53}
+.md26-sub{display:inline-block;background:linear-gradient(100deg,#f5d47d,#dca638);border-radius:999px;padding:5px 26px;color:#102d65;font-weight:900;font-size:clamp(17px,3vw,23px)}
+.md26-desc{font-weight:700;color:#25496e;font-size:clamp(14px,2.4vw,18px);margin:14px 0 0}
+.md26-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-top:18px}
+.md26-tile{display:flex;align-items:center;gap:13px;text-align:right;min-height:104px;padding:17px;border:2px solid #e8bd5d;border-radius:20px;background:#fff;box-shadow:0 6px 0 #e5eef9,0 12px 20px #102d6510;color:#102d65;font-weight:900}
+.md26-tile .md26-emoji{display:grid;place-items:center;flex:0 0 56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#e0fbff,#9de5e9);font-size:30px}
+.md26-tile:nth-child(3n+2) .md26-emoji{background:linear-gradient(135deg,#fff1cc,#f4d07a)}
+.md26-tile:nth-child(3n) .md26-emoji{background:linear-gradient(135deg,#e7e1ff,#c3b3f8)}
+.md26-tile strong{display:block;font-size:17px}
+.md26-tile small{display:block;font-size:12px;font-weight:600;color:#63748c}
+.md26-grades{margin-top:20px;background:#fff;border:1px solid #dce5f0;border-radius:20px;padding:18px}
+.md26-grades h2{margin:0 0 12px}
+.md26-grade-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}
+.md26-grade-grid button{min-height:60px;background:#f2f9ff;border:1px solid #cbddea;border-radius:14px;color:#102d65;font-weight:900}
+.md26-grade-grid button:hover,.md26-grade-grid button:focus-visible{background:#102d65;color:white}
+@media(max-width:700px){.md26-home{padding:12px 10px 25px}.md26-hero{padding:25px 10px 22px;border-radius:18px}.md26-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.md26-tile{min-height:90px;padding:11px;gap:8px;border-radius:15px}.md26-tile .md26-emoji{flex-basis:43px;height:43px;font-size:23px}.md26-tile strong{font-size:14px}.md26-tile small{font-size:11px}.md26-grade-grid{grid-template-columns:repeat(3,1fr)}}
+.md26-extras{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0}.md26-extras button{border:1px solid #d9b35c;background:white;color:#102d65;border-radius:12px;min-height:46px;padding:10px 20px;font-weight:800}.md26-tile:focus-visible,.md26-grade-grid button:focus-visible{outline:3px solid #0aa5b5;outline-offset:3px}.md26-tile:hover{transform:translateY(-2px);box-shadow:0 9px 0 #e5eef9,0 16px 22px #102d6515}
