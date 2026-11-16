@@ -41,7 +41,11 @@ function pageRows(forTests){
 function gradeBar(callback){
  return '<div class="mdp-gradebar" aria-label="اختيار الصف">'+GRADES.map((g,i)=>'<button type="button" class="'+(selectedGrade===i?'chosen':'')+'" onclick="'+callback+'('+i+')">الصف '+g+'</button>').join('')+'</div>';
 }
-/* تستخدم الرئيسية الجديدة من index.html، مع إبقاء صفحات الأقسام مستقلة. */
+goHome=function(){
+ activeId=null;
+ const tiles=doors.map(([id,title,description])=>'<button type="button" class="mdp-door mdp-door--'+id+(id===selectedDoor?' is-current':'')+'" onclick="mdpOpenDoor(\''+id+'\')" aria-label="'+title+'" aria-pressed="'+(id===selectedDoor?'true':'false')+'"><span class="mdp-door-symbol">'+pic(id)+'</span><span class="mdp-door-copy"><strong>'+title+'</strong><span class="mdp-door-desc">'+description+'</span></span></button>').join('');
+ mount('<div class="mdp-home"><section class="mdp-hero" aria-label="مدارك، حقيبة مهارات الرياضيات"><div class="mdp-hero-arch" aria-hidden="true"></div><img class="mdp-hero-child mdp-hero-child--girl" src="./approved-girl.webp" alt="طالبة تحمل كتبًا تعليمية" width="340" height="380" loading="eager"><div class="mdp-hero-center"><img class="mdp-logo-symbol" src="./brand-mark-v6.svg" alt="الشعار المعتمد لمدارك، التصميم الثاني، بالأزرق الكحلي والذهبي" width="420" height="329" loading="eager"><h1 class="mdp-wordmark">مدارك</h1><p class="mdp-hero-subtitle">حقيبة مهارات الرياضيات</p><p class="mdp-hero-scope">للصفوف الابتدائية من الأول إلى السادس</p></div><img class="mdp-hero-child mdp-hero-child--boy" src="./approved-boy.webp" alt="طالب يحمل جهازًا تعليميًا" width="340" height="380" loading="eager"></section><section class="mdp-hub" aria-label="أقسام مدارك"><div class="mdp-doorgrid">'+tiles+'</div></section></div>','home','home');
+};
 goGradeSkills=function(){
  activeId=null;
  mount('<div class="shell mdp-section">'+pageHeading('الدروس','دروس الصف '+GRADES[selectedGrade],'شرح الفكرة والأمثلة والخطوات، دون عرض أسئلة الاختبار')+'<section class="panel"><h2>اختاري الصف</h2>'+gradeBar('setGrade')+'</section><section class="panel"><h2>دروس الفصل الدراسي الأول</h2><div class="mdp-skilllist">'+pageRows(false)+'</div></section></div>','skills','grades');
