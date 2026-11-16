@@ -53,7 +53,7 @@ function mdpPillarTabs(){
  const count=id=>SKILLS.filter(s=>s.g===selectedGrade+1&&(id==='all'||mdpPillarOf(s)===id)).length;
  return '<div class="mdp-pillar-tabs" aria-label="ركائز مدارك">'+
   [{id:'all',title:'جميع المهارات',desc:'عرض الكل'},...mdpPillars].map(p=>
-   '<button type="button" class="mdp-pillar-tab'+(mdpActivePillar===p.id?' chosen':'')+'" onclick="mdpSetPillar(\\''+p.id+'\\')"><strong>'+p.title+'</strong><small>'+p.desc+' • '+fmt(count(p.id))+'</small></button>'
+   '<button type="button" class="mdp-pillar-tab'+(mdpActivePillar===p.id?' chosen':'')+'" onclick="mdpSetPillar(&quot;'+p.id+'&quot;)"><strong>'+p.title+'</strong><small>'+p.desc+' • '+fmt(count(p.id))+'</small></button>'
   ).join('')+'</div>';
 }
 function pageRows(forTests){
@@ -76,7 +76,7 @@ goHome=function(){
 };
 goGradeSkills=function(){
  activeId=null;
- mount('<div class="shell mdp-section">'+pageHeading('الدروس','دروس الصف '+GRADES[selectedGrade],'شرح الفكرة والأمثلة والخطوات، دون عرض أسئلة الاختبار')+'<section class="panel"><h2>اختاري الصف</h2>'+gradeBar('setGrade')+'</section><section class="panel"><h2>دروس الفصل الدراسي الأول</h2><div class="mdp-skilllist">'+pageRows(false)+'</div></section></div>','skills','grades');
+ mount('<div class="shell mdp-section">'+pageHeading('الدروس','دروس الصف '+GRADES[selectedGrade],'شرح الفكرة والأمثلة والخطوات، دون عرض أسئلة الاختبار')+'<section class="panel"><h2>اختاري الصف</h2>'+gradeBar('setGrade')+'</section><section class="panel"><h2>ركائز مدارك الثلاث</h2><p>اختاري تأسيس أو تفكير أو إتقان، أو اعرضي جميع المهارات.</p>'+mdpPillarTabs()+'</section><section class="panel"><h2>دروس الفصل الدراسي الأول</h2><div class="mdp-skilllist">'+pageRows(false)+'</div></section></div>','skills','grades');
 };
 openSkill=function(i){
  const s=SKILLS[i];if(!s)return; activeId=i; selectedGrade=s.g-1;
