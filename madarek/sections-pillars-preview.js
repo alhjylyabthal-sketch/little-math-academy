@@ -1,0 +1,120 @@
+
+/* مدارك — أبواب مستقلة: شرح، تقويم، مفردات، أدوات معلمة.
+   لا تغيّر بيانات المهارات ولا سجل نتائج الطالب. */
+(function(){
+"use strict";
+const icons={
+ lessons:'<path d="M12 6.6c-2.5-1.8-5.4-2.1-8.5-1.6v13c3.2-.5 6 .1 8.5 1.8m0-13.2c2.5-1.8 5.4-2.1 8.5-1.6v13c-3.2-.5-6 .1-8.5 1.8m0-13.2v13.2"/>',
+ tests:'<path d="M9 4h6l1 2h3v15H5V6h3l1-2Z"/><path d="m8 12 2.1 2.1 4-4.1M8 18h8"/>',
+ words:'<path d="M5 5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-7l-5 3v-3H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><path d="M8 9h8M8 13h6"/>',
+ teacher:'<rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 12h16M10 12v2h4v-2"/>',
+ screenfree:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 15h18M7 9h5M7 12h8M12 19v3M8 22h8"/><path d="m16 9 2 2-2 2"/>',
+ values:'<path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2 4.5 4.5 0 0 1 8 2c0 6-8 11-8 11Z"/><path d="m11 10 1 2 2-1"/>'
+};
+let selectedDoor='';
+const doors=[
+ ['lessons','الدروس','شرح وأمثلة وخطوات الحل','goGradeSkills()'],
+ ['tests','الاختبارات','تقويم مستقل ونتائج محفوظة','goTests()'],
+ ['words','أفهم المسألة','فهم مفردات المسائل','goWords()'],
+ ['teacher','أدوات المعلمة','دليل التنفيذ وسجل النتائج','goTeacherTools()'],
+ ['screenfree','انتظار بلا شاشة','خطط وبطاقات وإجابات للطباعة','sfHome()']
+];
+function mdpOpenDoor(id){
+ const routes={lessons:()=>goGradeSkills(),tests:()=>goTests(),words:()=>goWords(),teacher:()=>goTeacherTools(),values:()=>window.goValues(),screenfree:()=>window.sfHome()};
+ if(!Object.prototype.hasOwnProperty.call(routes,id))return;
+ selectedDoor=id;
+ routes[id]();
+}
+window.mdpOpenDoor=mdpOpenDoor;
+function pic(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+icons[k]+'</svg>';}
+/* تصنيف تجريبي لركائز مدارك: لا يغيّر بيانات المهارات أو الاختبارات. */
+const mdpPillars=[
+ {id:'foundation',title:'تأسيس',desc:'أبني أساسياتي'},
+ {id:'thinking',title:'تفكير',desc:'أحلل وأستنتج'},
+ {id:'mastery',title:'إتقان',desc:'أطبق بثقة'}
+];
+const mdpPillarByGrade={
+ 1:['thinking','foundation','mastery','mastery','thinking'],
+ 2:['foundation','thinking','mastery','thinking'],
+ 3:['foundation','mastery','mastery','mastery','thinking'],
+ 4:['foundation','mastery','mastery','thinking','thinking'],
+ 5:['foundation','thinking','mastery','mastery','mastery','thinking'],
+ 6:['foundation','foundation','thinking','thinking','mastery','thinking']
+};
+let mdpActivePillar='all';
+function mdpSetPillar(id){mdpActivePillar=id;goGradeSkills();}
+window.mdpSetPillar=mdpSetPillar;
+function mdpPillarOf(s){
+ const gradeSkills=SKILLS.filter(x=>x.g===s.g);
+ const index=gradeSkills.indexOf(s);
+ return (mdpPillarByGrade[s.g]||[])[index]||'mastery';
+}
+function mdpWaitingPlan(){
+ const stages=[['التهيئة والسؤال التشويقي','٥ دقائق'],['اكتشاف المهارة وفهمها','٧ دقائق'],['الأنشطة والألعاب التفاعلية','١٢ دقيقة'],['التفكير والتحدي','١٠ دقائق'],['التقويم وبطاقة الخروج','٦ دقائق']];
+ return '<section class="panel mdp-waiting-plan"><h2>خطة حصة الانتظار • ٤٠ دقيقة</h2><div class="mdp-waiting-stages">'+stages.map(([title,time])=>'<div class="mdp-waiting-stage"><strong>'+title+'</strong><span>'+time+'</span></div>').join('')+'</div></section>';
+}
+function mdpPillarTabs(){
+ const count=id=>SKILLS.filter(s=>s.g===selectedGrade+1&&(id==='all'||mdpPillarOf(s)===id)).length;
+ return '<div class="mdp-pillar-tabs" aria-label="ركائز مدارك">'+
+  [{id:'all',title:'جميع المهارات',desc:'عرض الكل'},...mdpPillars].map(p=>
+   '<button type="button" class="mdp-pillar-tab'+(mdpActivePillar===p.id?' chosen':'')+'" onclick="mdpSetPillar(&quot;'+p.id+'&quot;)"><strong>'+p.title+'</strong><small>'+p.desc+' • '+fmt(count(p.id))+'</small></button>'
+  ).join('')+'</div>';
+}
+function pageRows(forTests){
+ const options=SKILLS.map((s,i)=>({s,i})).filter(x=>x.s.g===selectedGrade+1&&(forTests||mdpActivePillar==='all'||mdpPillarOf(x.s)===mdpActivePillar));
+ return options.map(({s,i},j)=>{
+   const actions=forTests
+     ? '<button class="btn gold" type="button" onclick="startAssessment('+i+')">ابدأ الاختبار</button>'
+     : '<div class="mdp-lesson-actions"><button class="btn gold" type="button" onclick="openClassroom('+i+')">عرض صفي</button><button class="btn outline" type="button" onclick="openSkill('+i+')">تفاصيل الدرس</button></div>';
+   return '<article class="mdp-skill"><div class="mdp-step">'+fmt(j+1)+'</div><div class="mdp-skill-body"><h3>'+esc(s.title)+'</h3><p>'+
+     (forTests?'تقويم مستقل • ستة أسئلة • نتيجة بعد الإكمال':window.mdMathHTML(s.idea))+'</p></div>'+actions+'</article>';
+ }).join('');
+}
+function gradeBar(callback){
+ return '<div class="mdp-gradebar" aria-label="اختيار الصف">'+GRADES.map((g,i)=>'<button type="button" class="'+(selectedGrade===i?'chosen':'')+'" onclick="'+callback+'('+i+')">الصف '+g+'</button>').join('')+'</div>';
+}
+goHome=function(){
+ activeId=null;
+ const tiles=doors.map(([id,title,description])=>'<button type="button" class="mdp-door mdp-door--'+id+(id===selectedDoor?' is-current':'')+'" onclick="mdpOpenDoor(\''+id+'\')" aria-label="'+title+'" aria-pressed="'+(id===selectedDoor?'true':'false')+'"><span class="mdp-door-symbol">'+pic(id)+'</span><span class="mdp-door-copy"><strong>'+title+'</strong><span class="mdp-door-desc">'+description+'</span></span></button>').join('');
+ mount('<div class="mdp-home"><section class="mdp-hero" aria-label="مدارك، حقيبة مهارات الرياضيات"><div class="mdp-hero-arch" aria-hidden="true"></div><img class="mdp-hero-child mdp-hero-child--girl" src="./approved-girl.webp" alt="طالبة تحمل كتبًا تعليمية" width="340" height="380" loading="eager"><div class="mdp-hero-center"><img class="mdp-logo-symbol" src="./brand-mark-v6.svg" alt="الشعار المعتمد لمدارك، التصميم الثاني، بالأزرق الكحلي والذهبي" width="420" height="329" loading="eager"><h1 class="mdp-wordmark">مدارك</h1><p class="mdp-hero-subtitle">حقيبة مهارات الرياضيات</p><p class="mdp-hero-scope">للصفوف الابتدائية من الأول إلى السادس</p></div><img class="mdp-hero-child mdp-hero-child--boy" src="./approved-boy.webp" alt="طالب يحمل جهازًا تعليميًا" width="340" height="380" loading="eager"></section><section class="mdp-hub" aria-label="أقسام مدارك"><div class="mdp-doorgrid">'+tiles+'</div></section></div>','home','home');
+};
+goGradeSkills=function(){
+ activeId=null;
+ mount('<div class="shell mdp-section">'+pageHeading('الدروس','دروس الصف '+GRADES[selectedGrade],'شرح الفكرة والأمثلة والخطوات، دون عرض أسئلة الاختبار')+'<section class="panel"><h2>اختاري الصف</h2>'+gradeBar('setGrade')+'</section><section class="panel"><h2>ركائز مدارك الثلاث</h2><p>اختاري تأسيس أو تفكير أو إتقان، أو اعرضي جميع المهارات.</p>'+mdpPillarTabs()+'</section>'+mdpWaitingPlan()+'<section class="panel"><h2>دروس الفصل الدراسي الأول</h2><div class="mdp-skilllist">'+pageRows(false)+'</div></section></div>','skills','grades');
+};
+openSkill=function(i){
+ const s=SKILLS[i];if(!s)return; activeId=i; selectedGrade=s.g-1;
+ const question=TEASER_QUESTIONS[i]||'ما الفكرة التي تساعدنا على فهم هذه المهارة؟';
+ mount('<div class="shell mdp-section"><header class="lessonhead"><div><span class="bubble">الصف '+GRADES[s.g-1]+' • الفصل الأول</span><h1>'+esc(s.title)+'</h1><p>تفاصيل الدرس وخطوات الشرح للمعلمة</p><button class="btn gold" type="button" onclick="openClassroom('+i+')">بدء العرض الصفي</button></div><div class="lessonbadge">'+SKILL_ICONS[i%6]+'</div></header><section class="panel lesson-card"><h2>ألاحظ وأتساءل</h2><div class="teaser"><p>'+window.mdMathHTML(question)+'</p></div></section><section class="panel lesson-card"><h2>أفهم الفكرة</h2><div class="lessonGoal">'+window.mdMathHTML(s.idea)+'</div><div class="layout"><div class="mini cream"><h3>مثال من الدرس</h3><p>'+window.mdMathHTML(s.example,{decomposition:true})+'</p></div><div class="mini"><h3>أين أستخدم هذه المهارة؟</h3><p>'+window.mdMathHTML(s.intro||'أفهم المعطيات وأحدد المطلوب ثم أختار طريقة الحل المناسبة.')+'</p></div></div><div class="spaced">'+lessonSVG(s)+'</div><h3>خطوات الفهم</h3><div class="liststeps">'+(s.steps||[]).map((v,j)=>'<div class="steptile"><span class="numcircle">'+fmt(j+1)+'</span>'+window.mdMathHTML(v)+'</div>').join('')+'</div></section></div>','skills','skill');
+};
+function goTests(){
+ activeId=null;
+ mount('<div class="shell mdp-section">'+pageHeading('الاختبارات','اختبارات الصف '+GRADES[selectedGrade],'تقويم المهارات بأسئلة مستقلة ونتيجة لكل محاولة')+'<section class="panel"><h2>حددي الصف</h2>'+gradeBar('mdpTestGrade')+'</section><section class="panel"><h2>اختاري الاختبار</h2><div class="mdp-skilllist">'+pageRows(true)+'</div></section><div class="mdp-recordlink"><button class="btn outline" onclick="goRecord()">عرض سجل النتائج المحفوظة على هذا الجهاز</button></div></div>','tests','tests');
+};
+window.mdpTestGrade=function(i){selectedGrade=i;goTests();};
+window.startAssessment=function(i){if(!SKILLS[i])return;activeId=i;selectedGrade=SKILLS[i].g-1;startQuiz();};
+function goTeacherTools(){
+ mount('<div class="shell mdp-section">'+pageHeading('أدوات المعلمة','أدوات المعلمة','إرشادات صفية للتنفيذ والمتابعة')+'<div class="mdp-toolgrid"><article class="mdp-tool"><div class="mdp-toolmark">١</div><h2>دليل التنفيذ الصفي</h2><p>إرشادات لتنظيم الحصة والتعامل مع تعثر الطلاب وتوظيف الوسائل المحسوسة.</p><button class="btn gold" onclick="goGuide()">فتح الدليل</button></article><article class="mdp-tool"><div class="mdp-toolmark">٢</div><h2>متابعة نتائج الاختبارات</h2><p>استعراض محاولات التدريب المحفوظة على هذا الجهاز، دون الحاجة إلى أسماء الطلاب أو مشاركة بياناتهم.</p><button class="btn" onclick="goRecord()">عرض سجل النتائج</button></article></div></div>','guide','teacher-tools');
+}
+finishQuiz=function(){
+ const s=SKILLS[activeId];if(!s)return;
+ const score=answers.filter(x=>x.good).length,hints=answers.filter(x=>x.hints>0).length;
+ saveLocal({grade:s.g,skill:s.title,score,hints,date:new Date().toLocaleDateString('ar-SA-u-ca-gregory-nu-arab')});
+ mount('<div class="shell"><section class="panel resultWrap"><div class="resultStar">'+(score>=5?'🏆':'🌟')+'</div><h1>نتيجة الاختبار</h1><p>'+esc(s.title)+'</p><div class="score">'+fmt(score)+' من '+fmt(s.questions.length)+'</div><p>أجبت عن '+fmt(score)+' أسئلة إجابة صحيحة. '+(hints?'استخدمت تلميحات في '+fmt(hints)+' من الأسئلة.':'')+'</p><p class="tagline">النتيجة محفوظة في هذا المتصفح فقط.</p><div class="toolbar" style="justify-content:center"><button class="btn gold" onclick="startAssessment('+activeId+')">إعادة الاختبار</button><button class="btn outline" onclick="goTests()">العودة للاختبارات</button><button class="btn soft" onclick="goRecord()">سجل النتائج</button></div></section></div>','tests','result');
+};
+goBackInside=function(){
+ if(currentSection==='quiz'||currentSection==='result'||currentSection==='record'){goTests();return;}
+ if(currentSection==='skill'){goGradeSkills();return;}
+ if(currentSection==='screenfree-detail'){window.sfHome();return;}
+ if(currentSection==='screenfree'){goHome();return;}
+ if(currentSection==='guide'){goTeacherTools();return;}
+ goHome();
+};
+returnButton=function(place,section){
+ const label=section==='quiz'||section==='result'||section==='record'?'العودة إلى الاختبارات':section==='skill'?'العودة إلى الدروس':section==='screenfree-detail'?'العودة إلى مهارات الحقيبة':section==='screenfree'?'العودة إلى الرئيسية':section==='guide'?'العودة إلى أدوات المعلمة':'العودة إلى الرئيسية';
+ return '<nav class="return-nav return-nav--'+place+'"><button type="button" class="return-button" onclick="goBackInside()"><span class="return-symbol">↩</span>'+label+'</button></nav>';
+};
+window.goTests=goTests;
+window.goTeacherTools=goTeacherTools;
+goHome();
+})();
