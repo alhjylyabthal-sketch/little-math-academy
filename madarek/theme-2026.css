@@ -27,3 +27,35 @@ body{background:linear-gradient(145deg,#fff 0%,#f3f8ff 100%);color:var(--ink)}
 .md26-grade-grid button:hover,.md26-grade-grid button:focus-visible{background:#102d65;color:white}
 @media(max-width:700px){.md26-home{padding:12px 10px 25px}.md26-hero{padding:25px 10px 22px;border-radius:18px}.md26-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.md26-tile{min-height:90px;padding:11px;gap:8px;border-radius:15px}.md26-tile .md26-emoji{flex-basis:43px;height:43px;font-size:23px}.md26-tile strong{font-size:14px}.md26-tile small{font-size:11px}.md26-grade-grid{grid-template-columns:repeat(3,1fr)}}
 .md26-extras{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0}.md26-extras button{border:1px solid #d9b35c;background:white;color:#102d65;border-radius:12px;min-height:46px;padding:10px 20px;font-weight:800}.md26-tile:focus-visible,.md26-grade-grid button:focus-visible{outline:3px solid #0aa5b5;outline-offset:3px}.md26-tile:hover{transform:translateY(-2px);box-shadow:0 9px 0 #e5eef9,0 16px 22px #102d6515}
+
+/* الهوية التحريرية الراقية — نسخة ٣ */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap');
+:root{--navy:#102a4b;--deep:#0b2340;--teal:#087e87;--gold:#c99c48;--ink:#18314d;--muted:#64748b}
+body{font-family:'Tajawal',Tahoma,Arial,sans-serif!important;background:#f7f9fb!important;color:var(--ink)}
+button{font-family:inherit!important}
+.md26-home{max-width:1050px;padding:22px 22px 45px}
+.md26-hero{border:1px solid #e6e8e8;border-radius:24px;min-height:300px;background:radial-gradient(circle at 86% 12%,#e1f4f2 0,transparent 35%),linear-gradient(125deg,#fff 35%,#f2f7f8 100%);padding:42px 22px 37px;box-shadow:0 16px 42px #142e4b0c}
+.md26-hero:before{content:'';position:absolute;right:0;top:0;bottom:0;width:6px;background:linear-gradient(#0e8088,#d5ac5c)}
+.md26-hero:after{content:'';position:absolute;left:32px;bottom:25px;width:75px;height:75px;border:1px solid #d5ac5c44;border-radius:50%;pointer-events:none}
+.md26-symbol{font-size:0;line-height:1;height:38px;margin-bottom:5px}
+.md26-symbol:before{content:'✦  ◈  ✦';font-size:27px;letter-spacing:9px;color:#b9914c}
+.md26-brand{font-family:'Tajawal',Tahoma,sans-serif;font-size:clamp(60px,11vw,92px);font-weight:900;letter-spacing:-3px;line-height:1.2;text-shadow:none;color:#102d4c;margin:5px 0 12px}
+.md26-sub{background:none;border:1px solid #d3b06e;border-radius:100px;color:#8e6a31;font-size:clamp(15px,3vw,20px);padding:8px 24px;font-weight:800;letter-spacing:0}
+.md26-desc{font-size:clamp(15px,2.5vw,18px);line-height:1.9;font-weight:600;color:#496176;margin-top:16px}
+.md26-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;margin-top:22px}
+.md26-tile{grid-column:span 2;min-height:160px;border:1px solid #e3e8eb;border-radius:19px;padding:24px 20px;gap:16px;background:#fff;box-shadow:0 8px 24px #142e4b0a;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;position:relative;overflow:hidden}
+.md26-tile:after{content:'';position:absolute;bottom:0;right:20px;left:20px;height:3px;background:linear-gradient(90deg,transparent,#c9a15b,transparent);opacity:.7}
+.md26-tile:nth-child(4){grid-column:2/span 2}.md26-tile:nth-child(5){grid-column:4/span 2}
+.md26-tile .md26-emoji{flex:0 0 62px;width:62px;height:62px;border-radius:17px;background:#eaf5f4;color:#087e87;font-size:30px;box-shadow:inset 0 0 0 1px #d6e9e6}
+.md26-tile:nth-child(2) .md26-emoji{background:#f3effb;box-shadow:inset 0 0 0 1px #e7ddf5}
+.md26-tile:nth-child(3) .md26-emoji{background:#fff4df;box-shadow:inset 0 0 0 1px #f0e0c0}
+.md26-tile:nth-child(4) .md26-emoji{background:#edf1fb;box-shadow:inset 0 0 0 1px #dce5f3}
+.md26-tile:nth-child(5) .md26-emoji{background:#eaf5f4;box-shadow:inset 0 0 0 1px #d6e9e6}
+.md26-tile strong{font-size:20px;font-weight:800;line-height:1.5;color:#153554}.md26-tile small{font-size:14px;line-height:1.7;color:#63778a;font-weight:500;margin-top:4px}
+.md26-tile:hover{transform:translateY(-3px);border-color:#d4b36f;box-shadow:0 15px 30px #142e4b15}
+.md26-grades{border:1px solid #e4e8ec;box-shadow:0 8px 22px #142e4b09;border-radius:20px;padding:23px;margin-top:24px}
+.md26-grades h2{font-size:24px;font-weight:800;color:#153554}
+.md26-grade-grid button{border:1px solid #dfe8e9;background:#f7fafb;min-height:62px;font-size:16px;font-weight:800;border-radius:12px}
+.md26-extras button{border:1px solid #dce5e8;background:#fff;font-weight:700;border-radius:12px;padding:12px 23px}
+@media(max-width:700px){.md26-home{padding:12px 13px 35px}.md26-hero{min-height:0;padding:29px 16px 30px;border-radius:20px}.md26-symbol{height:31px}.md26-brand{font-size:64px;margin:0 0 10px}.md26-desc{font-size:15px}.md26-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:15px}.md26-tile,.md26-tile:nth-child(4),.md26-tile:nth-child(5){grid-column:auto;min-height:136px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px;padding:17px 14px;border-radius:16px}.md26-tile:nth-child(5){grid-column:1/-1;min-height:110px;flex-direction:row;align-items:center;justify-content:flex-start}.md26-tile .md26-emoji{flex:0 0 auto;width:47px;height:47px;border-radius:13px;font-size:24px}.md26-tile strong{font-size:16px}.md26-tile small{font-size:12px;margin-top:0}.md26-grades{padding:17px}.md26-grades h2{font-size:20px}.md26-grade-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.md26-grade-grid button{font-size:14px;min-height:52px}}
+@media(prefers-reduced-motion:reduce){.md26-tile{transition:none}}
